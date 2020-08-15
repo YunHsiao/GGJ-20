@@ -1,0 +1,64 @@
+CCEffect %{
+  techniques:
+  - passes:
+    - vert: unlit-vs:vert
+      frag: unlit-fs:frag
+      properties:
+        mainTexture: {}
+}%
+
+CCProgram unlit-vs %{
+  precision highp float;
+  #include <cc-global>
+  #include <cc-local-batch>
+  #include <input>
+
+  #if USE_INSTANCING
+    in vec4 a_tiling_offset;
+    in vec4 a_color_instanced;
+    out vec4 v_color;
+  #endif
+
+  in vec2 a_texCoord;
+  out vec2 v_texCoord;
+
+  out vec3 v_position;
+
+  vec4 vert () {
+    vec4 position;
+    CCVertInput(position);
+
+    mat4 matWorld;
+    CCGetWorldMatrix(matWorld);
+
+    v_texCoord = a_texCoord;
+
+    #if USE_INSTANCING
+      v_texCoord = v_texCoord * a_tiling_offset.xy + a_tiling_offset.zw;
+      v_color = vec4(1);
+    #endif
+
+    return cc_matProj * (cc_matView * matWorld) * position;
+  }
+}%
+
+CCProgram unlit-fs %{
+  precision highp float;
+  #include <output>
+
+  in vec2 v_texCoord;
+
+  #if USE_INSTANCING
+    in vec4 v_color;
+  #endif
+
+  uniform sampler2D mainTexture;
+
+  vec4 frag () {
+    #if USE_INSTANCING
+      return CCFragOutput(v_color * texture(mainTexture, v_texCoord));
+    #else
+      return CCFragOutput(vec4(0.3, 0.5, 0.7, 1.0));
+    #endif
+  }
+}%

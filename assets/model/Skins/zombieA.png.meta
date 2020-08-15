@@ -1,0 +1,40 @@
+{
+  "ver": "1.0.18",
+  "importer": "image",
+  "imported": true,
+  "uuid": "299baa99-c0b4-4f30-b9dd-619f07ac9568",
+  "files": [
+    ".png",
+    ".json"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "299baa99-c0b4-4f30-b9dd-619f07ac9568@6c48a",
+      "displayName": "zombieA",
+      "id": "6c48a",
+      "name": "texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "299baa99-c0b4-4f30-b9dd-619f07ac9568"
+      }
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "redirect": "299baa99-c0b4-4f30-b9dd-619f07ac9568@6c48a"
+  }
+}

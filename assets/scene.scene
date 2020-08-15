@@ -217,7 +217,7 @@
       "__id__": 1
     },
     "_children": [],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 9
@@ -345,7 +345,7 @@
     "_enabled": true,
     "count": 1000,
     "prefab": {
-      "__uuid__": "ab3727db-0d90-42c4-9886-8fac58fdb986"
+      "__uuid__": "8a924c66-5662-41b7-9744-e794f6b4bca3"
     },
     "_id": "f39rFXQbVICZWrWposh+GG"
   },

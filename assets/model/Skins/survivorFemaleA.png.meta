@@ -1,0 +1,40 @@
+{
+  "ver": "1.0.18",
+  "importer": "image",
+  "imported": true,
+  "uuid": "39530cb5-94e1-4c1a-8bfb-f04363793ab9",
+  "files": [
+    ".png",
+    ".json"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "39530cb5-94e1-4c1a-8bfb-f04363793ab9@6c48a",
+      "displayName": "survivorFemaleA",
+      "id": "6c48a",
+      "name": "texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "39530cb5-94e1-4c1a-8bfb-f04363793ab9"
+      }
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "redirect": "39530cb5-94e1-4c1a-8bfb-f04363793ab9@6c48a"
+  }
+}

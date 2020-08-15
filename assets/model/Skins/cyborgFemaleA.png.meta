@@ -1,0 +1,40 @@
+{
+  "ver": "1.0.18",
+  "importer": "image",
+  "imported": true,
+  "uuid": "8f929717-79b4-4387-bae9-aba9ef8477d1",
+  "files": [
+    ".png",
+    ".json"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "8f929717-79b4-4387-bae9-aba9ef8477d1@6c48a",
+      "displayName": "cyborgFemaleA",
+      "id": "6c48a",
+      "name": "texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "8f929717-79b4-4387-bae9-aba9ef8477d1"
+      }
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "redirect": "8f929717-79b4-4387-bae9-aba9ef8477d1@6c48a"
+  }
+}

@@ -9,7 +9,6 @@
   "_techIdx": 0,
   "_defines": [
     {
-      "USE_INSTANCING": true,
       "USE_ALBEDO_MAP": true
     }
   ],
@@ -26,8 +25,17 @@
   ],
   "_props": [
     {
+      "albedoScale": {
+        "__type__": "cc.Vec3",
+        "x": 0.64000004529953,
+        "y": 0.64000004529953,
+        "z": 0.64000004529953
+      },
+      "alphaThreshold": 0,
+      "roughness": 0.415087103843689,
+      "metallic": 0.400000005960464,
       "mainTexture": {
-        "__uuid__": "4196f13e-ae73-41cf-a3ef-b61f7414a2a4@6c48a"
+        "__uuid__": "82f2a34c-d948-4d1c-b165-87ba6461bb86@6c48a"
       }
     }
   ]

@@ -1,0 +1,40 @@
+{
+  "ver": "1.0.18",
+  "importer": "image",
+  "imported": true,
+  "uuid": "82f2a34c-d948-4d1c-b165-87ba6461bb86",
+  "files": [
+    ".png",
+    ".json"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "82f2a34c-d948-4d1c-b165-87ba6461bb86@6c48a",
+      "displayName": "skaterMaleA",
+      "id": "6c48a",
+      "name": "texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "82f2a34c-d948-4d1c-b165-87ba6461bb86"
+      }
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "redirect": "82f2a34c-d948-4d1c-b165-87ba6461bb86@6c48a"
+  }
+}

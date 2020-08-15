@@ -92,6 +92,7 @@ export class GameManager extends Component {
         let count = this.playerCtrl.playerData.production.count - 1;
         if (count >= 0) {
             this.playerCtrl.playerData.production.count = count;
+            this.playerCtrl.updateUITips();
         }
     }
 

@@ -168,4 +168,8 @@ export class PlayerController extends Component {
         this.updateUITips();
     }
 
+    public onAdButtonClicked(event: any, customData: string) {
+        const index = Number.parseInt(customData);
+        this._curSelectedAd = this._advertisements[index];
+    }
 }

@@ -16,7 +16,7 @@ enum CustomerStates {
     ROAMING,
     HOOKED,
     DEAL,
-    RIPPED_OFF,
+    BEWILDERED,
 }
 
 @ccclass('CustomerController')
@@ -94,6 +94,8 @@ export class CustomerController extends Component {
                     this.state = CustomerStates.ROAMING;
                     this.velocity.set(position).multiplyScalar(1 / len);
                     this.nextTurn = 2;
+                    this.moodBillBoard.enabled = true;
+                    setTimeout(() => this.moodBillBoard.enabled = false, this.nextTurn * 1000);
                 }
             }
 
@@ -126,8 +128,14 @@ export class CustomerController extends Component {
 
             break;
         case CustomerStates.DEAL:
+        case CustomerStates.BEWILDERED:
             break;
         }
+    }
+
+    bewildered () {
+        this.state = CustomerStates.BEWILDERED;
+        this.animComp.play('Root|Idle');
     }
 
     addAttraction(value: number) {
@@ -149,6 +157,7 @@ export class CustomerController extends Component {
             }
             break;
         case CustomerStates.DEAL:
+        case CustomerStates.BEWILDERED:
             break;
         }
     }

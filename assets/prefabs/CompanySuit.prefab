@@ -18,19 +18,22 @@
     "_children": [
       {
         "__id__": 2
+      },
+      {
+        "__id__": 126
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 126
+        "__id__": 130
       },
       {
-        "__id__": 127
+        "__id__": 131
       }
     ],
     "_prefab": {
-      "__id__": 128
+      "__id__": 132
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -3757,6 +3760,106 @@
     }
   },
   {
+    "__type__": "cc.Node",
+    "_name": "Shadow",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 1
+    },
+    "_children": [],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 127
+      }
+    ],
+    "_prefab": {
+      "__id__": 129
+    },
+    "_lpos": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_lrot": {
+      "__type__": "cc.Quat",
+      "x": -0.7071067811865475,
+      "y": 0,
+      "z": 0,
+      "w": 0.7071067811865476
+    },
+    "_lscale": {
+      "__type__": "cc.Vec3",
+      "x": 2,
+      "y": 2,
+      "z": 1
+    },
+    "_layer": 1073741824,
+    "_euler": {
+      "__type__": "cc.Vec3",
+      "x": -90,
+      "y": 0,
+      "z": 0
+    },
+    "_id": ""
+  },
+  {
+    "__type__": "cc.ModelComponent",
+    "_name": "Quad<ModelComponent>",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 126
+    },
+    "_enabled": true,
+    "_materials": [
+      {
+        "__uuid__": "d8e0a809-64c6-46ae-842a-4cb1820ff0ae"
+      }
+    ],
+    "_visFlags": 0,
+    "lightmapSettings": {
+      "__id__": 128
+    },
+    "_mesh": {
+      "__uuid__": "1263d74c-8167-4928-91a6-4e2672411f47@fc873"
+    },
+    "_shadowCastingMode": 0,
+    "_enableMorph": true,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.ModelLightmapSettings",
+    "texture": null,
+    "uvParam": {
+      "__type__": "cc.Vec4",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 0
+    },
+    "_bakeable": false,
+    "_castShadow": false,
+    "_receiveShadow": false,
+    "_recieveShadow": false,
+    "_lightmapSize": 64
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__id__": 0
+    },
+    "fileId": "6cqCXOzzFBFIMzVkcNpCFL",
+    "sync": false,
+    "_synced": {
+      "default": false,
+      "serializable": false
+    }
+  },
+  {
     "__type__": "cc.SkeletalAnimationComponent",
     "_name": "",
     "_objFlags": 0,
@@ -3771,6 +3874,18 @@
       },
       {
         "__uuid__": "47e268d9-32c0-4f1a-9006-55ff4008cdb7@47256"
+      },
+      {
+        "__uuid__": "ba48ada8-3662-4c16-a423-22796f7c0de0@e74cd"
+      },
+      {
+        "__uuid__": "4c5ffa6f-dfe6-4b82-9351-9a8c57e51321@9b538"
+      },
+      {
+        "__uuid__": "7ea2109e-4a08-4576-99bd-7cec986da840@2b0ae"
+      },
+      {
+        "__uuid__": "a710a98f-f881-4b9f-82dc-fec1ca42046c@1e0f1"
       }
     ],
     "_defaultClip": {

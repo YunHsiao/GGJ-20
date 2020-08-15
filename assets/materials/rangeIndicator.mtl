@@ -4,12 +4,12 @@
   "_objFlags": 0,
   "_native": "",
   "_effectAsset": {
-    "__uuid__": "f2eb4838-b4c7-4b05-b79c-ba1638029496"
+    "__uuid__": "a3cd009f-0ab0-420d-9278-b9fdab939bbc"
   },
-  "_techIdx": 0,
+  "_techIdx": 1,
   "_defines": [
     {
-      "USE_INSTANCING": true
+      "USE_TEXTURE": true
     }
   ],
   "_states": [
@@ -26,7 +26,7 @@
   "_props": [
     {
       "mainTexture": {
-        "__uuid__": "d6a3f35a-43d5-4006-a201-646bb2f0ab45@6c48a"
+        "__uuid__": "45145786-ef91-4fa4-8d80-95b334f6006a@6c48a"
       }
     }
   ]

@@ -35,7 +35,7 @@ CCProgram unlit-vs %{
 
     #if USE_INSTANCING
       v_texCoord = v_texCoord * a_tiling_offset.xy + a_tiling_offset.zw;
-      v_color = vec4(1);
+      v_color = a_color_instanced;
     #endif
 
     return cc_matProj * (cc_matView * matWorld) * position;

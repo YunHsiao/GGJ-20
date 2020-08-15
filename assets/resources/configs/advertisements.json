@@ -1,0 +1,12 @@
+[
+    {
+        "price": 10,
+        "range": 10,
+        "attraction": 10
+    },
+    {
+        "price": 10,
+        "range": 100,
+        "attraction": 10
+    }
+]

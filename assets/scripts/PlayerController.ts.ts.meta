@@ -2,7 +2,7 @@
   "ver": "2.0.14",
   "importer": "typescript",
   "imported": true,
-  "uuid": "2941479c-f30e-4e21-9a66-9830316c1234",
+  "uuid": "b12e2b49-4215-41be-9165-4d7a8866cdae",
   "files": [
     ".js",
     ".trans"
@@ -10,6 +10,6 @@
   "subMetas": {},
   "userData": {
     "importAsPlugin": false,
-    "moduleId": "project:///assets/crowd.js"
+    "moduleId": "project:///assets/scripts/PlayerController.ts.js"
   }
 }

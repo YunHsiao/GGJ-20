@@ -126,6 +126,9 @@ export class PlayerController extends Component {
             this._rangeIndicator.setWorldPosition(hitPos);
             if (this._curSelectedAd.advertisementData.price < this.playerData.money) {
                 this.playerData.money -= this._curSelectedAd.advertisementData.price;
+                this.updateUITips();
+                this._curSelectedAd.node.setWorldPosition(hitPos);
+                this._curSelectedAd.show();
                 this.onDropAd(hitPos, this._curSelectedAd);
             }
         })

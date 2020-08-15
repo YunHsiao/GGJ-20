@@ -165,7 +165,7 @@
     "_enabled": true,
     "_projection": 0,
     "_priority": 0,
-    "_fov": 23.84267631103074,
+    "_fov": 45,
     "_fovAxis": 1,
     "_orthoHeight": 75,
     "_near": 1,

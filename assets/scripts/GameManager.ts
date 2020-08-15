@@ -3,6 +3,7 @@ import { CustomerController } from './CustomerController';
 import { PlayerController } from './PlayerController';
 import { AdvertisementController } from './AdvertisementController';
 import { gameDefines } from './GameDefines';
+import { CompanySuit } from './CompanySuit';
 const { ccclass, property } = _decorator;
 
 const tempVec3 = new Vec3();
@@ -13,6 +14,8 @@ export class GameManager extends Component {
     public playerCtrl: PlayerController = null;
     @property({type: Prefab})
     public customerPrfb: Prefab = null;
+    @property({type: Prefab})
+    public companySuit: Prefab = null;
     @property
     customerCount = 10;
 
@@ -20,14 +23,17 @@ export class GameManager extends Component {
     private _groundNode: Node;
     private _falloffInterval: number = 1;
     private _curFalloffTime: number = 0;
+    private _companySuitInst: CompanySuit = null;
 
     start () {
         this._groundNode = this.node.scene.getChildByName('Ground');
         this.playerCtrl.onDropAd = this.onDropAd.bind(this);
         this.playerCtrl.onAddPrice = this.onAddPrice.bind(this);
         this.playerCtrl.onSubPrice = this.onSubPrice.bind(this);
-        // Your initialization goes here.
         this.initCustomers();
+        const companySuitNode = instantiate(this.companySuit);
+        companySuitNode.parent = this.node;
+        this._companySuitInst = companySuitNode.getComponent(CompanySuit);
     }
 
     initCustomers() {
@@ -43,6 +49,8 @@ export class GameManager extends Component {
     }
 
     onDropAd(hitPos: Vec3, ad: AdvertisementController) {
+        this._companySuitInst.handWaving();
+
         const affectCustomers: CustomerController[] = [];
         this._customers.forEach((customer) => {
             Vec3.subtract(tempVec3, hitPos, customer.node.getWorldPosition());

@@ -1,4 +1,5 @@
-import { _decorator, Component, Node, geometry, CameraComponent, systemEvent, SystemEvent, EventMouse, ModelComponent, Vec3, PhysicsSystem, sys, Prefab, instantiate, director, loader, JsonAsset, LabelComponent } from 'cc';
+import { _decorator, Component, Node, geometry, CameraComponent, systemEvent, SystemEvent, ModelComponent, Vec3, PhysicsSystem,
+    Prefab, instantiate, director, loader, JsonAsset, LabelComponent, EventTouch } from 'cc';
 import { Player } from './Player';
 import { AdvertisementController } from './AdvertisementController';
 import { Advertisement } from './Advertisement';
@@ -27,7 +28,7 @@ export class PlayerController extends Component {
     private _cameraComp: CameraComponent;
     private _groundNode: Node;
     private _groundModelComp: ModelComponent;
-    private _isMouseDown: boolean;
+    private _isTouchStarted: boolean;
     private _rangeIndicator: Node;
     private _advertisements: AdvertisementController[] = [];
     private _curSelectedAd: AdvertisementController;
@@ -50,9 +51,9 @@ export class PlayerController extends Component {
         this._rangeIndicator.parent = director.getScene();
         this._rangeIndicator.active = false;
 
-        systemEvent.on(SystemEvent.EventType.MOUSE_DOWN, this.onMouseDown.bind(this));
-        systemEvent.on(SystemEvent.EventType.MOUSE_MOVE, this.onMouseMove.bind(this));
-        systemEvent.on(SystemEvent.EventType.MOUSE_UP, this.onMouseUp.bind(this));
+        systemEvent.on(SystemEvent.EventType.TOUCH_START, this.onTouchStart.bind(this));
+        systemEvent.on(SystemEvent.EventType.TOUCH_MOVE, this.onTouchMove.bind(this));
+        systemEvent.on(SystemEvent.EventType.TOUCH_END, this.onTouchEnd.bind(this));
 
         this.updateUITips();
     }
@@ -84,9 +85,9 @@ export class PlayerController extends Component {
         // Your update function goes here.
     }
 
-    raycastHitGround(mouseEvent: EventMouse, callBack: Function) {
-        const mousePos = mouseEvent.getLocation();
-        this._cameraComp.screenPointToRay(mousePos.x, mousePos.y, outRay);
+    raycastHitGround(touchEvent: EventTouch, callBack: Function) {
+        const pos = touchEvent.getLocation();
+        this._cameraComp.screenPointToRay(pos.x, pos.y, outRay);
         const r = PhysicsSystem.instance.raycastResults;
         if (PhysicsSystem.instance.raycast(outRay)) {
             for (let i = 0; i < r.length; i++) {
@@ -100,38 +101,34 @@ export class PlayerController extends Component {
         }
     }
 
-    onMouseDown(event: EventMouse) {
-        if (event.getButton() === 0) {
-            this._isMouseDown = true;
-            this._rangeIndicator.active = true;
-            const adRange = this._curSelectedAd.advertisementData.range;
-            this._rangeIndicator.setScale(new Vec3(adRange * 2, 1, adRange * 2));
-            this.raycastHitGround(event, (hitPos: Vec3) => {
-                this._rangeIndicator.setWorldPosition(hitPos);
-            });
-        }
+    onTouchStart(event: EventTouch) {
+        this._isTouchStarted = true;
+        this._rangeIndicator.active = true;
+        const adRange = this._curSelectedAd.advertisementData.range;
+        this._rangeIndicator.setScale(new Vec3(adRange * 2, 1, adRange * 2));
+        this.raycastHitGround(event, (hitPos: Vec3) => {
+            this._rangeIndicator.setWorldPosition(hitPos);
+        });
     }
 
-    onMouseMove(event: EventMouse) {
-        if (this._isMouseDown) {
+    onTouchMove(event: EventTouch) {
+        if (this._isTouchStarted) {
             this.raycastHitGround(event, (hitPos: Vec3) => {
                 this._rangeIndicator.setWorldPosition(hitPos);
             })
         }
     }
 
-    onMouseUp(event: EventMouse) {
-        if (event.getButton() === 0) {
-            this._isMouseDown = false;
-            this._rangeIndicator.active = false;
-            this.raycastHitGround(event, (hitPos: Vec3) => {
-                this._rangeIndicator.setWorldPosition(hitPos);
-                if (this._curSelectedAd.advertisementData.price < this.playerData.money) {
-                    this.playerData.money -= this._curSelectedAd.advertisementData.price;
-                    this.onDropAd(hitPos, this._curSelectedAd);
-                }
-            })
-        }
+    onTouchEnd(event: EventTouch) {
+        this._isTouchStarted = false;
+        this._rangeIndicator.active = false;
+        this.raycastHitGround(event, (hitPos: Vec3) => {
+            this._rangeIndicator.setWorldPosition(hitPos);
+            if (this._curSelectedAd.advertisementData.price < this.playerData.money) {
+                this.playerData.money -= this._curSelectedAd.advertisementData.price;
+                this.onDropAd(hitPos, this._curSelectedAd);
+            }
+        })
     }
 
     updateUITips () {

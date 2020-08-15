@@ -36,10 +36,11 @@ export class FirstPersonCamera extends Component {
     public damp = 0.2;
 
     public _position = new Vec3();
-    public _startTouchPoint = new Vec2();
     public _totalPanOffset = new Vec3();
     public _currentPanOffset = new Vec3();
     public _startPosition = null;
+
+    _isZooming = false;
 
     _camera: CameraComponent;
 
@@ -90,17 +91,32 @@ export class FirstPersonCamera extends Component {
 
     public onTouchStart (e) {
         // if (game.canvas.requestPointerLock) { game.canvas.requestPointerLock(); }
-        e.getLocation(this._startTouchPoint);
+        e.getLocation(v2_1);
         this._currentPanOffset.set(0, 0, 0);
+        this._isZooming = v2_1.x < game.canvas.width * 0.2;
     }
 
     public onTouchMove (e) {
-        e.getStartLocation(v2_1);
         e.getLocation(v2_2);
-        Vec2.subtract(v2_2, v2_2, this._startTouchPoint);
-        const ortheHeightScale = this._camera.orthoHeight / this.maxOrtheHeight;
-        this._currentPanOffset.x = -v2_2.x * this.moveSpeed * ortheHeightScale;
-        this._currentPanOffset.y = -v2_2.y * this.moveSpeed * ortheHeightScale;
+        if (this._isZooming) {
+            e.getPreviousLocation(v2_1);
+            Vec2.subtract(v2_2, v2_2, v2_1);
+            const delta = -v2_2.y * this.scrollSpeed * 0.5;
+            if (this._camera.projection === renderer.CameraProjection.PERSPECTIVE) {
+                Vec3.transformQuat(v3_1, Vec3.UNIT_Z, this.node.rotation);
+                Vec3.scaleAndAdd(this._position, this.node.position, v3_1, delta);
+            } else {
+                this._camera.orthoHeight += delta * 0.1;
+                this._camera.orthoHeight = math.clamp(this._camera.orthoHeight, this.minOrtheHeight, this.maxOrtheHeight);
+            }
+        } else {
+            e.getStartLocation(v2_1);
+            e.getLocation(v2_2);
+            Vec2.subtract(v2_2, v2_2, v2_1);
+            const ortheHeightScale = this._camera.orthoHeight / this.maxOrtheHeight;
+            this._currentPanOffset.x = -v2_2.x * this.moveSpeed * ortheHeightScale;
+            this._currentPanOffset.y = -v2_2.y * this.moveSpeed * ortheHeightScale;
+        }
     }
 
     public onTouchEnd (e) {

@@ -1,0 +1,40 @@
+{
+  "ver": "1.0.18",
+  "importer": "image",
+  "imported": true,
+  "uuid": "77f025af-5887-4015-a02a-6d1c75d3c947",
+  "files": [
+    ".png",
+    ".json"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "77f025af-5887-4015-a02a-6d1c75d3c947@6c48a",
+      "displayName": "Circle89",
+      "id": "6c48a",
+      "name": "texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "77f025af-5887-4015-a02a-6d1c75d3c947"
+      }
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "redirect": "77f025af-5887-4015-a02a-6d1c75d3c947@6c48a"
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "animation",
+  "_objFlags": 0,
+  "_native": "",
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 1,
+  "events": [],
+  "_duration": 1.8166666666666667,
+  "_keys": [
+    [
+      1.8166666666666667
+    ],
+    [
+      1.8166666666666667
+    ],
+    [
+      0,
+      0.3333333333333333,
+      1.65,
+      1.8166666666666667
+    ]
+  ],
+  "_stepness": 0,
+  "_curves": [
+    {
+      "modifiers": [
+        "x"
+      ],
+      "data": {
+        "keys": 0,
+        "values": [
+          0
+        ],
+        "easingMethods": {}
+      },
+      "commonTarget": 0
+    },
+    {
+      "modifiers": [
+        "y"
+      ],
+      "data": {
+        "keys": 1,
+        "values": [
+          0
+        ],
+        "easingMethods": {}
+      },
+      "commonTarget": 0
+    },
+    {
+      "modifiers": [
+        "z"
+      ],
+      "data": {
+        "keys": 2,
+        "values": [
+          -10,
+          0,
+          0,
+          30
+        ],
+        "easingMethods": {}
+      },
+      "commonTarget": 0
+    }
+  ],
+  "_commonTargets": [
+    {
+      "modifiers": [
+        "position"
+      ]
+    }
+  ],
+  "_hash": 3082647042
+}

@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, ParticleSystemComponent } from 'cc';
+import { _decorator, Component, Node, ParticleSystemComponent, AnimationComponent } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('AdvParticle')
@@ -6,6 +6,9 @@ export class AdvParticle extends Component {
 
     @property({type: [ParticleSystemComponent]})
     public particles: ParticleSystemComponent[] = []
+
+    @property({type: AnimationComponent})
+    public animation: AnimationComponent = null;
     /* class member could be defined like this */
     // dummy = '';
 
@@ -26,5 +29,6 @@ export class AdvParticle extends Component {
 
     play () {
         this.particles.forEach(x => x.play());
+        this.animation.play();
     }
 }

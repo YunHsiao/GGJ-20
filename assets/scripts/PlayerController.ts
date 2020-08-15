@@ -100,6 +100,7 @@ export class PlayerController extends Component {
                     if (callBack) {
                         callBack(item.hitPoint);
                     }
+                    return;
                 }
             }
         }

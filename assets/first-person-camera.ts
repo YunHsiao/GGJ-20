@@ -35,6 +35,8 @@ export class FirstPersonCamera extends Component {
     @property({ slide: true, range: [0.05, 0.5, 0.01] })
     public damp = 0.2;
 
+    public enableMoving = true;
+
     public _position = new Vec3();
     public _totalPanOffset = new Vec3();
     public _currentPanOffset = new Vec3();
@@ -79,6 +81,7 @@ export class FirstPersonCamera extends Component {
     }
 
     public onMouseWheel (e) {
+        if (!this.enableMoving) return;
         const delta = -e.getScrollY() * this.scrollSpeed * 0.1; // delta is positive when scroll down
         if (this._camera.projection === renderer.CameraProjection.PERSPECTIVE) {
             Vec3.transformQuat(v3_1, Vec3.UNIT_Z, this.node.rotation);
@@ -90,6 +93,7 @@ export class FirstPersonCamera extends Component {
     }
 
     public onTouchStart (e) {
+        if (!this.enableMoving) return;
         // if (game.canvas.requestPointerLock) { game.canvas.requestPointerLock(); }
         e.getLocation(v2_1);
         this._currentPanOffset.set(0, 0, 0);
@@ -97,6 +101,7 @@ export class FirstPersonCamera extends Component {
     }
 
     public onTouchMove (e) {
+        if (!this.enableMoving) return;
         e.getLocation(v2_2);
         if (this._isZooming) {
             e.getPreviousLocation(v2_1);
@@ -120,6 +125,7 @@ export class FirstPersonCamera extends Component {
     }
 
     public onTouchEnd (e) {
+        if (!this.enableMoving) return;
         // if (document.exitPointerLock) { document.exitPointerLock(); }
         this._totalPanOffset.add(this._currentPanOffset);
         this._currentPanOffset.set(0, 0, 0);

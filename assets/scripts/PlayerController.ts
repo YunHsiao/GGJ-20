@@ -3,6 +3,7 @@ import { _decorator, Component, Node, geometry, CameraComponent, systemEvent, Sy
 import { Player } from './Player';
 import { AdvertisementController } from './AdvertisementController';
 import { Advertisement } from './Advertisement';
+import { FirstPersonCamera } from '../first-person-camera';
 const { ccclass, property } = _decorator;
 const { ray } = geometry;
 const outRay = new ray();
@@ -32,6 +33,7 @@ export class PlayerController extends Component {
     private _rangeIndicator: Node;
     private _advertisements: AdvertisementController[] = [];
     private _curSelectedAd: AdvertisementController;
+    private _cameraBehavior: FirstPersonCamera = null;
 
     // event
     public onDropAd: Function;
@@ -47,12 +49,14 @@ export class PlayerController extends Component {
         this._groundNode = this.node.scene.getChildByName('Ground');
         this._groundModelComp = this._groundNode.getComponent(ModelComponent);
         this._rangeIndicator = instantiate(this.rangeIndicatorPrfb);
+        this._cameraBehavior = this._cameraNode.getComponent(FirstPersonCamera);
         // @ts-ignore
         this._rangeIndicator.parent = director.getScene();
         this._rangeIndicator.active = false;
 
         systemEvent.on(SystemEvent.EventType.TOUCH_START, this.onTouchStart.bind(this));
         systemEvent.on(SystemEvent.EventType.TOUCH_MOVE, this.onTouchMove.bind(this));
+        systemEvent.on(SystemEvent.EventType.MOUSE_MOVE, this.onTouchMove.bind(this));
         systemEvent.on(SystemEvent.EventType.TOUCH_END, this.onTouchEnd.bind(this));
 
         this.updateUITips();
@@ -76,7 +80,7 @@ export class PlayerController extends Component {
                     this._advertisements.push(adCtrl);
                 });
 
-                this._curSelectedAd = this._advertisements[0];
+                // this._curSelectedAd = this._advertisements[0];
             }
         });
     }
@@ -102,17 +106,18 @@ export class PlayerController extends Component {
     }
 
     onTouchStart(event: EventTouch) {
-        this._isTouchStarted = true;
-        this._rangeIndicator.active = true;
-        const adRange = this._curSelectedAd.advertisementData.range;
-        this._rangeIndicator.setScale(new Vec3(adRange * 2, 1, adRange * 2));
-        this.raycastHitGround(event, (hitPos: Vec3) => {
-            this._rangeIndicator.setWorldPosition(hitPos);
-        });
+        // this._isTouchStarted = true;
+        // this._rangeIndicator.active = true;
+        // const adRange = this._curSelectedAd.advertisementData.range;
+        // this._rangeIndicator.setScale(new Vec3(adRange * 2, 1, adRange * 2));
+        // this.raycastHitGround(event, (hitPos: Vec3) => {
+        //     this._rangeIndicator.setWorldPosition(hitPos);
+        // });
     }
 
     onTouchMove(event: EventTouch) {
-        if (this._isTouchStarted) {
+        if (this._curSelectedAd) {
+            this._rangeIndicator.active = true;
             this.raycastHitGround(event, (hitPos: Vec3) => {
                 this._rangeIndicator.setWorldPosition(hitPos);
             })
@@ -120,8 +125,9 @@ export class PlayerController extends Component {
     }
 
     onTouchEnd(event: EventTouch) {
-        this._isTouchStarted = false;
-        this._rangeIndicator.active = false;
+        // this._isTouchStarted = false;
+        // this._rangeIndicator.active = false;
+        if (!this._curSelectedAd) return;
         this.raycastHitGround(event, (hitPos: Vec3) => {
             this._rangeIndicator.setWorldPosition(hitPos);
             if (this._curSelectedAd.advertisementData.price < this.playerData.money) {
@@ -170,6 +176,16 @@ export class PlayerController extends Component {
 
     public onAdButtonClicked(event: any, customData: string) {
         const index = Number.parseInt(customData);
-        this._curSelectedAd = this._advertisements[index];
+        if (this._curSelectedAd === this._advertisements[index]) {
+            this._curSelectedAd = null;
+            this._cameraBehavior.enableMoving = true;
+            this._rangeIndicator.active = false;
+        }
+        else {
+            this._curSelectedAd = this._advertisements[index];
+            this._cameraBehavior.enableMoving = false;
+            const adRange = this._curSelectedAd.advertisementData.range;
+            this._rangeIndicator.setScale(new Vec3(adRange * 2, 1, adRange * 2));
+        }
     }
 }

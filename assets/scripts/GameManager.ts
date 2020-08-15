@@ -1,7 +1,7 @@
-import { _decorator, Component, Node, Prefab, instantiate, Vec3, randomRange, Game } from 'cc';
-import { CustomerController } from './CustomerController';
+import { _decorator, Component, Node, Prefab, instantiate, Vec3, randomRange } from 'cc';
 import { PlayerController } from './PlayerController';
 import { AdvertisementController } from './AdvertisementController';
+import { CustomerController } from './CustomerController';
 import { gameDefines } from './GameDefines';
 import { CompanySuit } from './CompanySuit';
 const { ccclass, property } = _decorator;
@@ -51,7 +51,7 @@ export class GameManager extends Component {
             const inst = instantiate(this.customerPrfb) as Node;
             inst.setPosition(randomRange(-radius, radius), 0, randomRange(-radius, radius));
             inst.parent = this.node;
-            const customerCtrl = inst.getComponent(CustomerController);
+            const customerCtrl = inst.getComponent('CustomerController') as CustomerController;
             customerCtrl.onBuyProduction = this.onCustomBuyProduction.bind(this);
             this._customers.push(customerCtrl);
         }
@@ -98,7 +98,7 @@ export class GameManager extends Component {
 
     update (deltaTime: number) {
         // Your update function goes here.
-        this.falloffAllCustomers(-gameDefines.fallofSpeed * deltaTime);      
+        this.falloffAllCustomers(-gameDefines.fallofSpeed * deltaTime);
     }
 
     onCustomBuyProduction(customer: CustomerController) {
@@ -118,7 +118,7 @@ export class GameManager extends Component {
     onSubPrice () {
         // MAX attraction add is 50
         let attraction = 0;
-        if (this.playerCtrl.playerData.production.price > (this.playerCtrl.playerData.production.cost / 2) && 
+        if (this.playerCtrl.playerData.production.price > (this.playerCtrl.playerData.production.cost / 2) &&
             this.playerCtrl.playerData.production.price < this.playerCtrl.playerData.production.priceLow) {
                 attraction = 40 / this.playerCtrl.playerData.production.priceStateNum;
                 this.playerCtrl.playerData.production.priceLow = this.playerCtrl.playerData.production.price;

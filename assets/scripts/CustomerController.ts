@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Vec3, ModelComponent, SkinningModelComponent, Quat, SkeletalAnimationComponent, random, randomRangeInt, randomRange, Vec4, Color } from 'cc';
+import { _decorator, Component, Vec3, ModelComponent, SkinningModelComponent, Quat, SkeletalAnimationComponent, random, randomRangeInt, randomRange } from 'cc';
 import { Customer } from './Customer';
 import { GameManager } from './GameManager';
 const { ccclass, property } = _decorator;

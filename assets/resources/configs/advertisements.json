@@ -8,5 +8,10 @@
         "price": 10,
         "range": 20,
         "attraction": 10
+    },
+    {
+        "price": 100,
+        "range": 50,
+        "attraction": 50
     }
 ]

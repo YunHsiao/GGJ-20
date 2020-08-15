@@ -64,7 +64,7 @@ export class PlayerController extends Component {
                     this._advertisements.push(adCtrl);
                 });
 
-                this._curSelectedAd = this._advertisements[1];
+                this._curSelectedAd = this._advertisements[0];
             }
         });
     }
@@ -91,14 +91,15 @@ export class PlayerController extends Component {
     }
 
     onMouseDown(event: EventMouse) {
-        this._isMouseDown = true;
-        this._rangeIndicator.active = true;
-        const adRange = this._curSelectedAd.advertisementData.range;
-        this._rangeIndicator.setScale(new Vec3(adRange * 2, 1, adRange * 2));
-        this.raycastHitGround(event, (hitPos: Vec3) => {
-            this._rangeIndicator.setWorldPosition(hitPos);
-        })
-
+        if (event.getButton() === 0) {
+            this._isMouseDown = true;
+            this._rangeIndicator.active = true;
+            const adRange = this._curSelectedAd.advertisementData.range;
+            this._rangeIndicator.setScale(new Vec3(adRange * 2, 1, adRange * 2));
+            this.raycastHitGround(event, (hitPos: Vec3) => {
+                this._rangeIndicator.setWorldPosition(hitPos);
+            })
+        }
     }
 
     onMouseMove(event: EventMouse) {
@@ -107,15 +108,19 @@ export class PlayerController extends Component {
                 this._rangeIndicator.setWorldPosition(hitPos);
             })
         }
-
     }
 
     onMouseUp(event: EventMouse) {
-        this._isMouseDown = false;
-        this._rangeIndicator.active = false;
-        this.raycastHitGround(event, (hitPos: Vec3) => {
-            this._rangeIndicator.setWorldPosition(hitPos);
-            this.onDropAd(hitPos, this._curSelectedAd);
-        })
+        if (event.getButton() === 0) {
+            this._isMouseDown = false;
+            this._rangeIndicator.active = false;
+            this.raycastHitGround(event, (hitPos: Vec3) => {
+                this._rangeIndicator.setWorldPosition(hitPos);
+                if (this._curSelectedAd.advertisementData.price < this.playerData.money) {
+                    this.playerData.money -= this._curSelectedAd.advertisementData.price;
+                    this.onDropAd(hitPos, this._curSelectedAd);
+                }
+            })
+        }
     }
 }

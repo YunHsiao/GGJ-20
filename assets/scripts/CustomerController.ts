@@ -15,6 +15,7 @@ const shineColorArray = [1, 1, 1, 1];
 @ccclass('CustomerController')
 export class CustomerController extends Component {
     public customerData: Customer;
+    public onBuyProduction: Function;
 
     animComp: SkeletalAnimationComponent = null;
     model: ModelComponent = null;
@@ -84,5 +85,11 @@ export class CustomerController extends Component {
 
     addAttraction(value: number) {
         this.customerData.attraction += value;
+    }
+
+    buyProduction() {
+        if (this.onBuyProduction) {
+            this.onBuyProduction(this);
+        }
     }
 }

@@ -34,18 +34,41 @@ export class GameManager extends Component {
             const inst = instantiate(this.customerPrfb) as Node;
             inst.setPosition(randomRange(-radius, radius), 0, randomRange(-radius, radius));
             inst.parent = this.node;
-            this._customers.push(inst.getComponent(CustomerController));
+            const customerCtrl = inst.getComponent(CustomerController);
+            customerCtrl.onBuyProduction = this.onCustomBuyProduction.bind(this);
+            this._customers.push(customerCtrl);
         }
     }
 
     onDropAd(hitPos: Vec3, ad: AdvertisementController) {
+        const affectCustomers: CustomerController[] = [];
         this._customers.forEach((customer) => {
             Vec3.subtract(tempVec3, hitPos, customer.node.getWorldPosition());
             const dist = tempVec3.length();
             if (dist <= ad.advertisementData.range) {
-                customer.addAttraction(ad.advertisementData.attraction);
+                affectCustomers.push(customer);
             }
         });
+
+        let expectAttraction = ad.advertisementData.attraction;
+        if (affectCustomers.length >= 2) {
+            let i = 0;
+            for (i = affectCustomers.length - 1; i>= 1; i-=2) {
+                let c_1 = affectCustomers[i];
+                let c_2 = affectCustomers[i-1];
+
+                let attraction_1 = randomRange(-expectAttraction, expectAttraction);
+                let attraction_2 = 2 * expectAttraction - attraction_1;
+                c_1.addAttraction(attraction_1);
+                c_2.addAttraction(attraction_2);
+            }
+
+            if (i === 0) {
+                affectCustomers[0].addAttraction(expectAttraction);
+            }
+        } else if (affectCustomers.length === 1) {
+            affectCustomers[0].addAttraction(expectAttraction);
+        }
     }
 
     falloffAllCustomers(attraction: number) {
@@ -60,6 +83,13 @@ export class GameManager extends Component {
         if (this._curFalloffTime > this._falloffInterval) {
             this.falloffAllCustomers(-gameDefines.fallofSpeed);
             this._curFalloffTime = 0;
+        }
+    }
+
+    onCustomBuyProduction(customer: CustomerController) {
+        let count = this.playerCtrl.playerData.production.count - 1;
+        if (count >= 0) {
+            this.playerCtrl.playerData.production.count = count;
         }
     }
 }

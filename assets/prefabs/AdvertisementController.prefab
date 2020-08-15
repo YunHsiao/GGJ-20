@@ -23,11 +23,11 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 232
+        "__id__": 233
       }
     ],
     "_prefab": {
-      "__id__": 233
+      "__id__": 234
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -79,10 +79,13 @@
     "_components": [
       {
         "__id__": 174
+      },
+      {
+        "__id__": 231
       }
     ],
     "_prefab": {
-      "__id__": 231
+      "__id__": 232
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -106,7 +109,7 @@
     "_layer": 1073741824,
     "_euler": {
       "__type__": "cc.Vec3",
-      "x": 89.99999999999999,
+      "x": 90,
       "y": 0,
       "z": 0
     },
@@ -174,7 +177,7 @@
     "startColor": {
       "__id__": 5
     },
-    "scaleSpace": 1,
+    "scaleSpace": 0,
     "startSize3D": false,
     "startSizeX": {
       "__id__": 6
@@ -261,7 +264,7 @@
     "enableCulling": false,
     "_prewarm": false,
     "_capacity": 20,
-    "_simulationSpace": 1,
+    "_simulationSpace": 0,
     "_id": ""
   },
   {
@@ -339,7 +342,7 @@
   {
     "__type__": "cc.CurveRange",
     "mode": 0,
-    "constant": 10,
+    "constant": 0,
     "multiplier": 1
   },
   {
@@ -837,7 +840,7 @@
     "startColor": {
       "__id__": 59
     },
-    "scaleSpace": 1,
+    "scaleSpace": 0,
     "startSize3D": false,
     "startSizeX": {
       "__id__": 60
@@ -924,7 +927,7 @@
     "enableCulling": false,
     "_prewarm": false,
     "_capacity": 10,
-    "_simulationSpace": 1,
+    "_simulationSpace": 0,
     "_id": ""
   },
   {
@@ -1002,7 +1005,7 @@
   {
     "__type__": "cc.CurveRange",
     "mode": 0,
-    "constant": 10,
+    "constant": 0,
     "multiplier": 1
   },
   {
@@ -1512,7 +1515,7 @@
     "startColor": {
       "__id__": 116
     },
-    "scaleSpace": 1,
+    "scaleSpace": 0,
     "startSize3D": false,
     "startSizeX": {
       "__id__": 117
@@ -1598,8 +1601,8 @@
     },
     "enableCulling": false,
     "_prewarm": false,
-    "_capacity": 3,
-    "_simulationSpace": 1,
+    "_capacity": 1,
+    "_simulationSpace": 0,
     "_id": ""
   },
   {
@@ -1616,7 +1619,7 @@
   {
     "__type__": "cc.CurveRange",
     "mode": 0,
-    "constant": 40,
+    "constant": 30,
     "multiplier": 1
   },
   {
@@ -1663,9 +1666,8 @@
   },
   {
     "__type__": "cc.CurveRange",
-    "mode": 3,
-    "constantMin": 1,
-    "constantMax": 1.5,
+    "mode": 0,
+    "constant": 2,
     "multiplier": 1
   },
   {
@@ -1677,7 +1679,7 @@
   {
     "__type__": "cc.CurveRange",
     "mode": 0,
-    "constant": 1.5,
+    "constant": 0,
     "multiplier": 1
   },
   {
@@ -1745,9 +1747,9 @@
       "r": 255,
       "g": 255,
       "b": 255,
-      "a": 255
+      "a": 1
     },
-    "time": 0
+    "time": 0.11160714285714286
   },
   {
     "__type__": "cc.ColorKey",
@@ -1756,9 +1758,9 @@
       "r": 255,
       "g": 255,
       "b": 255,
-      "a": 255
+      "a": 1
     },
-    "time": 1
+    "time": 0.8772321428571429
   },
   {
     "__type__": "cc.AlphaKey",
@@ -1828,7 +1830,7 @@
   },
   {
     "__type__": "cc.SizeOvertimeModule",
-    "_enable": true,
+    "_enable": false,
     "separateAxes": false,
     "size": {
       "__id__": 142
@@ -2172,7 +2174,7 @@
     "startColor": {
       "__id__": 175
     },
-    "scaleSpace": 1,
+    "scaleSpace": 0,
     "startSize3D": false,
     "startSizeX": {
       "__id__": 176
@@ -2339,7 +2341,7 @@
   {
     "__type__": "cc.CurveRange",
     "mode": 0,
-    "constant": 10,
+    "constant": 0,
     "multiplier": 1
   },
   {
@@ -2769,6 +2771,30 @@
     "_useGPU": false
   },
   {
+    "__type__": "80528rXOztM8a29CMv51lE6",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 2
+    },
+    "_enabled": true,
+    "particles": [
+      {
+        "__id__": 174
+      },
+      {
+        "__id__": 4
+      },
+      {
+        "__id__": 58
+      },
+      {
+        "__id__": 115
+      }
+    ],
+    "_id": ""
+  },
+  {
     "__type__": "cc.PrefabInfo",
     "root": {
       "__id__": 1
@@ -2792,7 +2818,7 @@
     },
     "_enabled": true,
     "adParticle": {
-      "__id__": 174
+      "__id__": 231
     },
     "_id": ""
   },

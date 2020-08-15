@@ -56,16 +56,15 @@ export class CustomerController extends Component {
         // periodic tick
         if (this.nextTurn < 0 && (this.state === CustomerStates.IDLE || this.state === CustomerStates.ROAMING)) {
             const idle = random() > this.customerData.attraction * 0.01;
-            this.state = idle ? CustomerStates.IDLE : CustomerStates.ROAMING;
 
-            switch (this.state) {
-            case CustomerStates.IDLE:
+            if (idle && this.state === CustomerStates.ROAMING) {
                 this.velocity.set(0, 0, 0);
                 this.animComp.play('Root|Idle');
-            case CustomerStates.ROAMING:
+                this.state = CustomerStates.IDLE;
+            } else if (!idle && this.state === CustomerStates.IDLE) {
                 this.velocity.set(random() - 0.5, 0, random() - 0.5).normalize();
                 this.animComp.play(this.customerData.attraction > 20 ? 'Root|Run' : 'Root|Walk');
-                break;
+                this.state = CustomerStates.ROAMING;
             }
 
             this.rotationLerpCountDown = 2.1;
@@ -132,8 +131,8 @@ export class CustomerController extends Component {
         case CustomerStates.HOOKED:
             if (newValue <= 50) {
                 this.state = CustomerStates.IDLE; // what am I doing here?!
-                this.nextTurn = -1;
                 this.model.setInstancedAttribute('a_color_instanced', colorArray);
+                this.animComp.play('Root|Idle');
             }
             break;
         case CustomerStates.DEAL:

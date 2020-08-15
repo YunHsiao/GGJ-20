@@ -1,0 +1,75 @@
+{
+  "ver": "1.3.21",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "2241a949-cfcd-41ee-acc6-b2ee118c2ef3",
+  "files": [],
+  "subMetas": {
+    "0d3cc": {
+      "importer": "gltf-mesh",
+      "uuid": "2241a949-cfcd-41ee-acc6-b2ee118c2ef3@0d3cc",
+      "displayName": "",
+      "id": "0d3cc",
+      "name": "Mesh grave.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "e4014": {
+      "importer": "gltf-material",
+      "uuid": "2241a949-cfcd-41ee-acc6-b2ee118c2ef3@e4014",
+      "displayName": "",
+      "id": "e4014",
+      "name": "wood.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "900f0": {
+      "importer": "gltf-scene",
+      "uuid": "2241a949-cfcd-41ee-acc6-b2ee118c2ef3@900f0",
+      "displayName": "",
+      "id": "900f0",
+      "name": "grave.prefab",
+      "ver": "1.0.11",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "2241a949-cfcd-41ee-acc6-b2ee118c2ef3@900f0",
+    "assetFinder": {
+      "meshes": [
+        "2241a949-cfcd-41ee-acc6-b2ee118c2ef3@0d3cc"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "2241a949-cfcd-41ee-acc6-b2ee118c2ef3@e4014"
+      ],
+      "scenes": [
+        "2241a949-cfcd-41ee-acc6-b2ee118c2ef3@900f0"
+      ]
+    }
+  }
+}

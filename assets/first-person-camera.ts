@@ -88,11 +88,10 @@ export class FirstPersonCamera extends Component {
         }
     }
 
-    public onTouchStart (_e) {
+    public onTouchStart (e) {
         // if (game.canvas.requestPointerLock) { game.canvas.requestPointerLock(); }
-        _e.getLocation(this._startTouchPoint);
+        e.getLocation(this._startTouchPoint);
         this._currentPanOffset.set(0, 0, 0);
-
     }
 
     public onTouchMove (e) {
@@ -102,12 +101,10 @@ export class FirstPersonCamera extends Component {
         const ortheHeightScale = this._camera.orthoHeight / this.maxOrtheHeight;
         this._currentPanOffset.x = -v2_2.x * this.moveSpeed * ortheHeightScale;
         this._currentPanOffset.y = -v2_2.y * this.moveSpeed * ortheHeightScale;
-        //}
     }
 
     public onTouchEnd (e) {
         // if (document.exitPointerLock) { document.exitPointerLock(); }
-        // e.getStartLocation(v2_1);
         this._totalPanOffset.add(this._currentPanOffset);
         this._currentPanOffset.set(0, 0, 0);
     }

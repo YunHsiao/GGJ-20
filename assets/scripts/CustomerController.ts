@@ -9,7 +9,8 @@ const rot = new Quat();
 const textureCounts = [8, 7];
 
 const color = new Color();
-const colorArray = [1, 1, 1, 1];
+const colorArray = [0.4, 0.4, 0.4, 1];
+const shineColorArray = [1, 1, 1, 1];
 
 @ccclass('CustomerController')
 export class CustomerController extends Component {
@@ -39,11 +40,20 @@ export class CustomerController extends Component {
 
    update (deltaTime: number) {
         this.nextTurn -= deltaTime;
+
         if (this.nextTurn < 0) {
             this.rotationLerpCountDown = 2.1;
             this.idle = random() > this.customerData.attraction * 0.01;
-            if (this.idle) this.velocity.set(0, 0, 0);
-            else this.velocity.set(random() - 0.5, 0, random() - 0.5).normalize();
+
+            if (this.idle) {
+                this.velocity.set(0, 0, 0);
+            } else if (this.customerData.attraction > 50) { // run forrest run go buy it all
+                this.velocity.set(this.node.position).normalize().multiplyScalar(-1);
+                this.model.setInstancedAttribute('a_color_instanced', shineColorArray);
+            } else {
+                this.velocity.set(random() - 0.5, 0, random() - 0.5).normalize();
+            }
+
             if (this.idle) this.animComp.play('Root|Idle');
             else this.animComp.play(this.customerData.attraction > 20 ? 'Root|Run' : 'Root|Walk');
             this.nextTurn = randomRange(0, 3);

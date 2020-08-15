@@ -71,7 +71,7 @@ export class PlayerController extends Component {
 
     update (deltaTime: number) {
         // Your update function goes here.
-        
+
     }
 
     raycastHitGround(mouseEvent: EventMouse, callBack: Function) {
@@ -94,7 +94,7 @@ export class PlayerController extends Component {
         this._isMouseDown = true;
         this._rangeIndicator.active = true;
         const adRange = this._curSelectedAd.advertisementData.range;
-        this._rangeIndicator.setScale(new Vec3(adRange, 1, adRange));
+        this._rangeIndicator.setScale(new Vec3(adRange * 2, 1, adRange * 2));
         this.raycastHitGround(event, (hitPos: Vec3) => {
             this._rangeIndicator.setWorldPosition(hitPos);
         })

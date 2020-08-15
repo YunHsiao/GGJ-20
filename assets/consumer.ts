@@ -5,7 +5,7 @@ const delta = new Vec3();
 const view = new Vec3();
 const rot = new Quat();
 
-const textureCounts = [2, 4];
+const textureCounts = [8, 7];
 
 @ccclass('Consumer')
 export class Consumer extends Component {
@@ -26,10 +26,12 @@ export class Consumer extends Component {
         this.animComp = this.node.getComponent(SkeletalAnimationComponent);
         this.model = this.node.getComponentInChildren(SkinningModelComponent);
         const tilingOffset = [1 / textureCounts[0], 1 / textureCounts[1]];
-        tilingOffset.push(randomRangeInt(0, textureCounts[0]) * tilingOffset[0]);
+        tilingOffset.push(randomRangeInt(0, textureCounts[0] - 2) * tilingOffset[0]);
         tilingOffset.push(randomRangeInt(0, textureCounts[1]) * tilingOffset[1]);
         this.model.setInstancedAttribute('a_tiling_offset', tilingOffset);
         this.radius = this.node.scene.getChildByName('Ground').scale.x * 0.5;
+
+        this.animComp.play(this.animComp.clips[randomRangeInt(0, this.animComp.clips.length)].name);
     }
 
     /* */
@@ -40,7 +42,7 @@ export class Consumer extends Component {
             this.idle = random() > this.chemistry;
             if (this.idle) this.velocity.set(0, 0, 0);
             else this.velocity.set(random() - 0.5, 0, random() - 0.5).normalize();
-            this.animComp.play(this.idle ? 'Root|Idle' : 'Root|Run');
+            // this.animComp.play(this.idle ? 'Root|Idle' : 'Root|Run');
             this.nextTurn = randomRange(0, 3);
         }
         const pos = this.node.position;

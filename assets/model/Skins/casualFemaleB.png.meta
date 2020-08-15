@@ -1,0 +1,40 @@
+{
+  "ver": "1.0.18",
+  "importer": "image",
+  "imported": true,
+  "uuid": "f4594391-cac1-4469-a180-25fc0ac69f4e",
+  "files": [
+    ".png",
+    ".json"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "f4594391-cac1-4469-a180-25fc0ac69f4e@6c48a",
+      "displayName": "casualFemaleB",
+      "id": "6c48a",
+      "name": "texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "f4594391-cac1-4469-a180-25fc0ac69f4e"
+      }
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "redirect": "f4594391-cac1-4469-a180-25fc0ac69f4e@6c48a"
+  }
+}

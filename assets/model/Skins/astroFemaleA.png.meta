@@ -1,0 +1,40 @@
+{
+  "ver": "1.0.18",
+  "importer": "image",
+  "imported": true,
+  "uuid": "5616c6a4-a6dc-4457-9211-e2501484b59c",
+  "files": [
+    ".png",
+    ".json"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "5616c6a4-a6dc-4457-9211-e2501484b59c@6c48a",
+      "displayName": "astroFemaleA",
+      "id": "6c48a",
+      "name": "texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "5616c6a4-a6dc-4457-9211-e2501484b59c"
+      }
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "redirect": "5616c6a4-a6dc-4457-9211-e2501484b59c@6c48a"
+  }
+}

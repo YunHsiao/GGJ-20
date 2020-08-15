@@ -1,0 +1,40 @@
+{
+  "ver": "1.0.18",
+  "importer": "image",
+  "imported": true,
+  "uuid": "f128ed54-38b1-497d-8677-39e87a563267",
+  "files": [
+    ".png",
+    ".json"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "f128ed54-38b1-497d-8677-39e87a563267@6c48a",
+      "displayName": "animalBaseA",
+      "id": "6c48a",
+      "name": "texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "f128ed54-38b1-497d-8677-39e87a563267"
+      }
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "redirect": "f128ed54-38b1-497d-8677-39e87a563267@6c48a"
+  }
+}

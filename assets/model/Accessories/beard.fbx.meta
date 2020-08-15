@@ -1,0 +1,75 @@
+{
+  "ver": "1.3.21",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "5bc14c40-62c2-412c-b6d2-409a6d033201",
+  "files": [],
+  "subMetas": {
+    "ebc44": {
+      "importer": "gltf-mesh",
+      "uuid": "5bc14c40-62c2-412c-b6d2-409a6d033201@ebc44",
+      "displayName": "",
+      "id": "ebc44",
+      "name": "beard.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "cfd7f": {
+      "importer": "gltf-material",
+      "uuid": "5bc14c40-62c2-412c-b6d2-409a6d033201@cfd7f",
+      "displayName": "",
+      "id": "cfd7f",
+      "name": "Brown 3.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "2e0d8": {
+      "importer": "gltf-scene",
+      "uuid": "5bc14c40-62c2-412c-b6d2-409a6d033201@2e0d8",
+      "displayName": "",
+      "id": "2e0d8",
+      "name": "beard.prefab",
+      "ver": "1.0.11",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "5bc14c40-62c2-412c-b6d2-409a6d033201@2e0d8",
+    "assetFinder": {
+      "meshes": [
+        "5bc14c40-62c2-412c-b6d2-409a6d033201@ebc44"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "5bc14c40-62c2-412c-b6d2-409a6d033201@cfd7f"
+      ],
+      "scenes": [
+        "5bc14c40-62c2-412c-b6d2-409a6d033201@2e0d8"
+      ]
+    }
+  }
+}

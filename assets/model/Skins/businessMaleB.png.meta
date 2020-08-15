@@ -1,0 +1,40 @@
+{
+  "ver": "1.0.18",
+  "importer": "image",
+  "imported": true,
+  "uuid": "63d87c02-3bb0-46e7-a308-2805420f9a05",
+  "files": [
+    ".png",
+    ".json"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "63d87c02-3bb0-46e7-a308-2805420f9a05@6c48a",
+      "displayName": "businessMaleB",
+      "id": "6c48a",
+      "name": "texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "63d87c02-3bb0-46e7-a308-2805420f9a05"
+      }
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "redirect": "63d87c02-3bb0-46e7-a308-2805420f9a05@6c48a"
+  }
+}

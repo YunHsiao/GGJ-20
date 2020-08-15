@@ -1,0 +1,75 @@
+{
+  "ver": "1.3.21",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "f5ecbc03-09ec-45b9-9a0f-3ff745991c1a",
+  "files": [],
+  "subMetas": {
+    "3bdfb": {
+      "importer": "gltf-mesh",
+      "uuid": "f5ecbc03-09ec-45b9-9a0f-3ff745991c1a@3bdfb",
+      "displayName": "",
+      "id": "3bdfb",
+      "name": "earsB.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "dc44b": {
+      "importer": "gltf-material",
+      "uuid": "f5ecbc03-09ec-45b9-9a0f-3ff745991c1a@dc44b",
+      "displayName": "",
+      "id": "dc44b",
+      "name": "skin.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "7c363": {
+      "importer": "gltf-scene",
+      "uuid": "f5ecbc03-09ec-45b9-9a0f-3ff745991c1a@7c363",
+      "displayName": "",
+      "id": "7c363",
+      "name": "earsB.prefab",
+      "ver": "1.0.11",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "f5ecbc03-09ec-45b9-9a0f-3ff745991c1a@7c363",
+    "assetFinder": {
+      "meshes": [
+        "f5ecbc03-09ec-45b9-9a0f-3ff745991c1a@3bdfb"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "f5ecbc03-09ec-45b9-9a0f-3ff745991c1a@dc44b"
+      ],
+      "scenes": [
+        "f5ecbc03-09ec-45b9-9a0f-3ff745991c1a@7c363"
+      ]
+    }
+  }
+}

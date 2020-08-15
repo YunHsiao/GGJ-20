@@ -1,0 +1,40 @@
+{
+  "ver": "1.0.18",
+  "importer": "image",
+  "imported": true,
+  "uuid": "6b82853c-0b86-49a5-8231-e52d047db01c",
+  "files": [
+    ".png",
+    ".json"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "6b82853c-0b86-49a5-8231-e52d047db01c@6c48a",
+      "displayName": "fantasyFemaleB",
+      "id": "6c48a",
+      "name": "texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "6b82853c-0b86-49a5-8231-e52d047db01c"
+      }
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "redirect": "6b82853c-0b86-49a5-8231-e52d047db01c@6c48a"
+  }
+}

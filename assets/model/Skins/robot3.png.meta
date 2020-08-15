@@ -1,0 +1,40 @@
+{
+  "ver": "1.0.18",
+  "importer": "image",
+  "imported": true,
+  "uuid": "f1e3aa7b-dc04-4629-a194-a20e9caec715",
+  "files": [
+    ".png",
+    ".json"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "f1e3aa7b-dc04-4629-a194-a20e9caec715@6c48a",
+      "displayName": "robot3",
+      "id": "6c48a",
+      "name": "texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "f1e3aa7b-dc04-4629-a194-a20e9caec715"
+      }
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "redirect": "f1e3aa7b-dc04-4629-a194-a20e9caec715@6c48a"
+  }
+}

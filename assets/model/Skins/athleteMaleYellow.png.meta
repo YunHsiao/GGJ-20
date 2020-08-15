@@ -1,0 +1,40 @@
+{
+  "ver": "1.0.18",
+  "importer": "image",
+  "imported": true,
+  "uuid": "45d247d5-ced8-4d91-9117-87817f324e6f",
+  "files": [
+    ".png",
+    ".json"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "45d247d5-ced8-4d91-9117-87817f324e6f@6c48a",
+      "displayName": "athleteMaleYellow",
+      "id": "6c48a",
+      "name": "texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "45d247d5-ced8-4d91-9117-87817f324e6f"
+      }
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "redirect": "45d247d5-ced8-4d91-9117-87817f324e6f@6c48a"
+  }
+}

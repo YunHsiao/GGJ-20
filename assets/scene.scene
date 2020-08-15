@@ -129,16 +129,16 @@
     "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 100,
-      "y": 141,
-      "z": 100
+      "x": 138.54387994626083,
+      "y": 53.88553180185918,
+      "z": 104.58384078008704
     },
     "_lrot": {
       "__type__": "cc.Quat",
-      "x": -0.3535533905932738,
-      "y": 0.3535533905932738,
-      "z": 0.14644660940672624,
-      "w": 0.8535533905932737
+      "x": -0.22346784263725725,
+      "y": 0.43289795285854793,
+      "z": 0.11169040792522274,
+      "w": 0.8661332105810902
     },
     "_lscale": {
       "__type__": "cc.Vec3",
@@ -149,8 +149,8 @@
     "_layer": 1073741824,
     "_euler": {
       "__type__": "cc.Vec3",
-      "x": -45,
-      "y": 45,
+      "x": -28.934335761570757,
+      "y": 53.11225045674046,
       "z": 1.5902773407317584e-15
     },
     "_id": "c9DMICJLFO5IeO07EPon7U"
@@ -167,9 +167,9 @@
     "_priority": 0,
     "_fov": 45,
     "_fovAxis": 1,
-    "_orthoHeight": 75,
+    "_orthoHeight": 30,
     "_near": 1,
-    "_far": 2000,
+    "_far": 1000,
     "_color": {
       "__type__": "cc.Color",
       "r": 51,
@@ -207,9 +207,9 @@
       "__id__": 8
     },
     "moveSpeed": 0.03,
-    "scrollSpeed": 3,
+    "scrollSpeed": 1,
     "maxOrtheHeight": 94,
-    "minOrtheHeight": 15,
+    "minOrtheHeight": 25,
     "panMaxPosition": {
       "__type__": "cc.Vec3",
       "x": 40,
@@ -233,7 +233,7 @@
       "__id__": 1
     },
     "_children": [],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 9
@@ -361,7 +361,7 @@
     "_enabled": true,
     "count": 1000,
     "prefab": {
-      "__uuid__": "8a924c66-5662-41b7-9744-e794f6b4bca3"
+      "__uuid__": "b80ba492-a6e8-4c53-a750-064f30831cc3"
     },
     "_id": "f39rFXQbVICZWrWposh+GG"
   },

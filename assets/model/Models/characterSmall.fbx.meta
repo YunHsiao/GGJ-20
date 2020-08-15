@@ -1,0 +1,94 @@
+{
+  "ver": "1.3.21",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "002cb278-eae2-48e2-9d12-810993ed8f8e",
+  "files": [],
+  "subMetas": {
+    "e5907": {
+      "importer": "gltf-mesh",
+      "uuid": "002cb278-eae2-48e2-9d12-810993ed8f8e@e5907",
+      "displayName": "",
+      "id": "e5907",
+      "name": "characterSmall.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "438fe": {
+      "importer": "gltf-skeleton",
+      "uuid": "002cb278-eae2-48e2-9d12-810993ed8f8e@438fe",
+      "displayName": "",
+      "id": "438fe",
+      "name": "UnnamedSkeleton.skeleton",
+      "ver": "1.0.1",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0,
+        "jointsLength": 45
+      }
+    },
+    "dc44b": {
+      "importer": "gltf-material",
+      "uuid": "002cb278-eae2-48e2-9d12-810993ed8f8e@dc44b",
+      "displayName": "",
+      "id": "dc44b",
+      "name": "skin.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "c6be4": {
+      "importer": "gltf-scene",
+      "uuid": "002cb278-eae2-48e2-9d12-810993ed8f8e@c6be4",
+      "displayName": "",
+      "id": "c6be4",
+      "name": "characterSmall.prefab",
+      "ver": "1.0.11",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "002cb278-eae2-48e2-9d12-810993ed8f8e@c6be4",
+    "assetFinder": {
+      "meshes": [
+        "002cb278-eae2-48e2-9d12-810993ed8f8e@e5907"
+      ],
+      "skeletons": [
+        "002cb278-eae2-48e2-9d12-810993ed8f8e@438fe"
+      ],
+      "textures": [],
+      "materials": [
+        "002cb278-eae2-48e2-9d12-810993ed8f8e@dc44b"
+      ],
+      "scenes": [
+        "002cb278-eae2-48e2-9d12-810993ed8f8e@c6be4"
+      ]
+    }
+  }
+}

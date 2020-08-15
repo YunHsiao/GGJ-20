@@ -1,0 +1,126 @@
+{
+  "ver": "1.3.21",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "c17346c3-ac29-45df-9482-95b4264c8800",
+  "files": [],
+  "subMetas": {
+    "8fbf2": {
+      "importer": "gltf-mesh",
+      "uuid": "c17346c3-ac29-45df-9482-95b4264c8800@8fbf2",
+      "displayName": "",
+      "id": "8fbf2",
+      "name": "militaryBackpack.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "205da": {
+      "importer": "gltf-material",
+      "uuid": "c17346c3-ac29-45df-9482-95b4264c8800@205da",
+      "displayName": "",
+      "id": "205da",
+      "name": "Steel 5.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "2351a": {
+      "importer": "gltf-material",
+      "uuid": "c17346c3-ac29-45df-9482-95b4264c8800@2351a",
+      "displayName": "",
+      "id": "2351a",
+      "name": "Steel 3.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 1
+      }
+    },
+    "5db72": {
+      "importer": "gltf-material",
+      "uuid": "c17346c3-ac29-45df-9482-95b4264c8800@5db72",
+      "displayName": "",
+      "id": "5db72",
+      "name": "Steel 2.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 2
+      }
+    },
+    "e2ede": {
+      "importer": "gltf-material",
+      "uuid": "c17346c3-ac29-45df-9482-95b4264c8800@e2ede",
+      "displayName": "",
+      "id": "e2ede",
+      "name": "Steel 4.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 3
+      }
+    },
+    "c9c7a": {
+      "importer": "gltf-scene",
+      "uuid": "c17346c3-ac29-45df-9482-95b4264c8800@c9c7a",
+      "displayName": "",
+      "id": "c9c7a",
+      "name": "militaryBackpack.prefab",
+      "ver": "1.0.11",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "c17346c3-ac29-45df-9482-95b4264c8800@c9c7a",
+    "assetFinder": {
+      "meshes": [
+        "c17346c3-ac29-45df-9482-95b4264c8800@8fbf2"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "c17346c3-ac29-45df-9482-95b4264c8800@205da",
+        "c17346c3-ac29-45df-9482-95b4264c8800@2351a",
+        "c17346c3-ac29-45df-9482-95b4264c8800@5db72",
+        "c17346c3-ac29-45df-9482-95b4264c8800@e2ede"
+      ],
+      "scenes": [
+        "c17346c3-ac29-45df-9482-95b4264c8800@c9c7a"
+      ]
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "ver": "1.0.18",
+  "importer": "image",
+  "imported": true,
+  "uuid": "9f31d0a9-f109-45fe-9f3f-06a099bfa30c",
+  "files": [
+    ".png",
+    ".json"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "9f31d0a9-f109-45fe-9f3f-06a099bfa30c@6c48a",
+      "displayName": "farmerA",
+      "id": "6c48a",
+      "name": "texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "9f31d0a9-f109-45fe-9f3f-06a099bfa30c"
+      }
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "redirect": "9f31d0a9-f109-45fe-9f3f-06a099bfa30c@6c48a"
+  }
+}

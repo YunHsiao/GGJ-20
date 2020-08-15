@@ -1,0 +1,40 @@
+{
+  "ver": "1.0.18",
+  "importer": "image",
+  "imported": true,
+  "uuid": "2e4cebce-01fa-4969-bb2e-d0dfd79fe56b",
+  "files": [
+    ".png",
+    ".json"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "2e4cebce-01fa-4969-bb2e-d0dfd79fe56b@6c48a",
+      "displayName": "robot2",
+      "id": "6c48a",
+      "name": "texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "2e4cebce-01fa-4969-bb2e-d0dfd79fe56b"
+      }
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "redirect": "2e4cebce-01fa-4969-bb2e-d0dfd79fe56b@6c48a"
+  }
+}

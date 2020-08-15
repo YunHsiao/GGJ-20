@@ -209,7 +209,7 @@
     "moveSpeed": 0.03,
     "scrollSpeed": 3,
     "maxOrtheHeight": 94,
-    "minOrtheHeight": 26,
+    "minOrtheHeight": 15,
     "panMaxPosition": {
       "__type__": "cc.Vec3",
       "x": 40,

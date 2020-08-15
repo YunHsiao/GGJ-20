@@ -206,23 +206,23 @@
     "ground": {
       "__id__": 8
     },
-    "moveSpeed": 0.03,
+    "moveSpeed": 0.2,
     "scrollSpeed": 3,
     "maxOrtheHeight": 94,
     "minOrtheHeight": 15,
     "panMaxPosition": {
       "__type__": "cc.Vec3",
-      "x": 40,
-      "y": 40,
+      "x": 60,
+      "y": 60,
       "z": 0
     },
     "panMinPosition": {
       "__type__": "cc.Vec3",
-      "x": -40,
-      "y": -40,
+      "x": -60,
+      "y": -60,
       "z": 0
     },
-    "damp": 0.2,
+    "damp": 0.05,
     "_id": "6f7CihjxJJLYiPedlX6zVI"
   },
   {

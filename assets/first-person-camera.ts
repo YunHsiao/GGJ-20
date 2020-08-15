@@ -37,7 +37,8 @@ export class FirstPersonCamera extends Component {
 
     public _position = new Vec3();
     public _startTouchPoint = new Vec2();
-    public _panOffset = new Vec3();
+    public _totalPanOffset = new Vec3();
+    public _currentPanOffset = new Vec3();
     public _startPosition = null;
 
     _camera: CameraComponent;
@@ -69,7 +70,8 @@ export class FirstPersonCamera extends Component {
         const panScale = new Vec3(ortheHeightScale, ortheHeightScale / Math.SQRT2, 1);
         Vec3.multiply(v3_2, this.panMinPosition, panScale);
         Vec3.multiply(v3_3, this.panMaxPosition, panScale);
-        Vec3.transformQuat(v3_1, this._panOffset.clampf(v3_2, v3_3), this.node.rotation);
+        Vec3.add(v3_1, this._totalPanOffset, this._currentPanOffset);
+        Vec3.transformQuat(v3_1, v3_1.clampf(v3_2, v3_3), this.node.rotation);
         Vec3.add(this._position, this._startPosition, v3_1);
         Vec3.lerp(v3_1, this.node.position, this._position, dt / this.damp);
         this.node.setPosition(v3_1);
@@ -87,8 +89,9 @@ export class FirstPersonCamera extends Component {
     }
 
     public onTouchStart (_e) {
-        if (game.canvas.requestPointerLock) { game.canvas.requestPointerLock(); }
+        // if (game.canvas.requestPointerLock) { game.canvas.requestPointerLock(); }
         _e.getLocation(this._startTouchPoint);
+        this._currentPanOffset.set(0, 0, 0);
 
     }
 
@@ -97,13 +100,15 @@ export class FirstPersonCamera extends Component {
         e.getLocation(v2_2);
         Vec2.subtract(v2_2, v2_2, this._startTouchPoint);
         const ortheHeightScale = this._camera.orthoHeight / this.maxOrtheHeight;
-        this._panOffset.x += -v2_2.x * this.moveSpeed * ortheHeightScale;
-        this._panOffset.y += -v2_2.y * this.moveSpeed * ortheHeightScale;
+        this._currentPanOffset.x = -v2_2.x * this.moveSpeed * ortheHeightScale;
+        this._currentPanOffset.y = -v2_2.y * this.moveSpeed * ortheHeightScale;
         //}
     }
 
     public onTouchEnd (e) {
-        if (document.exitPointerLock) { document.exitPointerLock(); }
-        e.getStartLocation(v2_1);
+        // if (document.exitPointerLock) { document.exitPointerLock(); }
+        // e.getStartLocation(v2_1);
+        this._totalPanOffset.add(this._currentPanOffset);
+        this._currentPanOffset.set(0, 0, 0);
     }
 }

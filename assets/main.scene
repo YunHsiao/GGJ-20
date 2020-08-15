@@ -255,7 +255,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 0,
+      "y": -1,
       "z": 0
     },
     "_lrot": {
@@ -287,7 +287,7 @@
     "node": {
       "__id__": 8
     },
-    "_enabled": false,
+    "_enabled": true,
     "_materials": [
       {
         "__uuid__": "5091bea1-4c3c-4ee7-ba62-eff23de2fbbe"
@@ -4538,7 +4538,7 @@
     },
     "fileId": "8drBGajTpHNYOZPstIDlpw",
     "sync": false,
-    "_synced": true
+    "_synced": {}
   },
   {
     "__type__": "cc.Node",

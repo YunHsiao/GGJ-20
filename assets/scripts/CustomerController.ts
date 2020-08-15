@@ -94,6 +94,8 @@ export class CustomerController extends Component {
                     this.state = CustomerStates.ROAMING;
                     this.velocity.set(position).multiplyScalar(1 / len);
                     this.nextTurn = 2;
+                    this.moodBillBoard.enabled = true;
+                    setTimeout(() => this.moodBillBoard.enabled = false, this.nextTurn * 1000);
                 }
             }
 

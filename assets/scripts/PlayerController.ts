@@ -108,7 +108,7 @@ export class PlayerController extends Component {
             this._rangeIndicator.setScale(new Vec3(adRange * 2, 1, adRange * 2));
             this.raycastHitGround(event, (hitPos: Vec3) => {
                 this._rangeIndicator.setWorldPosition(hitPos);
-            })
+            });
         }
     }
 

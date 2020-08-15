@@ -1,30 +1,42 @@
-import { _decorator, Component, Node, ParticleSystemComponent, Vec3 } from 'cc';
+import { _decorator, Component, Node, ParticleSystemComponent, Vec3, Prefab, Pool, instantiate } from 'cc';
 import { Advertisement } from './Advertisement';
 const { ccclass, property } = _decorator;
 
 @ccclass('AdvertisementController')
 export class AdvertisementController extends Component {
     public advertisementData: Advertisement;
-    @property({type: ParticleSystemComponent})
-    public adParticle: ParticleSystemComponent = null;
+    @property({type: Prefab})
+    public advertiseParticlePrfb: Prefab = null;
+    public _adParticle: ParticleSystemComponent = null;
     private _subParticles: ParticleSystemComponent[] = [];
 
     private _curPassedTime: number = 0;
     private _showTime = 0;
+    private _particlePool: Pool<Node>;
 
-    start () {
-        for (let i = 0; i < this.adParticle.node.children.length; i++) {
-            let subNode = this.adParticle.node.children[i];
-            this._subParticles.push(subNode.getComponent(ParticleSystemComponent));
-        }
+    onLoad() {
+        // this._particlePool = new Pool<Node>(() => {
+        //     const particleNode = instantiate(this.advertiseParticlePrfb);
+        //     particleNode.parent = this.node;
+        //     return particleNode;
+        // }, 5);
+    }
+
+    start () {    
+        // for (let i = 0; i < this._adParticle.node.children.length; i++) {
+        //     let subNode = this._adParticle.node.children[i];
+        //     this._subParticles.push(subNode.getComponent(ParticleSystemComponent));
+        // }
+
     }
 
     show() {
         const range = this.advertisementData.range;
+        const particleNode = instantiate(this.advertiseParticlePrfb);
+        particleNode.parent = this.node;
         //this.adParticle.node.setWorldScale(new Vec3(range, range, range));
-        this.adParticle.shapeModule.radius = range;
-        this.adParticle.stop();
-        this.adParticle.play();
+        const adParticle = particleNode.getComponent(ParticleSystemComponent);
+        adParticle.shapeModule.radius = range;
         // this._subParticles.forEach((particle) => {
         //     particle.startSizeX.constant = this.advertisementData.range;
         //     particle.stop();
@@ -32,16 +44,16 @@ export class AdvertisementController extends Component {
         // });
 
 
-        this._showTime = 2;
+        this._showTime = 1;
         this.node.active = true;
         this._curPassedTime = 0;
+        this.scheduleOnce(()=> {
+            particleNode.active = false;
+            particleNode.destroy();
+        }, this._showTime)
     }
 
     update (deltaTime: number) {
         // Your update function goes here.
-        this._curPassedTime += deltaTime;
-        if (this._curPassedTime > this._showTime) {
-            this.node.active = false;
-        }
     }
 }

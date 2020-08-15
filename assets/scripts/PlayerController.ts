@@ -1,6 +1,6 @@
 import { _decorator, Component, Node, geometry, CameraComponent, systemEvent, SystemEvent, ModelComponent, Vec3, PhysicsSystem,
-    Prefab, instantiate, director, loader, JsonAsset, LabelComponent, EventTouch } from 'cc';
-import { Player } from './Player';
+    Prefab, instantiate, director, loader, JsonAsset, LabelComponent, EventTouch, SpriteComponent } from 'cc';
+import { Player, createProductionCountType } from './Player';
 import { AdvertisementController } from './AdvertisementController';
 import { Advertisement } from './Advertisement';
 import { FirstPersonCamera } from '../first-person-camera';
@@ -24,6 +24,8 @@ export class PlayerController extends Component {
     public customProductionPriceTips: LabelComponent = null;
     @property({type: LabelComponent})
     public customProductionCountTips: LabelComponent = null;
+    @property({type: SpriteComponent})
+    public customProductionCountImage: SpriteComponent = null;
 
     private _cameraNode: Node;
     private _cameraComp: CameraComponent;
@@ -147,9 +149,25 @@ export class PlayerController extends Component {
     }
 
     addProduction () {
-        if (this.playerData.money > this.playerData.production.cost) {
-            this.playerData.money -= this.playerData.production.cost;
-            this.playerData.production.count ++;
+        let createNum = 0;
+        switch(this.playerData.createCountType) {
+            case createProductionCountType.one:
+                createNum = 1;
+                break;
+            case createProductionCountType.ten:
+                createNum = 10;
+                break;
+            case createProductionCountType.thirty:
+                createNum = 30;
+                break;
+            default:
+                createNum = 1;
+        }
+        if (this.playerData.money >= this.playerData.production.cost * createNum) {
+            for(let i = 0; i < createNum; i++ ) {
+                this.playerData.money -= this.playerData.production.cost;
+                this.playerData.production.count ++;
+            }
             this.updateUITips();
         } else {
             // ni mei le
@@ -187,5 +205,22 @@ export class PlayerController extends Component {
             const adRange = this._curSelectedAd.advertisementData.range;
             this._rangeIndicator.setScale(new Vec3(adRange * 2, 1, adRange * 2));
         }
+    }
+
+    switchCreateCountType (event: any, customData: string) {
+        const index = Number.parseInt(customData);
+        if (index === 0) {
+            if (this.playerData.createCountType === createProductionCountType.one) {
+                return;
+            }
+            this.playerData.createCountType --;
+        } else {
+            if (this.playerData.createCountType === createProductionCountType.thirty) {
+                return;
+            }
+            this.playerData.createCountType ++;
+        }
+        this.customProductionCountImage.spriteFrame = 
+        this.playerData.createCountTypeIcon[this.playerData.createCountType];
     }
 }

@@ -49,7 +49,7 @@ export class GameManager extends Component {
     }
 
     onDropAd(hitPos: Vec3, ad: AdvertisementController) {
-        this._companySuitInst.handWaving();
+        this._companySuitInst.handWaving(hitPos);
 
         const affectCustomers: CustomerController[] = [];
         this._customers.forEach((customer) => {

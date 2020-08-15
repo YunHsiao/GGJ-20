@@ -1,5 +1,8 @@
-import { _decorator, Component, Node, SkeletalAnimationComponent, AnimationClip, AnimationComponent, AnimationState } from 'cc';
+import { _decorator, Component, Node, SkeletalAnimationComponent, AnimationClip, AnimationComponent, AnimationState, Vec3, Quat } from 'cc';
 const { ccclass, property } = _decorator;
+
+const dir = new Vec3();
+const rot = new Quat();
 
 @ccclass('CompanySuit')
 export class CompanySuit extends Component {
@@ -19,7 +22,8 @@ export class CompanySuit extends Component {
         });
     }
 
-    handWaving () {
+    handWaving (position: Vec3) {
+        this.node.setRotation(Quat.fromViewUp(rot, Vec3.normalize(dir, position)));
         if (this._interactFinished) {
             this.animComp.crossFade('Root|Interact_standing');
             this._interactFinished = false;

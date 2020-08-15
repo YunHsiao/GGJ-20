@@ -10,7 +10,6 @@ export const textureCounts = [8, 7];
 
 const color = new Color();
 const colorArray = [0.4, 0.4, 0.4, 1];
-const shineColorArray = [1, 1, 1, 1];
 
 enum CustomerStates {
     IDLE,
@@ -47,7 +46,6 @@ export class CustomerController extends Component {
         tilingOffset.push(randomRangeInt(0, textureCounts[0]) * tilingOffset[0]);
         tilingOffset.push(randomRangeInt(0, textureCounts[1]) * tilingOffset[1]);
         this.model.setInstancedAttribute('a_tiling_offset', tilingOffset);
-        this.model.setInstancedAttribute('a_color_instanced', colorArray);
         this.radius = this.node.scene.getChildByName('Ground').scale.x * 0.5;
     }
 
@@ -109,6 +107,9 @@ export class CustomerController extends Component {
                 this.rotationLerpCountDown -= deltaTime;
             }
 
+            colorArray[0] = colorArray[1] = colorArray[2] = Math.min(this.customerData.attraction * 0.02, 1);
+            this.model.setInstancedAttribute('a_color_instanced', colorArray);
+
             break;
         // static states
         case CustomerStates.IDLE:
@@ -126,14 +127,12 @@ export class CustomerController extends Component {
         case CustomerStates.ROAMING:
             if (newValue > 50) {
                 this.state = CustomerStates.HOOKED;
-                this.model.setInstancedAttribute('a_color_instanced', shineColorArray);
                 this.animComp.play('Root|Run');
             }
             break;
         case CustomerStates.HOOKED:
             if (newValue <= 50) {
                 this.state = CustomerStates.IDLE; // what am I doing here?!
-                this.model.setInstancedAttribute('a_color_instanced', colorArray);
                 this.animComp.play('Root|Idle');
             }
             break;

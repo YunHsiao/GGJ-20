@@ -9,8 +9,7 @@ const rot = new Quat();
 
 export const textureCounts = [8, 7];
 
-const color = new Color();
-const colorArray = [0.4, 0.4, 0.4, 1];
+const colorArray = [1, 1, 1, 1];
 
 enum CustomerStates {
     IDLE,
@@ -77,14 +76,20 @@ export class CustomerController extends Component {
         switch (this.state) {
         // kinematic states
         case CustomerStates.HOOKED: // run forrest run go buy it all
+
             const len = position.length();
             this.velocity.set(position).multiplyScalar(-1 / len);
             this.rotationLerpCountDown = 2.1;
 
             if (len < this.targetDealDistance) {
-                this.state = CustomerStates.DEAL;
-                this.animComp.play('Root|Interact_ground');
-                this.buyProduction();
+                if (this.buyProduction()) { // we got a deal
+                    this.state = CustomerStates.DEAL;
+                    this.animComp.play('Root|Interact_ground');
+                } else { // okay I'm out
+                    this.state = CustomerStates.ROAMING;
+                    this.velocity.set(position).multiplyScalar(1 / len);
+                    this.nextTurn = 2;
+                }
             }
 
         case CustomerStates.ROAMING:
@@ -108,12 +113,13 @@ export class CustomerController extends Component {
                 this.rotationLerpCountDown -= deltaTime;
             }
 
+        // static states
+        case CustomerStates.IDLE:
+
             colorArray[0] = colorArray[1] = colorArray[2] = Math.min(this.customerData.attraction * 0.02, 1);
             this.model.setInstancedAttribute('a_color_instanced', colorArray);
 
             break;
-        // static states
-        case CustomerStates.IDLE:
         case CustomerStates.DEAL:
             break;
         }
@@ -133,7 +139,7 @@ export class CustomerController extends Component {
             break;
         case CustomerStates.HOOKED:
             if (newValue <= 50) {
-                this.state = CustomerStates.IDLE; // what am I doing here?!
+                this.state = CustomerStates.IDLE; // "what am I doing here?!"
                 this.animComp.play('Root|Idle');
             }
             break;
@@ -144,11 +150,12 @@ export class CustomerController extends Component {
 
     buyProduction(): boolean {
 
-        if (GameManager.Instance.queryProductionCount() === 0) {
-            console.log("no production count");
+        if (GameManager.Instance.queryProductionCount() <= 0) {
+            const base = this.customerData.baseAttraction;
+            this.customerData.attraction = this.customerData.baseAttraction = Math.floor(base * 0.8);
             return false;
         }
-        
+
         if (this.onBuyProduction) {
             this.onBuyProduction(this);
         }

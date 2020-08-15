@@ -10,6 +10,8 @@ export class CompanySuit extends Component {
     animComp: SkeletalAnimationComponent;
 
     _interactFinished = true;
+    _targetRotation = new Quat();
+    _rotationLerpCountDown = 1;
 
     start () {
         this.animComp = this.node.getComponent(SkeletalAnimationComponent);
@@ -23,10 +25,19 @@ export class CompanySuit extends Component {
     }
 
     handWaving (position: Vec3) {
-        this.node.setRotation(Quat.fromViewUp(rot, Vec3.normalize(dir, position)));
+        this._rotationLerpCountDown = 2;
+        Quat.fromViewUp(this._targetRotation, Vec3.normalize(dir, position));
         if (this._interactFinished) {
             this.animComp.crossFade('Root|Interact_standing');
             this._interactFinished = false;
+        }
+    }
+
+    update (dt: number) {
+        if (this._rotationLerpCountDown > 0) {
+            Quat.slerp(rot, this.node.rotation, this._targetRotation, 0.1);
+            this.node.setRotation(rot);
+            this._rotationLerpCountDown -= dt;
         }
     }
 }

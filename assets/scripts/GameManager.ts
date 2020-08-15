@@ -1,7 +1,7 @@
-import { _decorator, Component, Node, Prefab, instantiate, Vec3, randomRange, Game } from 'cc';
-import { CustomerController } from './CustomerController';
+import { _decorator, Component, Node, Prefab, instantiate, Vec3, randomRange, ProgressBarComponent } from 'cc';
 import { PlayerController } from './PlayerController';
 import { AdvertisementController } from './AdvertisementController';
+import { CustomerController } from './CustomerController';
 import { gameDefines } from './GameDefines';
 import { CompanySuit } from './CompanySuit';
 const { ccclass, property } = _decorator;
@@ -18,12 +18,16 @@ export class GameManager extends Component {
     public companySuit: Prefab = null;
     @property
     customerCount = 10;
+    @property({type: ProgressBarComponent})
+    gameProgress: ProgressBarComponent = null;
 
     private _customers: CustomerController[] = [];
     private _groundNode: Node;
     private _falloffInterval: number = 1;
     private _curFalloffTime: number = 0;
     private _companySuitInst: CompanySuit = null;
+    private _customerBought: number = 0;
+    private _gameWinCount: number = 0.8;
     private static _instance: GameManager;
 
     public static get Instance (): GameManager {
@@ -43,6 +47,7 @@ export class GameManager extends Component {
         const companySuitNode = instantiate(this.companySuit);
         companySuitNode.parent = this.node;
         this._companySuitInst = companySuitNode.getComponent(CompanySuit);
+        this.gameProgress.progress = 0;
     }
 
     initCustomers() {
@@ -51,7 +56,7 @@ export class GameManager extends Component {
             const inst = instantiate(this.customerPrfb) as Node;
             inst.setPosition(randomRange(-radius, radius), 0, randomRange(-radius, radius));
             inst.parent = this.node;
-            const customerCtrl = inst.getComponent(CustomerController);
+            const customerCtrl = inst.getComponent('CustomerController') as CustomerController;
             customerCtrl.onBuyProduction = this.onCustomBuyProduction.bind(this);
             this._customers.push(customerCtrl);
         }
@@ -98,13 +103,15 @@ export class GameManager extends Component {
 
     update (deltaTime: number) {
         // Your update function goes here.
-        this.falloffAllCustomers(-gameDefines.fallofSpeed * deltaTime);      
+        this.falloffAllCustomers(-gameDefines.fallofSpeed * deltaTime);
     }
 
     onCustomBuyProduction(customer: CustomerController) {
         let count = this.playerCtrl.playerData.production.count - 1;
         if (count >= 0) {
             this.playerCtrl.playerData.production.count = count;
+            this._customerBought++;
+            this.gameProgress.progress = this._customerBought / (this.customerCount * this._gameWinCount);
             // let profit = this.playerCtrl.playerData.production.price - this.playerCtrl.playerData.production.cost;
             this.playerCtrl.playerData.money += this.playerCtrl.playerData.production.price;
             this.playerCtrl.updateUITips();
@@ -118,7 +125,7 @@ export class GameManager extends Component {
     onSubPrice () {
         // MAX attraction add is 50
         let attraction = 0;
-        if (this.playerCtrl.playerData.production.price > (this.playerCtrl.playerData.production.cost / 2) && 
+        if (this.playerCtrl.playerData.production.price > (this.playerCtrl.playerData.production.cost / 2) &&
             this.playerCtrl.playerData.production.price < this.playerCtrl.playerData.production.priceLow) {
                 attraction = 40 / this.playerCtrl.playerData.production.priceStateNum;
                 this.playerCtrl.playerData.production.priceLow = this.playerCtrl.playerData.production.price;

@@ -1,0 +1,370 @@
+{
+  "ver": "1.3.21",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "31bbf4c9-32b2-4c56-9d53-c2c240da38ed",
+  "files": [],
+  "subMetas": {
+    "12415": {
+      "importer": "gltf-mesh",
+      "uuid": "31bbf4c9-32b2-4c56-9d53-c2c240da38ed@12415",
+      "displayName": "",
+      "id": "12415",
+      "name": "Screen_Cables.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 3
+      }
+    },
+    "415ad": {
+      "importer": "gltf-mesh",
+      "uuid": "31bbf4c9-32b2-4c56-9d53-c2c240da38ed@415ad",
+      "displayName": "",
+      "id": "415ad",
+      "name": "Blimp.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "de9ee": {
+      "importer": "gltf-mesh",
+      "uuid": "31bbf4c9-32b2-4c56-9d53-c2c240da38ed@de9ee",
+      "displayName": "",
+      "id": "de9ee",
+      "name": "Blimp_Joins.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 1
+      }
+    },
+    "dd321": {
+      "importer": "gltf-mesh",
+      "uuid": "31bbf4c9-32b2-4c56-9d53-c2c240da38ed@dd321",
+      "displayName": "",
+      "id": "dd321",
+      "name": "Prop_JoinA.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 2
+      }
+    },
+    "cd7a6": {
+      "importer": "gltf-mesh",
+      "uuid": "31bbf4c9-32b2-4c56-9d53-c2c240da38ed@cd7a6",
+      "displayName": "",
+      "id": "cd7a6",
+      "name": "Propeller.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 4
+      }
+    },
+    "f01eb": {
+      "importer": "gltf-mesh",
+      "uuid": "31bbf4c9-32b2-4c56-9d53-c2c240da38ed@f01eb",
+      "displayName": "",
+      "id": "f01eb",
+      "name": "Prop_JoinB.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 5
+      }
+    },
+    "4fcb0": {
+      "importer": "gltf-mesh",
+      "uuid": "31bbf4c9-32b2-4c56-9d53-c2c240da38ed@4fcb0",
+      "displayName": "",
+      "id": "4fcb0",
+      "name": "Blimp_Fin_01.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 6
+      }
+    },
+    "9e81c": {
+      "importer": "gltf-mesh",
+      "uuid": "31bbf4c9-32b2-4c56-9d53-c2c240da38ed@9e81c",
+      "displayName": "",
+      "id": "9e81c",
+      "name": "Blimp_Fin_02.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 7
+      }
+    },
+    "9bd98": {
+      "importer": "gltf-mesh",
+      "uuid": "31bbf4c9-32b2-4c56-9d53-c2c240da38ed@9bd98",
+      "displayName": "",
+      "id": "9bd98",
+      "name": "Blimp_Fin_03.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 8
+      }
+    },
+    "4e189": {
+      "importer": "gltf-mesh",
+      "uuid": "31bbf4c9-32b2-4c56-9d53-c2c240da38ed@4e189",
+      "displayName": "",
+      "id": "4e189",
+      "name": "Blimp_Fin_04.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 9
+      }
+    },
+    "70ab4": {
+      "importer": "gltf-mesh",
+      "uuid": "31bbf4c9-32b2-4c56-9d53-c2c240da38ed@70ab4",
+      "displayName": "",
+      "id": "70ab4",
+      "name": "Screen_Block.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 10
+      }
+    },
+    "62a2d": {
+      "importer": "gltf-mesh",
+      "uuid": "31bbf4c9-32b2-4c56-9d53-c2c240da38ed@62a2d",
+      "displayName": "",
+      "id": "62a2d",
+      "name": "Screen_Side_A.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 11
+      }
+    },
+    "cb0bf": {
+      "importer": "gltf-mesh",
+      "uuid": "31bbf4c9-32b2-4c56-9d53-c2c240da38ed@cb0bf",
+      "displayName": "",
+      "id": "cb0bf",
+      "name": "Screen_Side_B.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 12
+      }
+    },
+    "73b7f": {
+      "importer": "gltf-animation",
+      "uuid": "31bbf4c9-32b2-4c56-9d53-c2c240da38ed@73b7f",
+      "displayName": "",
+      "id": "73b7f",
+      "name": "Take 001.animation",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 8.291666984558105
+        },
+        "events": []
+      }
+    },
+    "d285e": {
+      "importer": "gltf-embeded-image",
+      "uuid": "31bbf4c9-32b2-4c56-9d53-c2c240da38ed@d285e",
+      "displayName": "",
+      "id": "d285e",
+      "name": "file288.image",
+      "ver": "1.0.2",
+      "imported": true,
+      "files": [
+        ".png",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "5d580": {
+      "importer": "texture",
+      "uuid": "31bbf4c9-32b2-4c56-9d53-c2c240da38ed@5d580",
+      "displayName": "",
+      "id": "5d580",
+      "name": "file288.texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "31bbf4c9-32b2-4c56-9d53-c2c240da38ed@d285e"
+      }
+    },
+    "12fd9": {
+      "importer": "gltf-scene",
+      "uuid": "31bbf4c9-32b2-4c56-9d53-c2c240da38ed@12fd9",
+      "displayName": "",
+      "id": "12fd9",
+      "name": "Blimp_Unity.prefab",
+      "ver": "1.0.11",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "file288",
+        "uri": "31bbf4c9-32b2-4c56-9d53-c2c240da38ed@d285e"
+      }
+    ],
+    "animationImportSettings": [
+      {
+        "name": "Take 001",
+        "duration": 8.291666984558105,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Take 001",
+            "from": 0,
+            "to": 8.291666984558105,
+            "wrapMode": 2
+          }
+        ]
+      }
+    ],
+    "redirect": "31bbf4c9-32b2-4c56-9d53-c2c240da38ed@12fd9",
+    "assetFinder": {
+      "meshes": [
+        "31bbf4c9-32b2-4c56-9d53-c2c240da38ed@415ad",
+        "31bbf4c9-32b2-4c56-9d53-c2c240da38ed@de9ee",
+        "31bbf4c9-32b2-4c56-9d53-c2c240da38ed@dd321",
+        "31bbf4c9-32b2-4c56-9d53-c2c240da38ed@12415",
+        "31bbf4c9-32b2-4c56-9d53-c2c240da38ed@cd7a6",
+        "31bbf4c9-32b2-4c56-9d53-c2c240da38ed@f01eb",
+        "31bbf4c9-32b2-4c56-9d53-c2c240da38ed@4fcb0",
+        "31bbf4c9-32b2-4c56-9d53-c2c240da38ed@9e81c",
+        "31bbf4c9-32b2-4c56-9d53-c2c240da38ed@9bd98",
+        "31bbf4c9-32b2-4c56-9d53-c2c240da38ed@4e189",
+        "31bbf4c9-32b2-4c56-9d53-c2c240da38ed@70ab4",
+        "31bbf4c9-32b2-4c56-9d53-c2c240da38ed@62a2d",
+        "31bbf4c9-32b2-4c56-9d53-c2c240da38ed@cb0bf"
+      ],
+      "skeletons": [],
+      "textures": [
+        "31bbf4c9-32b2-4c56-9d53-c2c240da38ed@5d580"
+      ],
+      "materials": [
+        "3b9d6321-32ec-41b5-96bc-34236c463965",
+        "29785d27-a7b1-4546-850c-54a7ddb32d81",
+        "2aaaccab-835d-45ac-b415-0566d3f634a6",
+        "f8c0960c-597f-4a8a-96cd-13a1e45ae692",
+        "6b19cdc8-a25d-4627-b48e-a695449b9cf5",
+        "da1ed853-1471-46b2-b5d5-3fb8e6c70eea",
+        "1600113e-6a1a-4022-8ae0-7f8aa47a5c08",
+        "94d55bcc-fbfc-429d-8056-aef0a1b7aad1"
+      ],
+      "scenes": [
+        "31bbf4c9-32b2-4c56-9d53-c2c240da38ed@12fd9"
+      ]
+    },
+    "dumpMaterials": true
+  }
+}

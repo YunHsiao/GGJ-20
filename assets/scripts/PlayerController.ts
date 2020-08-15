@@ -67,6 +67,7 @@ export class PlayerController extends Component {
             if (Array.isArray(jsonObj.json)) {
                 jsonObj.json.forEach((adData: Advertisement) => {
                     let ad: Advertisement = new Advertisement();
+                    ad.index = adData.index;
                     ad.price = adData.price;
                     ad.range = adData.range;
                     ad.range = adData.range;

@@ -1,15 +1,18 @@
 [
     {
+        "index": 0,
         "price": 10,
         "range": 10,
         "attraction": 10
     },
     {
+        "index": 1,
         "price": 10,
         "range": 20,
         "attraction": 10
     },
     {
+        "index": 2,
         "price": 100,
         "range": 50,
         "attraction": 50

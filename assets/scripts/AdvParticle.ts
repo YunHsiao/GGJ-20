@@ -29,6 +29,6 @@ export class AdvParticle extends Component {
 
     play () {
         this.particles.forEach(x => x.play());
-        this.animation.play();
+        if (this.animation) this.animation.play();
     }
 }

@@ -64,6 +64,12 @@
     "advertiseParticlePrfb": {
       "__uuid__": "9cdfdbec-ab21-4ce1-a1de-d6ceb50acdd8"
     },
+    "advertiseParticlePrfbPaper": {
+      "__uuid__": "b7424289-d774-4aa2-a124-6a3ee79ad202"
+    },
+    "advertiseParticlePrfbAirship": {
+      "__uuid__": "ad232d56-8c61-460a-bbe9-8c27cc39f4de"
+    },
     "_id": ""
   },
   {

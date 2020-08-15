@@ -16,7 +16,7 @@ enum CustomerStates {
     ROAMING,
     HOOKED,
     DEAL,
-    RIPPED_OFF,
+    BEWILDERED,
 }
 
 @ccclass('CustomerController')
@@ -128,8 +128,14 @@ export class CustomerController extends Component {
 
             break;
         case CustomerStates.DEAL:
+        case CustomerStates.BEWILDERED:
             break;
         }
+    }
+
+    bewildered () {
+        this.state = CustomerStates.BEWILDERED;
+        this.animComp.play('Root|Idle');
     }
 
     addAttraction(value: number) {
@@ -151,6 +157,7 @@ export class CustomerController extends Component {
             }
             break;
         case CustomerStates.DEAL:
+        case CustomerStates.BEWILDERED:
             break;
         }
     }

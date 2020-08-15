@@ -28,6 +28,9 @@ export class GameManager extends Component {
     private _companySuitInst: CompanySuit = null;
     private _customerBought: number = 0;
     private _gameWinCount: number = 0.8;
+    private _gameOver = false;
+
+
     private static _instance: GameManager;
 
     public static get Instance (): GameManager {
@@ -104,6 +107,11 @@ export class GameManager extends Component {
     update (deltaTime: number) {
         // Your update function goes here.
         this.falloffAllCustomers(-gameDefines.fallofSpeed * deltaTime);
+        // game over
+        if (this.gameProgress.progress >= 0.01 && !this._gameOver) {
+            this._gameOver = true;
+            this._companySuitInst.bailOut(() => this._customers.forEach((customer) => customer.bewildered()));
+        }
     }
 
     onCustomBuyProduction(customer: CustomerController) {

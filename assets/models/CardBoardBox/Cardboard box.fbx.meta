@@ -1,0 +1,108 @@
+{
+  "ver": "1.3.21",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "c68a88b4-f763-42b5-94bb-952b85876172",
+  "files": [],
+  "subMetas": {
+    "b8162": {
+      "importer": "gltf-mesh",
+      "uuid": "c68a88b4-f763-42b5-94bb-952b85876172@b8162",
+      "displayName": "",
+      "id": "b8162",
+      "name": "pCube1.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "a3c48": {
+      "importer": "gltf-embeded-image",
+      "uuid": "c68a88b4-f763-42b5-94bb-952b85876172@a3c48",
+      "displayName": "",
+      "id": "a3c48",
+      "name": "6857659-light-brown-wallpaper.jpg.image",
+      "ver": "1.0.2",
+      "imported": true,
+      "files": [
+        ".jpg",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "d20e9": {
+      "importer": "texture",
+      "uuid": "c68a88b4-f763-42b5-94bb-952b85876172@d20e9",
+      "displayName": "",
+      "id": "d20e9",
+      "name": "file1.texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "c68a88b4-f763-42b5-94bb-952b85876172@a3c48"
+      }
+    },
+    "b9add": {
+      "importer": "gltf-scene",
+      "uuid": "c68a88b4-f763-42b5-94bb-952b85876172@b9add",
+      "displayName": "",
+      "id": "b9add",
+      "name": "Cardboard box.prefab",
+      "ver": "1.0.11",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "6857659-light-brown-wallpaper.jpg",
+        "uri": "c68a88b4-f763-42b5-94bb-952b85876172@a3c48"
+      }
+    ],
+    "redirect": "c68a88b4-f763-42b5-94bb-952b85876172@b9add",
+    "assetFinder": {
+      "meshes": [
+        "c68a88b4-f763-42b5-94bb-952b85876172@b8162"
+      ],
+      "skeletons": [],
+      "textures": [
+        "c68a88b4-f763-42b5-94bb-952b85876172@d20e9"
+      ],
+      "materials": [
+        "8c993090-c89a-4cfe-9d0e-0fe4bdaf3774"
+      ],
+      "scenes": [
+        "c68a88b4-f763-42b5-94bb-952b85876172@b9add"
+      ]
+    },
+    "dumpMaterials": true
+  }
+}

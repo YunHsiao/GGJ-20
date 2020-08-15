@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, SkeletalAnimationComponent, AnimationClip, AnimationComponent, AnimationState, Vec3, Quat } from 'cc';
+import { _decorator, Component, Node, SkeletalAnimationComponent, AnimationClip, AnimationComponent, AnimationState, Vec3, Quat, SkinningModelComponent, ModelComponent, Color } from 'cc';
 const { ccclass, property } = _decorator;
 
 const dir = new Vec3();
@@ -12,25 +12,40 @@ export class CompanySuit extends Component {
     _interactFinished = true;
     _targetRotation = new Quat();
     _rotationLerpCountDown = 1;
+    _reactionFn: Function;
 
     start () {
         this.animComp = this.node.getComponent(SkeletalAnimationComponent);
         this.animComp.getState('Root|Interact_standing').wrapMode = AnimationClip.WrapMode.Normal;
+        this.animComp.getState('Root|Interact_ground').wrapMode = AnimationClip.WrapMode.Normal;
         this.animComp.on(AnimationComponent.EventType.FINISHED, (type: AnimationComponent.EventType, state: AnimationState) => {
-            if (!this._interactFinished && state.name === 'Root|Interact_standing') {
-                this.animComp.crossFade('Root|Idle');
-                this._interactFinished = true;
+            if (state.name === 'Root|Interact_standing') {
+                if (!this._interactFinished) {
+                    this.animComp.crossFade('Root|Idle');
+                    this._interactFinished = true;
+                }
+            } else if (state.name === 'Root|Interact_ground') {
+                this.getComponentInChildren(SkinningModelComponent).enabled = false;
+                this.node.getChildByName('Shadow').getComponent(ModelComponent).material.setProperty('mainColor', Color.BLACK);
+                this.node.scene.getChildByName('ParcelDispenser').active = true;
+                this._reactionFn();
             }
         });
     }
 
     handWaving (position: Vec3) {
+        if (this._reactionFn) return;
         this._rotationLerpCountDown = 2;
         Quat.fromViewUp(this._targetRotation, Vec3.normalize(dir, position));
         if (this._interactFinished) {
             this.animComp.crossFade('Root|Interact_standing');
             this._interactFinished = false;
         }
+    }
+
+    bailOut (cb: Function) {
+        this.animComp.crossFade('Root|Interact_ground');
+        this._reactionFn = cb;
     }
 
     update (dt: number) {

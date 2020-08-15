@@ -4,9 +4,30 @@
   "_objFlags": 0,
   "_native": "",
   "_effectAsset": {
-    "__uuid__": "1baf0fc9-befa-459c-8bdd-af1a450a0319"
+    "__uuid__": "af72ffda-5d52-467e-a894-2efd86acfde2"
   },
   "_techIdx": 0,
-  "_defines": [],
-  "_props": []
+  "_defines": [
+    {
+      "USE_INSTANCING": true
+    }
+  ],
+  "_states": [
+    {
+      "blendState": {
+        "targets": [
+          {}
+        ]
+      },
+      "depthStencilState": {},
+      "rasterizerState": {}
+    }
+  ],
+  "_props": [
+    {
+      "mainTexture": {
+        "__uuid__": "ea3ee3aa-7d87-49a5-a6bd-16895292cd32@6c48a"
+      }
+    }
+  ]
 }

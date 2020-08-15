@@ -25,6 +25,7 @@ export class CustomerController extends Component {
     public onBuyProduction: Function;
 
     animComp: SkeletalAnimationComponent = null;
+    moodBillBoard: ModelComponent = null;
     model: ModelComponent = null;
 
     state = CustomerStates.IDLE;
@@ -42,6 +43,10 @@ export class CustomerController extends Component {
         this.customerData = new Customer();
         this.animComp = this.node.getComponent(SkeletalAnimationComponent);
         this.model = this.node.getComponentInChildren(SkinningModelComponent);
+        this.moodBillBoard = this.node.getChildByName('mood').getComponent(ModelComponent);
+        this.moodBillBoard.setInstancedAttribute('a_tiling_offset', [1, 1, 0, 0]);
+        this.moodBillBoard.enabled = false;
+
         const tilingOffset = [1 / textureCounts[0], 1 / textureCounts[1]];
         tilingOffset.push(randomRangeInt(0, textureCounts[0]) * tilingOffset[0]);
         tilingOffset.push(randomRangeInt(0, textureCounts[1]) * tilingOffset[1]);

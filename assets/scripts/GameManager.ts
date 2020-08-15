@@ -24,6 +24,8 @@ export class GameManager extends Component {
     start () {
         this._groundNode = this.node.scene.getChildByName('Ground');
         this.playerCtrl.onDropAd = this.onDropAd.bind(this);
+        this.playerCtrl.onAddPrice = this.onAddPrice.bind(this);
+        this.playerCtrl.onSubPrice = this.onSubPrice.bind(this);
         // Your initialization goes here.
         this.initCustomers();
     }
@@ -38,7 +40,7 @@ export class GameManager extends Component {
         }
     }
 
-    onDropAd(hitPos: Vec3, ad: AdvertisementController) {
+    onDropAd (hitPos: Vec3, ad: AdvertisementController) {
         this._customers.forEach((customer) => {
             Vec3.subtract(tempVec3, hitPos, customer.node.getWorldPosition());
             const dist = tempVec3.length();
@@ -61,5 +63,13 @@ export class GameManager extends Component {
             this.falloffAllCustomers(-gameDefines.fallofSpeed);
             this._curFalloffTime = 0;
         }
+    }
+
+    onAddPrice () {
+        this.falloffAllCustomers(-30);
+    }
+
+    onSubPrice () {
+        this.falloffAllCustomers(40);
     }
 }

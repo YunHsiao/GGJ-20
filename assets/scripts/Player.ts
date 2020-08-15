@@ -1,7 +1,7 @@
 import { Production } from "./Production";
 
 export class Player {
-    public money: number = 0;
+    public money: number = 2000;
     public production: Production;
 
     constructor() {

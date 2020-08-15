@@ -24,6 +24,8 @@ export class GameManager extends Component {
     start () {
         this._groundNode = this.node.scene.getChildByName('Ground');
         this.playerCtrl.onDropAd = this.onDropAd.bind(this);
+        this.playerCtrl.onAddPrice = this.onAddPrice.bind(this);
+        this.playerCtrl.onSubPrice = this.onSubPrice.bind(this);
         // Your initialization goes here.
         this.initCustomers();
     }
@@ -91,5 +93,13 @@ export class GameManager extends Component {
         if (count >= 0) {
             this.playerCtrl.playerData.production.count = count;
         }
+    }
+
+    onAddPrice (){
+        this.falloffAllCustomers(-30);
+    }
+
+    onSubPrice (){
+        this.falloffAllCustomers(40);
     }
 }

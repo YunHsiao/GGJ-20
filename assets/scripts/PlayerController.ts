@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, geometry, CameraComponent, systemEvent, SystemEvent, EventMouse, ModelComponent, Vec3, PhysicsSystem, sys, Prefab, instantiate, director, loader, JsonAsset } from 'cc';
+import { _decorator, Component, Node, geometry, CameraComponent, systemEvent, SystemEvent, EventMouse, ModelComponent, Vec3, PhysicsSystem, sys, Prefab, instantiate, director, loader, JsonAsset, LabelComponent } from 'cc';
 import { Player } from './Player';
 import { AdvertisementController } from './AdvertisementController';
 import { Advertisement } from './Advertisement';
@@ -16,6 +16,13 @@ export class PlayerController extends Component {
     public advertisementPrfb: Prefab = null;
     public playerData: Player;
 
+    @property({type: LabelComponent})
+    public customMoneyTips: LabelComponent = null;
+    @property({type: LabelComponent})
+    public customProductionPriceTips: LabelComponent = null;
+    @property({type: LabelComponent})
+    public customProductionCountTips: LabelComponent = null;
+
     private _cameraNode: Node;
     private _cameraComp: CameraComponent;
     private _groundNode: Node;
@@ -27,6 +34,8 @@ export class PlayerController extends Component {
 
     // event
     public onDropAd: Function;
+    public onAddPrice: Function;
+    public onSubPrice: Function;
 
     start () {
         this.playerData = new Player();
@@ -44,6 +53,8 @@ export class PlayerController extends Component {
         systemEvent.on(SystemEvent.EventType.MOUSE_DOWN, this.onMouseDown.bind(this));
         systemEvent.on(SystemEvent.EventType.MOUSE_MOVE, this.onMouseMove.bind(this));
         systemEvent.on(SystemEvent.EventType.MOUSE_UP, this.onMouseUp.bind(this));
+
+        this.updateUITips();
     }
 
     initAd() {
@@ -71,7 +82,6 @@ export class PlayerController extends Component {
 
     update (deltaTime: number) {
         // Your update function goes here.
-
     }
 
     raycastHitGround(mouseEvent: EventMouse, callBack: Function) {
@@ -123,4 +133,39 @@ export class PlayerController extends Component {
             })
         }
     }
+
+    updateUITips () {
+        this.customMoneyTips.string = '' + this.playerData.money;
+        this.customProductionPriceTips.string =  '' + this.playerData.production.price;
+        this.customProductionCountTips.string =  '' + this.playerData.production.count;
+    }
+
+    addProduction () {
+        if (this.playerData.money > this.playerData.production.price) {
+            this.playerData.money -= this.playerData.production.price;
+            this.playerData.production.count ++;
+            this.updateUITips();
+        } else {
+            // ni mei le
+            //window.close();
+            console.log('111111111');
+        }
+    }
+
+    addPrice () {
+        this.playerData.production.price += 100;
+        if (this.onAddPrice) {
+            this.onAddPrice();
+        }
+        this.updateUITips();
+    }
+
+    subPrice () {
+        this.playerData.production.price -= 100;
+        if (this.onSubPrice) {
+            this.onSubPrice();
+        }
+        this.updateUITips();
+    }
+
 }

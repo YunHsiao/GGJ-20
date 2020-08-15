@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Prefab, instantiate, Vec3, randomRange } from 'cc';
+import { _decorator, Component, Node, Prefab, instantiate, Vec3, randomRange, ProgressBarComponent } from 'cc';
 import { PlayerController } from './PlayerController';
 import { AdvertisementController } from './AdvertisementController';
 import { CustomerController } from './CustomerController';
@@ -18,12 +18,16 @@ export class GameManager extends Component {
     public companySuit: Prefab = null;
     @property
     customerCount = 10;
+    @property({type: ProgressBarComponent})
+    gameProgress: ProgressBarComponent = null;
 
     private _customers: CustomerController[] = [];
     private _groundNode: Node;
     private _falloffInterval: number = 1;
     private _curFalloffTime: number = 0;
     private _companySuitInst: CompanySuit = null;
+    private _customerBought: number = 0;
+    private _gameWinCount: number = 0.8;
     private static _instance: GameManager;
 
     public static get Instance (): GameManager {
@@ -43,6 +47,7 @@ export class GameManager extends Component {
         const companySuitNode = instantiate(this.companySuit);
         companySuitNode.parent = this.node;
         this._companySuitInst = companySuitNode.getComponent(CompanySuit);
+        this.gameProgress.progress = 0;
     }
 
     initCustomers() {
@@ -105,6 +110,8 @@ export class GameManager extends Component {
         let count = this.playerCtrl.playerData.production.count - 1;
         if (count >= 0) {
             this.playerCtrl.playerData.production.count = count;
+            this._customerBought++;
+            this.gameProgress.progress = this._customerBought / (this.customerCount * this._gameWinCount);
             // let profit = this.playerCtrl.playerData.production.price - this.playerCtrl.playerData.production.cost;
             this.playerCtrl.playerData.money += this.playerCtrl.playerData.production.price;
             this.playerCtrl.updateUITips();

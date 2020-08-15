@@ -1,0 +1,75 @@
+{
+  "ver": "1.3.21",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "0a9af7a0-c066-454a-a709-b1e46e7a29e6",
+  "files": [],
+  "subMetas": {
+    "d2ee7": {
+      "importer": "gltf-mesh",
+      "uuid": "0a9af7a0-c066-454a-a709-b1e46e7a29e6@d2ee7",
+      "displayName": "",
+      "id": "d2ee7",
+      "name": "glassesRound.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "ee117": {
+      "importer": "gltf-material",
+      "uuid": "0a9af7a0-c066-454a-a709-b1e46e7a29e6@ee117",
+      "displayName": "",
+      "id": "ee117",
+      "name": "Blue 3.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "3ba77": {
+      "importer": "gltf-scene",
+      "uuid": "0a9af7a0-c066-454a-a709-b1e46e7a29e6@3ba77",
+      "displayName": "",
+      "id": "3ba77",
+      "name": "glassesRound.prefab",
+      "ver": "1.0.11",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "0a9af7a0-c066-454a-a709-b1e46e7a29e6@3ba77",
+    "assetFinder": {
+      "meshes": [
+        "0a9af7a0-c066-454a-a709-b1e46e7a29e6@d2ee7"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "0a9af7a0-c066-454a-a709-b1e46e7a29e6@ee117"
+      ],
+      "scenes": [
+        "0a9af7a0-c066-454a-a709-b1e46e7a29e6@3ba77"
+      ]
+    }
+  }
+}

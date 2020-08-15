@@ -1,0 +1,114 @@
+{
+  "ver": "1.3.21",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "54fbe8d1-fe00-4536-9442-8cad1eed4abc",
+  "files": [],
+  "subMetas": {
+    "75362": {
+      "importer": "gltf-animation",
+      "uuid": "54fbe8d1-fe00-4536-9442-8cad1eed4abc@75362",
+      "displayName": "",
+      "id": "75362",
+      "name": "Root|Punch.animation",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 1,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.7916666865348816
+        },
+        "events": []
+      }
+    },
+    "adecc": {
+      "importer": "gltf-animation",
+      "uuid": "54fbe8d1-fe00-4536-9442-8cad1eed4abc@adecc",
+      "displayName": "",
+      "id": "adecc",
+      "name": "Root|0.Targeting Pose.animation",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0
+        },
+        "events": []
+      }
+    },
+    "02df7": {
+      "importer": "gltf-scene",
+      "uuid": "54fbe8d1-fe00-4536-9442-8cad1eed4abc@02df7",
+      "displayName": "",
+      "id": "02df7",
+      "name": "punch.prefab",
+      "ver": "1.0.11",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "animationImportSettings": [
+      {
+        "name": "Root|0.Targeting Pose",
+        "duration": 0,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Root|0.Targeting Pose",
+            "from": 0,
+            "to": 0,
+            "wrapMode": 2
+          }
+        ]
+      },
+      {
+        "name": "Root|Punch",
+        "duration": 0.7916666865348816,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Root|Punch",
+            "from": 0,
+            "to": 0.7916666865348816,
+            "wrapMode": 2
+          }
+        ]
+      }
+    ],
+    "redirect": "54fbe8d1-fe00-4536-9442-8cad1eed4abc@02df7",
+    "assetFinder": {
+      "meshes": [],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "54fbe8d1-fe00-4536-9442-8cad1eed4abc@02df7"
+      ]
+    }
+  }
+}

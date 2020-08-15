@@ -1,0 +1,40 @@
+{
+  "ver": "1.0.18",
+  "importer": "image",
+  "imported": true,
+  "uuid": "02607a0c-46b3-4e07-ab5a-aa09633d9a3e",
+  "files": [
+    ".png",
+    ".json"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "02607a0c-46b3-4e07-ab5a-aa09633d9a3e@6c48a",
+      "displayName": "alienA",
+      "id": "6c48a",
+      "name": "texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "02607a0c-46b3-4e07-ab5a-aa09633d9a3e"
+      }
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "redirect": "02607a0c-46b3-4e07-ab5a-aa09633d9a3e@6c48a"
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "ver": "1.3.21",
+  "importer": "gltf",
+  "imported": true,
+  "uuid": "cb747a90-9183-4a03-a59b-0f522289eb77",
+  "files": [],
+  "subMetas": {
+    "bcca5": {
+      "importer": "gltf-mesh",
+      "uuid": "cb747a90-9183-4a03-a59b-0f522289eb77@bcca5",
+      "displayName": "",
+      "id": "bcca5",
+      "name": "UnnamedMesh.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "438fe": {
+      "importer": "gltf-skeleton",
+      "uuid": "cb747a90-9183-4a03-a59b-0f522289eb77@438fe",
+      "displayName": "",
+      "id": "438fe",
+      "name": "UnnamedSkeleton.skeleton",
+      "ver": "1.0.1",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0,
+        "jointsLength": 45
+      }
+    },
+    "dc44b": {
+      "importer": "gltf-material",
+      "uuid": "cb747a90-9183-4a03-a59b-0f522289eb77@dc44b",
+      "displayName": "",
+      "id": "dc44b",
+      "name": "skin.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "9d5eb": {
+      "importer": "gltf-scene",
+      "uuid": "cb747a90-9183-4a03-a59b-0f522289eb77@9d5eb",
+      "displayName": "",
+      "id": "9d5eb",
+      "name": "character.prefab",
+      "ver": "1.0.11",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "cb747a90-9183-4a03-a59b-0f522289eb77@9d5eb",
+    "assetFinder": {
+      "meshes": [
+        "cb747a90-9183-4a03-a59b-0f522289eb77@bcca5"
+      ],
+      "skeletons": [
+        "cb747a90-9183-4a03-a59b-0f522289eb77@438fe"
+      ],
+      "textures": [],
+      "materials": [
+        "cb747a90-9183-4a03-a59b-0f522289eb77@dc44b"
+      ],
+      "scenes": [
+        "cb747a90-9183-4a03-a59b-0f522289eb77@9d5eb"
+      ]
+    }
+  }
+}

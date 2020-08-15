@@ -1,0 +1,109 @@
+{
+  "ver": "1.3.21",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "ac9994fc-533e-4f96-b562-8e71235da5de",
+  "files": [],
+  "subMetas": {
+    "aa9a6": {
+      "importer": "gltf-mesh",
+      "uuid": "ac9994fc-533e-4f96-b562-8e71235da5de@aa9a6",
+      "displayName": "",
+      "id": "aa9a6",
+      "name": "astroGun.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "2351a": {
+      "importer": "gltf-material",
+      "uuid": "ac9994fc-533e-4f96-b562-8e71235da5de@2351a",
+      "displayName": "",
+      "id": "2351a",
+      "name": "Steel 3.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "f0803": {
+      "importer": "gltf-material",
+      "uuid": "ac9994fc-533e-4f96-b562-8e71235da5de@f0803",
+      "displayName": "",
+      "id": "f0803",
+      "name": "Orange 2.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 1
+      }
+    },
+    "e2ede": {
+      "importer": "gltf-material",
+      "uuid": "ac9994fc-533e-4f96-b562-8e71235da5de@e2ede",
+      "displayName": "",
+      "id": "e2ede",
+      "name": "Steel 4.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 2
+      }
+    },
+    "82b73": {
+      "importer": "gltf-scene",
+      "uuid": "ac9994fc-533e-4f96-b562-8e71235da5de@82b73",
+      "displayName": "",
+      "id": "82b73",
+      "name": "astroGun.prefab",
+      "ver": "1.0.11",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "ac9994fc-533e-4f96-b562-8e71235da5de@82b73",
+    "assetFinder": {
+      "meshes": [
+        "ac9994fc-533e-4f96-b562-8e71235da5de@aa9a6"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "ac9994fc-533e-4f96-b562-8e71235da5de@2351a",
+        "ac9994fc-533e-4f96-b562-8e71235da5de@f0803",
+        "ac9994fc-533e-4f96-b562-8e71235da5de@e2ede"
+      ],
+      "scenes": [
+        "ac9994fc-533e-4f96-b562-8e71235da5de@82b73"
+      ]
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "ver": "1.3.21",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "affc102a-91b4-4fb1-b0fb-a29fe951245f",
+  "files": [],
+  "subMetas": {
+    "84c73": {
+      "importer": "gltf-mesh",
+      "uuid": "affc102a-91b4-4fb1-b0fb-a29fe951245f@84c73",
+      "displayName": "",
+      "id": "84c73",
+      "name": "mouthB.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "dc44b": {
+      "importer": "gltf-material",
+      "uuid": "affc102a-91b4-4fb1-b0fb-a29fe951245f@dc44b",
+      "displayName": "",
+      "id": "dc44b",
+      "name": "skin.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "e727c": {
+      "importer": "gltf-scene",
+      "uuid": "affc102a-91b4-4fb1-b0fb-a29fe951245f@e727c",
+      "displayName": "",
+      "id": "e727c",
+      "name": "mouthB.prefab",
+      "ver": "1.0.11",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "affc102a-91b4-4fb1-b0fb-a29fe951245f@e727c",
+    "assetFinder": {
+      "meshes": [
+        "affc102a-91b4-4fb1-b0fb-a29fe951245f@84c73"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "affc102a-91b4-4fb1-b0fb-a29fe951245f@dc44b"
+      ],
+      "scenes": [
+        "affc102a-91b4-4fb1-b0fb-a29fe951245f@e727c"
+      ]
+    }
+  }
+}

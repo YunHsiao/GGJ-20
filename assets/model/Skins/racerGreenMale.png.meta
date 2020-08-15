@@ -1,0 +1,40 @@
+{
+  "ver": "1.0.18",
+  "importer": "image",
+  "imported": true,
+  "uuid": "f111d2e8-e568-400e-9870-c24a22bb1424",
+  "files": [
+    ".png",
+    ".json"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "f111d2e8-e568-400e-9870-c24a22bb1424@6c48a",
+      "displayName": "racerGreenMale",
+      "id": "6c48a",
+      "name": "texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "f111d2e8-e568-400e-9870-c24a22bb1424"
+      }
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "redirect": "f111d2e8-e568-400e-9870-c24a22bb1424@6c48a"
+  }
+}

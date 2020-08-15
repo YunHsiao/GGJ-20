@@ -1,0 +1,40 @@
+{
+  "ver": "1.0.18",
+  "importer": "image",
+  "imported": true,
+  "uuid": "e18a056c-39ea-4aa4-bc76-4a3098d67813",
+  "files": [
+    ".png",
+    ".json"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "e18a056c-39ea-4aa4-bc76-4a3098d67813@6c48a",
+      "displayName": "militaryFemaleB",
+      "id": "6c48a",
+      "name": "texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "e18a056c-39ea-4aa4-bc76-4a3098d67813"
+      }
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "redirect": "e18a056c-39ea-4aa4-bc76-4a3098d67813@6c48a"
+  }
+}

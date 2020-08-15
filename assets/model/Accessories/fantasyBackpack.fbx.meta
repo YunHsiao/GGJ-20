@@ -1,0 +1,126 @@
+{
+  "ver": "1.3.21",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "b1986423-9471-45cc-8d4c-3ea34caab4e5",
+  "files": [],
+  "subMetas": {
+    "35746": {
+      "importer": "gltf-scene",
+      "uuid": "b1986423-9471-45cc-8d4c-3ea34caab4e5@35746",
+      "displayName": "",
+      "id": "35746",
+      "name": "fantasyBackpack.prefab",
+      "ver": "1.0.11",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "b2bd9": {
+      "importer": "gltf-mesh",
+      "uuid": "b1986423-9471-45cc-8d4c-3ea34caab4e5@b2bd9",
+      "displayName": "",
+      "id": "b2bd9",
+      "name": "fantasyBackPack.mesh",
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".json",
+        ".bin"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "ffa80": {
+      "importer": "gltf-material",
+      "uuid": "b1986423-9471-45cc-8d4c-3ea34caab4e5@ffa80",
+      "displayName": "",
+      "id": "ffa80",
+      "name": "Brown 2.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 0
+      }
+    },
+    "c0e22": {
+      "importer": "gltf-material",
+      "uuid": "b1986423-9471-45cc-8d4c-3ea34caab4e5@c0e22",
+      "displayName": "",
+      "id": "c0e22",
+      "name": "Tan 2.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 1
+      }
+    },
+    "a7187": {
+      "importer": "gltf-material",
+      "uuid": "b1986423-9471-45cc-8d4c-3ea34caab4e5@a7187",
+      "displayName": "",
+      "id": "a7187",
+      "name": "Brown 1.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 2
+      }
+    },
+    "5db72": {
+      "importer": "gltf-material",
+      "uuid": "b1986423-9471-45cc-8d4c-3ea34caab4e5@5db72",
+      "displayName": "",
+      "id": "5db72",
+      "name": "Steel 2.material",
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "gltfIndex": 3
+      }
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "redirect": "b1986423-9471-45cc-8d4c-3ea34caab4e5@35746",
+    "assetFinder": {
+      "meshes": [
+        "b1986423-9471-45cc-8d4c-3ea34caab4e5@b2bd9"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "b1986423-9471-45cc-8d4c-3ea34caab4e5@ffa80",
+        "b1986423-9471-45cc-8d4c-3ea34caab4e5@c0e22",
+        "b1986423-9471-45cc-8d4c-3ea34caab4e5@a7187",
+        "b1986423-9471-45cc-8d4c-3ea34caab4e5@5db72"
+      ],
+      "scenes": [
+        "b1986423-9471-45cc-8d4c-3ea34caab4e5@35746"
+      ]
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "ver": "1.0.18",
+  "importer": "image",
+  "imported": true,
+  "uuid": "d31eb2a4-cc86-4215-a9cb-4e0ae45a336f",
+  "files": [
+    ".png",
+    ".json"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "d31eb2a4-cc86-4215-a9cb-4e0ae45a336f@6c48a",
+      "displayName": "cyborg",
+      "id": "6c48a",
+      "name": "texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "d31eb2a4-cc86-4215-a9cb-4e0ae45a336f"
+      }
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "redirect": "d31eb2a4-cc86-4215-a9cb-4e0ae45a336f@6c48a"
+  }
+}

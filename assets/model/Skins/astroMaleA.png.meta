@@ -1,0 +1,40 @@
+{
+  "ver": "1.0.18",
+  "importer": "image",
+  "imported": true,
+  "uuid": "fb51cafc-9fe1-4b27-a4df-a3a59483e516",
+  "files": [
+    ".png",
+    ".json"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "fb51cafc-9fe1-4b27-a4df-a3a59483e516@6c48a",
+      "displayName": "astroMaleA",
+      "id": "6c48a",
+      "name": "texture",
+      "ver": "1.0.19",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {},
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "premultiplyAlpha": false,
+        "anisotropy": 1,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "fb51cafc-9fe1-4b27-a4df-a3a59483e516"
+      }
+    }
+  },
+  "userData": {
+    "type": "texture",
+    "redirect": "fb51cafc-9fe1-4b27-a4df-a3a59483e516@6c48a"
+  }
+}

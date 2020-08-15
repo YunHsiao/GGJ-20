@@ -141,8 +141,8 @@ export class PlayerController extends Component {
     }
 
     addProduction () {
-        if (this.playerData.money > this.playerData.production.price) {
-            this.playerData.money -= this.playerData.production.price;
+        if (this.playerData.money > this.playerData.production.cost) {
+            this.playerData.money -= this.playerData.production.cost;
             this.playerData.production.count ++;
             this.updateUITips();
         } else {
@@ -153,7 +153,7 @@ export class PlayerController extends Component {
     }
 
     addPrice () {
-        this.playerData.production.price += 100;
+        this.playerData.production.price += this.playerData.production.pricePreGrad;
         if (this.onAddPrice) {
             this.onAddPrice();
         }
@@ -161,7 +161,7 @@ export class PlayerController extends Component {
     }
 
     subPrice () {
-        this.playerData.production.price -= 100;
+        this.playerData.production.price -= this.playerData.production.pricePreGrad;
         if (this.onSubPrice) {
             this.onSubPrice();
         }

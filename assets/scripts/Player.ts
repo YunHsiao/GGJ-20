@@ -5,6 +5,6 @@ export class Player {
     public production: Production;
 
     constructor() {
-        this.production = new Production(10, 10);
+        this.production = new Production(200, 0, 100);
     }
 }

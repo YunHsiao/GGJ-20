@@ -100,15 +100,24 @@ export class GameManager extends Component {
         let count = this.playerCtrl.playerData.production.count - 1;
         if (count >= 0) {
             this.playerCtrl.playerData.production.count = count;
+            // let profit = this.playerCtrl.playerData.production.price - this.playerCtrl.playerData.production.cost;
+            this.playerCtrl.playerData.money += this.playerCtrl.playerData.production.price;
             this.playerCtrl.updateUITips();
         }
     }
 
-    onAddPrice (){
-        this.falloffAllCustomers(-30);
+    onAddPrice () {
+        this.falloffAllCustomers(-20);
     }
 
-    onSubPrice (){
-        this.falloffAllCustomers(40);
+    onSubPrice () {
+        // MAX attraction add is 50
+        let attraction = 0;
+        if (this.playerCtrl.playerData.production.price > (this.playerCtrl.playerData.production.cost / 2) && 
+            this.playerCtrl.playerData.production.price < this.playerCtrl.playerData.production.priceLow) {
+                attraction = 40 / this.playerCtrl.playerData.production.priceStateNum;
+                this.playerCtrl.playerData.production.priceLow = this.playerCtrl.playerData.production.price;
+            }
+        this.falloffAllCustomers(attraction);
     }
 }

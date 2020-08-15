@@ -85,6 +85,7 @@ export class CustomerController extends Component {
             if (len < this.targetDealDistance) {
                 this.state = CustomerStates.DEAL;
                 this.animComp.play('Root|Interact_ground');
+                this.buyProduction();
             }
 
         case CustomerStates.ROAMING:

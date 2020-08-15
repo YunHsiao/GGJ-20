@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Prefab, instantiate, Vec3, randomRange } from 'cc';
+import { _decorator, Component, Node, Prefab, instantiate, Vec3, randomRange, Game } from 'cc';
 import { CustomerController } from './CustomerController';
 import { PlayerController } from './PlayerController';
 import { AdvertisementController } from './AdvertisementController';
@@ -24,6 +24,15 @@ export class GameManager extends Component {
     private _falloffInterval: number = 1;
     private _curFalloffTime: number = 0;
     private _companySuitInst: CompanySuit = null;
+    private static _instance: GameManager;
+
+    public static get Instance (): GameManager {
+        return GameManager._instance;
+    }
+
+    onLoad() {
+        GameManager._instance = this;
+    }
 
     start () {
         this._groundNode = this.node.scene.getChildByName('Ground');
@@ -89,11 +98,7 @@ export class GameManager extends Component {
 
     update (deltaTime: number) {
         // Your update function goes here.
-        this._curFalloffTime += deltaTime;
-        if (this._curFalloffTime > this._falloffInterval) {
-            this.falloffAllCustomers(-gameDefines.fallofSpeed);
-            this._curFalloffTime = 0;
-        }
+        this.falloffAllCustomers(-gameDefines.fallofSpeed * deltaTime);      
     }
 
     onCustomBuyProduction(customer: CustomerController) {
@@ -119,5 +124,9 @@ export class GameManager extends Component {
                 this.playerCtrl.playerData.production.priceLow = this.playerCtrl.playerData.production.price;
             }
         this.falloffAllCustomers(attraction);
+    }
+
+    public queryProductionCount() {
+        return this.playerCtrl.playerData.production.count;
     }
 }

@@ -1,5 +1,6 @@
 import { _decorator, Component, Node, Vec3, ModelComponent, SkinningModelComponent, Quat, SkeletalAnimationComponent, random, randomRangeInt, randomRange, Vec4, Color } from 'cc';
 import { Customer } from './Customer';
+import { GameManager } from './GameManager';
 const { ccclass, property } = _decorator;
 
 const delta = new Vec3();
@@ -141,9 +142,17 @@ export class CustomerController extends Component {
         }
     }
 
-    buyProduction() {
+    buyProduction(): boolean {
+
+        if (GameManager.Instance.queryProductionCount() === 0) {
+            console.log("no production count");
+            return false;
+        }
+        
         if (this.onBuyProduction) {
             this.onBuyProduction(this);
         }
+
+        return true;
     }
 }

@@ -166,7 +166,7 @@
       "__id__": 5
     },
     "_enabled": true,
-    "_projection": 1,
+    "_projection": 0,
     "_priority": 0,
     "_fov": 45,
     "_fovAxis": 0,
@@ -212,7 +212,7 @@
     "moveSpeed": 0.03,
     "scrollSpeed": 1,
     "maxOrtheHeight": 94,
-    "minOrtheHeight": 25,
+    "minOrtheHeight": 5,
     "panMaxPosition": {
       "__type__": "cc.Vec3",
       "x": 40,
@@ -564,9 +564,7 @@
         "__uuid__": "195ac98b-e83c-428a-96dc-3d6296ae0ceb@31163"
       }
     ],
-    "_defaultClip": {
-      "__uuid__": "195ac98b-e83c-428a-96dc-3d6296ae0ceb@31163"
-    },
+    "_defaultClip": null,
     "_useBakedAnimation": true,
     "_sockets": [],
     "_id": "b9LTaGU0lDd6ess1RMbzfC"

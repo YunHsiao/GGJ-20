@@ -1,4 +1,4 @@
-import { _decorator, Component, game, macro, math, systemEvent, SystemEvent, CameraComponent, renderer, Node } from 'cc';
+import { _decorator, Component, game, macro, math, systemEvent, SystemEvent, CameraComponent, renderer, Node, toRadian } from 'cc';
 const { ccclass, property } = _decorator;
 const { Vec2, Vec3, Quat } = math;
 
@@ -44,11 +44,11 @@ export class FirstPersonCamera extends Component {
     _camera: CameraComponent;
 
     public onLoad () {
-        // this is a 45 degress orthe camera.
-        this.node.eulerAngles = new Vec3(-30, 45, 0);
-        let halfSize = this.ground.scale.x / 2;
+        const angle = 30; // the oblique angle
+        this.node.eulerAngles = new Vec3(-angle, 45, 0);
+        let halfSize = this.ground.scale.x * 0.5;
         // set camera's position to ground's corner
-        this._startPosition = this.node.position = new Vec3(halfSize, Math.SQRT2 * halfSize, halfSize);
+        this._startPosition = this.node.position = new Vec3(halfSize, Math.SQRT2 * halfSize * Math.tan(toRadian(angle)), halfSize);
         systemEvent.on(SystemEvent.EventType.MOUSE_WHEEL, this.onMouseWheel, this);
         systemEvent.on(SystemEvent.EventType.TOUCH_START, this.onTouchStart, this);
         systemEvent.on(SystemEvent.EventType.TOUCH_MOVE, this.onTouchMove, this);

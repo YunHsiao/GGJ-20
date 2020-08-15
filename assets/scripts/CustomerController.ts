@@ -18,8 +18,6 @@ export class CustomerController extends Component {
     animComp: SkeletalAnimationComponent = null;
     model: ModelComponent = null;
 
-    chemistry = random();
-
     velocity = new Vec3();
     targetRotation = new Quat();
     rotationLerpCountDown = 1;
@@ -43,14 +41,16 @@ export class CustomerController extends Component {
         this.nextTurn -= deltaTime;
         if (this.nextTurn < 0) {
             this.rotationLerpCountDown = 2.1;
-            this.idle = random() > this.chemistry;
+            this.idle = random() > this.customerData.attraction * 0.01;
             if (this.idle) this.velocity.set(0, 0, 0);
             else this.velocity.set(random() - 0.5, 0, random() - 0.5).normalize();
-            this.animComp.play(this.idle ? 'Root|Idle' : 'Root|Run');
+            if (this.idle) this.animComp.play('Root|Idle');
+            else this.animComp.play(this.customerData.attraction > 20 ? 'Root|Run' : 'Root|Walk');
             this.nextTurn = randomRange(0, 3);
         }
+
         const pos = this.node.position;
-        Vec3.add(delta, pos, Vec3.multiplyScalar(delta, this.velocity, deltaTime * 5 * (this.chemistry * 3 + 1)));
+        Vec3.add(delta, pos, Vec3.multiplyScalar(delta, this.velocity, deltaTime * 5 * (this.customerData.attraction * 0.03 + 1)));
         if      (delta.x < -this.radius) this.velocity.x =  Math.abs(this.velocity.x), this.rotationLerpCountDown = 2.1;
         else if (delta.x >  this.radius) this.velocity.x = -Math.abs(this.velocity.x), this.rotationLerpCountDown = 2.1;
         if      (delta.y < -this.radius) this.velocity.y =  Math.abs(this.velocity.y), this.rotationLerpCountDown = 2.1;

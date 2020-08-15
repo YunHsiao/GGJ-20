@@ -44,7 +44,7 @@ export class FirstPersonCamera extends Component {
 
     public onLoad () {
         // this is a 45 degress orthe camera.
-        this.node.eulerAngles = new Vec3(-45, 45, 0);
+        this.node.eulerAngles = new Vec3(-30, 45, 0);
         let halfSize = this.ground.scale.x / 2;
         // set camera's position to ground's corner
         this._startPosition = this.node.position = new Vec3(halfSize, Math.SQRT2 * halfSize, halfSize);

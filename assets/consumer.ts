@@ -30,19 +30,23 @@ export class Consumer extends Component {
 
     update (deltaTime: number) {
         this.nextTurn -= deltaTime;
+        let needRotationUpdate = false;
         if (this.nextTurn < 0) {
+            needRotationUpdate = true;
             this.velocity.set(Math.random() - 0.5, 0, Math.random() - 0.5).normalize().multiplyScalar(Math.random());
-            this._updateRotation();
             this.nextTurn = Math.random() * 10;
         }
         const pos = this.node.position;
         Vec3.add(delta, pos, Vec3.multiplyScalar(delta, this.velocity, deltaTime * 5));
-        let needRotationUpdate = false;
-        if (delta.x < -this.radius || delta.x > this.radius) this.velocity.x = -this.velocity.x, needRotationUpdate = true;
-        if (delta.y < -this.radius || delta.y > this.radius) this.velocity.y = -this.velocity.y, needRotationUpdate = true;
-        if (delta.z < -this.radius || delta.z > this.radius) this.velocity.z = -this.velocity.z, needRotationUpdate = true;
-        if (needRotationUpdate) this._updateRotation();
+        if (delta.x < -this.radius) this.velocity.x = Math.abs(this.velocity.x), needRotationUpdate = true;
+        if (delta.y < -this.radius) this.velocity.y = Math.abs(this.velocity.y), needRotationUpdate = true;
+        if (delta.z < -this.radius) this.velocity.z = Math.abs(this.velocity.z), needRotationUpdate = true;
+        if (delta.x > this.radius) this.velocity.x = -Math.abs(this.velocity.x), needRotationUpdate = true;
+        if (delta.y > this.radius) this.velocity.y = -Math.abs(this.velocity.y), needRotationUpdate = true;
+        if (delta.z > this.radius) this.velocity.z = -Math.abs(this.velocity.z), needRotationUpdate = true;
         this.node.setPosition(delta);
+
+        if (needRotationUpdate) this._updateRotation();
     }
 
     _updateRotation () {

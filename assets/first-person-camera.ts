@@ -1,4 +1,4 @@
-import { _decorator, Component, game, macro, math, systemEvent, SystemEvent } from 'cc';
+import { _decorator, Component, game, macro, math, systemEvent, SystemEvent, CameraComponent, renderer } from 'cc';
 const { ccclass, property } = _decorator;
 const { Vec2, Vec3, Quat } = math;
 
@@ -36,6 +36,8 @@ export class FirstPersonCamera extends Component {
     public _position = new Vec3();
     public _speedScale = 1;
 
+    _camera: CameraComponent;
+
     public onLoad () {
         systemEvent.on(SystemEvent.EventType.MOUSE_WHEEL, this.onMouseWheel, this);
         systemEvent.on(SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
@@ -45,6 +47,7 @@ export class FirstPersonCamera extends Component {
         systemEvent.on(SystemEvent.EventType.TOUCH_END, this.onTouchEnd, this);
         Vec3.copy(this._euler, this.node.eulerAngles);
         Vec3.copy(this._position, this.node.position);
+        this._camera = this.node.getComponent(CameraComponent);
     }
 
     public onDestroy () {
@@ -70,8 +73,12 @@ export class FirstPersonCamera extends Component {
 
     public onMouseWheel (e) {
         const delta = -e.getScrollY() * this.moveSpeed * 0.1; // delta is positive when scroll down
-        Vec3.transformQuat(v3_1, Vec3.UNIT_Z, this.node.rotation);
-        Vec3.scaleAndAdd(this._position, this.node.position, v3_1, delta);
+        if (this._camera.projection === renderer.CameraProjection.PERSPECTIVE) {
+            Vec3.transformQuat(v3_1, Vec3.UNIT_Z, this.node.rotation);
+            Vec3.scaleAndAdd(this._position, this.node.position, v3_1, delta);
+        } else {
+            this._camera.orthoHeight += delta * 0.1;
+        }
     }
 
     public onKeyDown (e) {

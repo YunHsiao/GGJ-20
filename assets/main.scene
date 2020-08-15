@@ -600,7 +600,7 @@
     "node": {
       "__id__": 8
     },
-    "_enabled": true,
+    "_enabled": false,
     "_materials": [
       {
         "__uuid__": "5091bea1-4c3c-4ee7-ba62-eff23de2fbbe"

@@ -26,7 +26,7 @@ export class Consumer extends Component {
         this.animComp = this.node.getComponent(SkeletalAnimationComponent);
         this.model = this.node.getComponentInChildren(SkinningModelComponent);
         const tilingOffset = [1 / textureCounts[0], 1 / textureCounts[1]];
-        tilingOffset.push(randomRangeInt(0, textureCounts[0] - 2) * tilingOffset[0]);
+        tilingOffset.push(randomRangeInt(0, textureCounts[0]) * tilingOffset[0]);
         tilingOffset.push(randomRangeInt(0, textureCounts[1]) * tilingOffset[1]);
         this.model.setInstancedAttribute('a_tiling_offset', tilingOffset);
         this.radius = this.node.scene.getChildByName('Ground').scale.x * 0.5;

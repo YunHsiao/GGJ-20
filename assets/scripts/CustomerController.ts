@@ -6,12 +6,12 @@ const delta = new Vec3();
 const view = new Vec3();
 const rot = new Quat();
 
-const textureCounts = [2, 4];
+const textureCounts = [8, 7];
 
 @ccclass('CustomerController')
 export class CustomerController extends Component {
     public customerData: Customer;
-    
+
     animComp: SkeletalAnimationComponent = null;
     model: ModelComponent = null;
 

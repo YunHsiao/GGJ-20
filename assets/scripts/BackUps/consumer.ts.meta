@@ -2,7 +2,7 @@
   "ver": "2.0.14",
   "importer": "typescript",
   "imported": true,
-  "uuid": "2941479c-f30e-4e21-9a66-9830316c1234",
+  "uuid": "ad5a30b0-8e59-4aec-8b0c-1a95fb3f0e01",
   "files": [
     ".js",
     ".trans"
@@ -10,6 +10,6 @@
   "subMetas": {},
   "userData": {
     "importAsPlugin": false,
-    "moduleId": "project:///assets/crowd.js"
+    "moduleId": "project:///assets/scripts/BackUps/consumer.js"
   }
 }

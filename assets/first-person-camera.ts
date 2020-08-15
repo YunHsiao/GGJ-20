@@ -96,8 +96,9 @@ export class FirstPersonCamera extends Component {
         e.getStartLocation(v2_1);
         e.getLocation(v2_2);
         Vec2.subtract(v2_2, v2_2, this._startTouchPoint);
-        this._panOffset.x += -v2_2.x * this.moveSpeed;
-        this._panOffset.y += -v2_2.y * this.moveSpeed;
+        const ortheHeightScale = this._camera.orthoHeight / this.maxOrtheHeight;
+        this._panOffset.x += -v2_2.x * this.moveSpeed * ortheHeightScale;
+        this._panOffset.y += -v2_2.y * this.moveSpeed * ortheHeightScale;
         //}
     }
 

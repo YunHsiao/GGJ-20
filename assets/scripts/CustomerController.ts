@@ -6,7 +6,7 @@ const delta = new Vec3();
 const view = new Vec3();
 const rot = new Quat();
 
-const textureCounts = [8, 7];
+export const textureCounts = [8, 7];
 
 const color = new Color();
 const colorArray = [0.4, 0.4, 0.4, 1];
@@ -17,6 +17,7 @@ enum CustomerStates {
     ROAMING,
     HOOKED,
     DEAL,
+    RIPPED_OFF,
 }
 
 @ccclass('CustomerController')

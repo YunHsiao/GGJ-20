@@ -398,6 +398,9 @@
     "customerPrfb": {
       "__uuid__": "cbddac86-9cc6-4ea4-b90d-733dfb19ce29"
     },
+    "companySuit": {
+      "__uuid__": "78b04f17-cf32-43a5-bcef-fc1073ae94c9"
+    },
     "customerCount": 1000,
     "_id": "adHJSNZ1tJzqj8XNLKWefo"
   },
@@ -3521,7 +3524,7 @@
     },
     "fileId": "8drBGajTpHNYOZPstIDlpw",
     "sync": false,
-    "_synced": true
+    "_synced": {}
   },
   {
     "__type__": "cc.Node",

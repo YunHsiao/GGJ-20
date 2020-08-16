@@ -1,4 +1,4 @@
-import { _decorator, Component, Vec3, ModelComponent, SkinningModelComponent, Quat, SkeletalAnimationComponent, random, randomRangeInt, randomRange } from 'cc';
+import { _decorator, Component, Vec3, ModelComponent, SkinningModelComponent, Quat, SkeletalAnimationComponent, random, randomRangeInt, randomRange, Node } from 'cc';
 import { Customer } from './Customer';
 import { GameManager } from './GameManager';
 import { ClipIndex, AudioManager } from './AudioManager';
@@ -40,6 +40,13 @@ export class CustomerController extends Component {
 
     radius = 0;
 
+    private _isBlack = false;
+    private _curBlackPassedTime = 0;
+    private _blackLastTime = 3;
+    private _falloffRange = 5;
+    private _falloffAttraction = 5;
+    private _blackRangeIndicator: Node;
+
     start () {
         this.customerData = new Customer();
         this.animComp = this.node.getComponent(SkeletalAnimationComponent);
@@ -47,6 +54,7 @@ export class CustomerController extends Component {
         this.moodBillBoard = this.node.getChildByName('mood').getComponent(ModelComponent);
         this.moodBillBoard.setInstancedAttribute('a_tiling_offset', [1, 1, 0, 0]);
         this.moodBillBoard.enabled = false;
+        this._blackRangeIndicator = this.node.getChildByName('BlackRangeIndicator');
 
         const tilingOffset = [1 / textureCounts[0], 1 / textureCounts[1]];
         tilingOffset.push(randomRangeInt(0, textureCounts[0]) * tilingOffset[0]);
@@ -134,6 +142,18 @@ export class CustomerController extends Component {
         case CustomerStates.BEWILDERED:
             break;
         }
+
+        if (this._isBlack) {
+            this._curBlackPassedTime += deltaTime;
+            if (this._curBlackPassedTime > this._blackLastTime) {
+                this._blackRangeIndicator.active = false;
+                this._isBlack = false
+            } else {
+                const deltaAttraction = this._falloffAttraction * deltaTime;
+                GameManager.Instance.falloffAllCustomersInRange(
+                    deltaAttraction, this, this._falloffAttraction);
+            }
+        }
     }
 
     bewildered () {
@@ -170,6 +190,7 @@ export class CustomerController extends Component {
         if (GameManager.Instance.queryProductionCount() <= 0) {
             const base = this.customerData.baseAttraction;
             this.customerData.attraction = this.customerData.baseAttraction = Math.floor(base * 0.8);
+            this.checkTurnToBlack();
             return false;
         }
 
@@ -178,5 +199,18 @@ export class CustomerController extends Component {
         }
 
         return true;
+    }
+
+    checkTurnToBlack() {
+        if (!this._isBlack) {
+            if (this.customerData.baseAttraction < 50) {
+                this._isBlack = true;
+                this._falloffRange = randomRangeInt(5, 20);
+                this._falloffAttraction = randomRangeInt(5, 10);
+                this._blackLastTime = randomRangeInt(2, 10);
+                this._blackRangeIndicator.setScale(new Vec3(this._falloffRange, 1, this._falloffRange));
+                this._blackRangeIndicator.active = true;
+            }
+        }
     }
 }

@@ -105,6 +105,20 @@ export class GameManager extends Component {
         });
     }
 
+    falloffAllCustomersInRange(attraction: number, centerCustomer: CustomerController, range: number) {
+        this._customers.forEach((customer) => {
+            if (customer === centerCustomer)
+            {
+                return;
+            }
+            Vec3.subtract(tempVec3, centerCustomer.node.getWorldPosition(), customer.node.getWorldPosition());
+            const dist = tempVec3.length();
+            if (dist <= range) {
+                customer.addAttraction(attraction);
+            }
+        });
+    }
+
     update (deltaTime: number) {
         // Your update function goes here.
         this.falloffAllCustomers(-gameDefines.fallofSpeed * deltaTime);

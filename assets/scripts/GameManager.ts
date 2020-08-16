@@ -4,6 +4,7 @@ import { AdvertisementController } from './AdvertisementController';
 import { CustomerController } from './CustomerController';
 import { gameDefines } from './GameDefines';
 import { CompanySuit } from './CompanySuit';
+import { AudioManager } from './AudioManager';
 const { ccclass, property } = _decorator;
 
 const tempVec3 = new Vec3();
@@ -30,7 +31,6 @@ export class GameManager extends Component {
     private _gameWinCount: number = 0.8;
     private _gameOver = false;
 
-
     private static _instance: GameManager;
 
     public static get Instance (): GameManager {
@@ -47,6 +47,7 @@ export class GameManager extends Component {
         this.playerCtrl.onAddPrice = this.onAddPrice.bind(this);
         this.playerCtrl.onSubPrice = this.onSubPrice.bind(this);
         this.initCustomers();
+
         const companySuitNode = instantiate(this.companySuit);
         companySuitNode.parent = this.node;
         this._companySuitInst = companySuitNode.getComponent(CompanySuit);
@@ -107,6 +108,8 @@ export class GameManager extends Component {
     update (deltaTime: number) {
         // Your update function goes here.
         this.falloffAllCustomers(-gameDefines.fallofSpeed * deltaTime);
+        AudioManager.instance.setBGMStage(this.gameProgress.progress);
+
         // game over
         if (this.gameProgress.progress >= 1 && !this._gameOver) {
             this._gameOver = true;

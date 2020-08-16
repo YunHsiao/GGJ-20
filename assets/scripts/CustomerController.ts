@@ -1,6 +1,7 @@
 import { _decorator, Component, Vec3, ModelComponent, SkinningModelComponent, Quat, SkeletalAnimationComponent, random, randomRangeInt, randomRange } from 'cc';
 import { Customer } from './Customer';
 import { GameManager } from './GameManager';
+import { ClipIndex, AudioManager } from './AudioManager';
 const { ccclass, property } = _decorator;
 
 const delta = new Vec3();
@@ -90,12 +91,14 @@ export class CustomerController extends Component {
                 if (this.buyProduction()) { // we got a deal
                     this.state = CustomerStates.DEAL;
                     this.animComp.play('Root|Interact_ground');
+                    AudioManager.instance.playOneShot(ClipIndex.VALID_OP);
                 } else { // okay I'm out
                     this.state = CustomerStates.ROAMING;
                     this.velocity.set(position).multiplyScalar(1 / len);
                     this.nextTurn = 2;
                     this.moodBillBoard.enabled = true;
                     setTimeout(() => this.moodBillBoard.enabled = false, this.nextTurn * 1000);
+                    AudioManager.instance.playOneShot(ClipIndex.INVALID_OP);
                 }
             }
 

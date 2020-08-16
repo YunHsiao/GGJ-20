@@ -6240,7 +6240,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "AudioSource",
+    "_name": "AudioManager",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1
@@ -6346,6 +6346,32 @@
       "__id__": 208
     },
     "_enabled": true,
+    "clips": [
+      {
+        "__uuid__": "aaca7457-2261-4853-b74b-377e4af0d99b"
+      },
+      {
+        "__uuid__": "df4e7d18-cb9a-412a-b820-d7b9bf55b8de"
+      },
+      {
+        "__uuid__": "e68efe80-928a-4c68-9d39-8e2e7d922d55"
+      },
+      {
+        "__uuid__": "f42d1f44-138f-466f-971d-1d101e79bc31"
+      },
+      {
+        "__uuid__": "f4874986-52e4-466d-bcad-89343b127358"
+      },
+      {
+        "__uuid__": "8fee2495-5d33-42db-8634-473242464baf"
+      },
+      {
+        "__uuid__": "b64478b1-96f0-4615-82a6-37d94a557764"
+      },
+      {
+        "__uuid__": "c1c22a6c-8bc9-4d11-ba29-e023819cf275"
+      }
+    ],
     "_id": "dfD0ATlnxMSLdx7PAuhVaS"
   },
   {

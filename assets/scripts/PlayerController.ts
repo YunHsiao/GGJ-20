@@ -4,6 +4,7 @@ import { Player, createProductionCountType } from './Player';
 import { AdvertisementController } from './AdvertisementController';
 import { Advertisement } from './Advertisement';
 import { FirstPersonCamera } from '../first-person-camera';
+import { AudioManager, ClipIndex } from './AudioManager';
 const { ccclass, property } = _decorator;
 const { ray } = geometry;
 const outRay = new ray();
@@ -156,6 +157,7 @@ export class PlayerController extends Component {
         this.customMoneyTips.string = '' + this.playerData.money;
         this.customProductionPriceTips.string =  '' + this.playerData.production.price;
         this.customProductionCountTips.string =  '' + this.playerData.production.count;
+        AudioManager.instance && AudioManager.instance.playOneShot(ClipIndex.VALID_OP);
     }
 
     addProduction () {
@@ -176,13 +178,11 @@ export class PlayerController extends Component {
         if (this.playerData.money >= this.playerData.production.cost * createNum) {
             for(let i = 0; i < createNum; i++ ) {
                 this.playerData.money -= this.playerData.production.cost;
-                this.playerData.production.count ++;
+                this.playerData.production.count++;
             }
             this.updateUITips();
         } else {
-            // ni mei le
-            //window.close();
-            console.log('111111111');
+            AudioManager.instance.playOneShot(ClipIndex.INVALID_OP);
         }
     }
 
@@ -250,7 +250,7 @@ export class PlayerController extends Component {
             }
             this.playerData.createCountType ++;
         }
-        this.customProductionCountImage.spriteFrame = 
+        this.customProductionCountImage.spriteFrame =
         this.playerData.createCountTypeIcon[this.playerData.createCountType];
     }
 }

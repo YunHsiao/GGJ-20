@@ -1,1 +1,1 @@
-{"__type__":"cc.JsonAsset","_name":"advertisements","json":[{"price":10,"range":10,"attraction":10},{"price":10,"range":20,"attraction":10},{"price":100,"range":50,"attraction":50}]}
+{"__type__":"cc.JsonAsset","_name":"advertisements","json":[{"index":0,"price":10,"range":10,"attraction":10},{"index":1,"price":10,"range":20,"attraction":10},{"index":2,"price":100,"range":50,"attraction":50}]}

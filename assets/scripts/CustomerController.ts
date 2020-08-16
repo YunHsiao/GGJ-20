@@ -203,7 +203,7 @@ export class CustomerController extends Component {
 
     checkTurnToBlack() {
         if (!this._isBlack) {
-            if (this.customerData.baseAttraction < 50) {
+            if (this.customerData.baseAttraction < 30) {
                 this._isBlack = true;
                 this._falloffRange = randomRangeInt(5, 20);
                 this._falloffAttraction = randomRangeInt(5, 10);

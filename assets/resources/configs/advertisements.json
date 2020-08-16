@@ -1,20 +1,20 @@
 [
     {
         "index": 0,
-        "price": 10,
+        "price": 50,
         "range": 10,
         "attraction": 10
     },
     {
         "index": 1,
-        "price": 50,
+        "price": 200,
         "range": 25,
-        "attraction": 10
+        "attraction": 20
     },
     {
         "index": 2,
-        "price": 100,
+        "price": 1000,
         "range": 50,
-        "attraction": 50
+        "attraction": 20
     }
 ]

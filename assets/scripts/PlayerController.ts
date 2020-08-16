@@ -26,6 +26,8 @@ export class PlayerController extends Component {
     public customProductionCountTips: LabelComponent = null;
     @property({type: SpriteComponent})
     public customProductionCountImage: SpriteComponent = null;
+    @property({type: Node})
+    public adButtonGroupNode: Node = null;
 
     private _cameraNode: Node;
     private _cameraComp: CameraComponent;
@@ -36,6 +38,8 @@ export class PlayerController extends Component {
     private _advertisements: AdvertisementController[] = [];
     private _curSelectedAd: AdvertisementController;
     private _cameraBehavior: FirstPersonCamera = null;
+    private _adButtonsGroup: Node[] = [];
+    private _curSelectAdIndex = -1;
 
     // event
     public onDropAd: Function;
@@ -55,6 +59,10 @@ export class PlayerController extends Component {
         // @ts-ignore
         this._rangeIndicator.parent = director.getScene();
         this._rangeIndicator.active = false;
+
+        this.adButtonGroupNode.children.forEach((buttons) => {
+            this._adButtonsGroup.push(buttons);
+        })
 
         systemEvent.on(SystemEvent.EventType.TOUCH_START, this.onTouchStart.bind(this));
         systemEvent.on(SystemEvent.EventType.TOUCH_MOVE, this.onTouchMove.bind(this));
@@ -195,17 +203,37 @@ export class PlayerController extends Component {
     }
 
     public onAdButtonClicked(event: any, customData: string) {
+        const target: Node = event.target;
+        console.log(target);
+        // get count label;
+        let countLabel;
         const index = Number.parseInt(customData);
         if (this._curSelectedAd === this._advertisements[index]) {
             this._curSelectedAd = null;
             this._cameraBehavior.enableMoving = true;
             this._rangeIndicator.active = false;
+            if (this._curSelectAdIndex >= 0) {
+                countLabel = this._adButtonsGroup[this._curSelectAdIndex].getComponentInChildren(LabelComponent);
+                countLabel.node.parent.active = false;
+            }
+
+            this._curSelectAdIndex = -1;
         }
         else {
+            if (this._curSelectAdIndex >= 0) {
+                countLabel = this._adButtonsGroup[this._curSelectAdIndex].getComponentInChildren(LabelComponent);
+                countLabel.node.parent.active = false;
+            }
+            this._curSelectAdIndex = index;
             this._curSelectedAd = this._advertisements[index];
             this._cameraBehavior.enableMoving = false;
             const adRange = this._curSelectedAd.advertisementData.range;
             this._rangeIndicator.setScale(new Vec3(adRange * 2, 1, adRange * 2));
+            if (this._curSelectAdIndex >= 0) {
+                countLabel = this._adButtonsGroup[this._curSelectAdIndex].getComponentInChildren(LabelComponent);
+                countLabel.string = '-'+this._curSelectedAd.advertisementData.price;
+                countLabel.node.parent.active = true;
+            }
         }
     }
 

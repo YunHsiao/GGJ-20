@@ -108,7 +108,7 @@ export class GameManager extends Component {
         // Your update function goes here.
         this.falloffAllCustomers(-gameDefines.fallofSpeed * deltaTime);
         // game over
-        if (this.gameProgress.progress >= 0.01 && !this._gameOver) {
+        if (this.gameProgress.progress >= 1 && !this._gameOver) {
             this._gameOver = true;
             this._companySuitInst.bailOut(() => this._customers.forEach((customer) => customer.bewildered()));
         }

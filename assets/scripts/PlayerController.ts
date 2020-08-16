@@ -187,7 +187,7 @@ export class PlayerController extends Component {
             this.updateUITips();
             AudioManager.instance && AudioManager.instance.playOneShot(ClipIndex.VALID_OP);
         } else {
-            AudioManager.instance.playOneShot(ClipIndex.INVALID_OP);            
+            AudioManager.instance.playOneShot(ClipIndex.INVALID_OP);
             AnimationHelper.play(0, 0);
         }
     }
@@ -207,7 +207,7 @@ export class PlayerController extends Component {
             this.onAddPrice();
         }
         this.updateUITips();
-        AudioManager.instance && AudioManager.instance.playOneShot(ClipIndex.VALID_OP);
+        AudioManager.instance && AudioManager.instance.playOneShot(ClipIndex.SCATTER);
     }
 
     subPrice () {
@@ -216,7 +216,6 @@ export class PlayerController extends Component {
             this.onSubPrice();
         }
         this.updateUITips();
-        AudioManager.instance && AudioManager.instance.playOneShot(ClipIndex.VALID_OP);
     }
 
     public onAdButtonClicked(event: any, customData: string) {

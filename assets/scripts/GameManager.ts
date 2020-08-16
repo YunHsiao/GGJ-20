@@ -177,11 +177,13 @@ export class GameManager extends Component {
         // MAX attraction add is 50
         let attraction = 0;
         if (this.playerCtrl.playerData.production.price > (this.playerCtrl.playerData.production.cost / 2) &&
-            this.playerCtrl.playerData.production.price < this.playerCtrl.playerData.production.priceLow) {
-                attraction = randomRange(40, 200) / this.playerCtrl.playerData.production.priceStateNum;
-                this.playerCtrl.playerData.production.priceLow = this.playerCtrl.playerData.production.price;
-            }
-        this.falloffAllCustomers(attraction);
+                this.playerCtrl.playerData.production.price < this.playerCtrl.playerData.production.priceLow) {
+            attraction = randomRange(40, 200) / this.playerCtrl.playerData.production.priceStateNum;
+            this.playerCtrl.playerData.production.priceLow = this.playerCtrl.playerData.production.price;
+            this.falloffAllCustomers(attraction);
+
+            AudioManager.instance && AudioManager.instance.playOneShot(ClipIndex.GATHER);
+        }
         this.taxRate = gameDefines.getTaxRateByPrice(this.playerCtrl.playerData.production.price);
     }
 

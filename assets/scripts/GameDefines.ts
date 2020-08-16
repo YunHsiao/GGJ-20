@@ -8,7 +8,6 @@ class GameDefines {
         if (price > this.minTaxPriceThread) {
             let rate = ((price - this.minTaxPriceThread) / (this.maxPrice - this.minTaxPriceThread)) * 0.9;
             rate = Number.parseFloat(rate.toFixed(2));
-            console.log(rate);
             return rate;
         } else {
             return 0;

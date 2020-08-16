@@ -21,11 +21,14 @@ export class AudioManager extends Component {
     _sources: AudioSourceComponent[] = [];
     _curStage = ClipIndex.BGM_1;
 
+    public static instance: AudioManager;
+
     start () {
         this._sources = this.getComponents(AudioSourceComponent);
         this._sources[ClipIndex.BGM_1].clip.on('started', () => {
             tween(this._sources[0]).to(2, { volume: 1 }, { easing: 'bounceInOut' }).start();
         });
+        AudioManager.instance = this;
     }
 
     setBGMStage(percent: number) {

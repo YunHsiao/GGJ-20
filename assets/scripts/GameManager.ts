@@ -30,8 +30,6 @@ export class GameManager extends Component {
     private _customerBought: number = 0;
     private _gameWinCount: number = 0.8;
     private _gameOver = false;
-    private _audioManager: AudioManager = null;
-
 
     private static _instance: GameManager;
 
@@ -54,8 +52,6 @@ export class GameManager extends Component {
         companySuitNode.parent = this.node;
         this._companySuitInst = companySuitNode.getComponent(CompanySuit);
         this.gameProgress.progress = 0;
-
-        this._audioManager = this.node.scene.getChildByName('AudioManager').getComponent(AudioManager);
     }
 
     initCustomers() {
@@ -112,7 +108,7 @@ export class GameManager extends Component {
     update (deltaTime: number) {
         // Your update function goes here.
         this.falloffAllCustomers(-gameDefines.fallofSpeed * deltaTime);
-        this._audioManager.setBGMStage(this.gameProgress.progress);
+        AudioManager.instance.setBGMStage(this.gameProgress.progress);
 
         // game over
         if (this.gameProgress.progress >= 1 && !this._gameOver) {

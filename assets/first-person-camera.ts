@@ -81,7 +81,6 @@ export class FirstPersonCamera extends Component {
     }
 
     public onMouseWheel (e) {
-        if (!this.enableMoving) return;
         const delta = -e.getScrollY() * this.scrollSpeed * 0.1; // delta is positive when scroll down
         if (this._camera.projection === renderer.CameraProjection.PERSPECTIVE) {
             Vec3.transformQuat(v3_1, Vec3.UNIT_Z, this.node.rotation);

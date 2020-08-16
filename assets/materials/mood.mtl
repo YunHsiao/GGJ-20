@@ -26,8 +26,14 @@
   "_props": [
     {
       "mainTexture": {
-        "__uuid__": "ea3ee3aa-7d87-49a5-a6bd-16895292cd32@6c48a"
-      }
+        "__uuid__": "e06b51d6-f353-444e-81fe-e9ecb36b916b@6c48a"
+      },
+      "dimensions": {
+        "__type__": "cc.Vec2",
+        "x": 1,
+        "y": 4
+      },
+      "speedOrProgress": 2
     }
   ]
 }

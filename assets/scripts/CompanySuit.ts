@@ -2,6 +2,7 @@ import { _decorator, Component, Node, SkeletalAnimationComponent, AnimationClip,
 const { ccclass, property } = _decorator;
 
 const dir = new Vec3();
+const XZ = new Vec3(1, 0, 1);
 const rot = new Quat();
 
 @ccclass('CompanySuit')
@@ -35,8 +36,8 @@ export class CompanySuit extends Component {
 
     handWaving (position: Vec3) {
         if (this._reactionFn) return;
-        this._rotationLerpCountDown = 2;
-        Quat.fromViewUp(this._targetRotation, Vec3.normalize(dir, position));
+        this._rotationLerpCountDown = 3;
+        Quat.fromViewUp(this._targetRotation, Vec3.normalize(dir, Vec3.multiply(dir, position, XZ)));
         if (this._interactFinished) {
             this.animComp.crossFade('Root|Interact_standing');
             this._interactFinished = false;

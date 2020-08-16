@@ -3,6 +3,7 @@ CCEffect %{
   - passes:
     - vert: billboard-vs:vert
       frag: billboard-fs:frag
+      priority: DEFAULT + 1
       depthStencilState:
         depthTest: true
         depthWrite: false
@@ -14,6 +15,9 @@ CCEffect %{
           blendDstAlpha: one_minus_src_alpha
       properties:
         mainTexture: {}
+        dimensions:      { value: [2, 2], target: seqAnimParams.xy }
+        frames:          { value: 4, target: seqAnimParams.z }
+        speedOrProgress: { value: 10, target: seqAnimParams.w }
 }%
 
 CCProgram billboard-vs %{
@@ -29,6 +33,10 @@ CCProgram billboard-vs %{
   in vec2 a_texCoord;
   out vec2 v_texCoord;
 
+  uniform SeqAnimConstants {
+    vec4 seqAnimParams;
+  };
+
   vec4 vert () {
     vec4 position;
     CCVertInput(position);
@@ -42,7 +50,11 @@ CCProgram billboard-vs %{
       v_texCoord = v_texCoord * a_tiling_offset.xy + a_tiling_offset.zw;
     #endif
 
-    vec4 pos = cc_matView[3] + cc_matView * vec4(matWorld[3].xyz, 0) + vec4(position.xyz, 0);
+    float seqAnimCurFrame = mod(cc_time.x, seqAnimParams.z / seqAnimParams.w) * seqAnimParams.w; // iOS precision issue
+    vec2 seqAnimOffset = floor(vec2(mod(seqAnimCurFrame, seqAnimParams.x), seqAnimCurFrame / seqAnimParams.x));
+    v_texCoord = (v_texCoord + seqAnimOffset) / seqAnimParams.xy;
+
+    vec4 pos = cc_matView[3] + cc_matView * vec4(matWorld[3].xyz, 0) + vec4(position.xyz * vec3(2, 2, 1), 0);
     return cc_matProj * pos;
   }
 }%

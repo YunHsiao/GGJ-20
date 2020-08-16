@@ -6,9 +6,11 @@
   "_effectAsset": {
     "__uuid__": "a3cd009f-0ab0-420d-9278-b9fdab939bbc"
   },
-  "_techIdx": 0,
+  "_techIdx": 1,
   "_defines": [
-    {}
+    {
+      "USE_INSTANCING": true
+    }
   ],
   "_states": [
     {
@@ -28,7 +30,7 @@
         "r": 185,
         "g": 52,
         "b": 52,
-        "a": 255
+        "a": 133
       },
       "alphaThreshold": 0
     }

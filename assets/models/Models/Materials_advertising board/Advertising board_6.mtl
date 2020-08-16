@@ -6,7 +6,7 @@
   "_effectAsset": {
     "__uuid__": "a3cd009f-0ab0-420d-9278-b9fdab939bbc"
   },
-  "_techIdx": 0,
+  "_techIdx": 1,
   "_defines": [
     {
       "USE_INSTANCING": true,
@@ -28,6 +28,13 @@
     {
       "mainTexture": {
         "__uuid__": "62d9ff54-3159-49f7-8753-a1f14dc1e384@6c48a"
+      },
+      "mainColor": {
+        "__type__": "cc.Color",
+        "r": 255,
+        "g": 255,
+        "b": 255,
+        "a": 65
       }
     }
   ]

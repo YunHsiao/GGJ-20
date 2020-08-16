@@ -138,8 +138,11 @@ export class GameManager extends Component {
         this.falloffAllCustomers(-gameDefines.fallofSpeed * deltaTime);
         AudioManager.instance.setBGMStage(this.gameProgress.progress);
 
-        // game over
-        if (this.gameProgress.progress >= 1 && !this._gameOver) {
+        if (this.gameProgress.progress >= 0.99) this.gameOver();
+    }
+
+    gameOver () {
+        if (!this._gameOver) {
             this._gameOver = true;
             this._companySuitInst.bailOut(() => this._customers.forEach((customer) => customer.bewildered()));
             AudioManager.instance.playOneShot(ClipIndex.WIN);

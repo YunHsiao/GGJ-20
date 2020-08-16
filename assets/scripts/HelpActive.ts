@@ -1,4 +1,5 @@
 import { _decorator, Component, Node } from 'cc';
+import { GameManager } from './GameManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('HelpActive')
@@ -26,6 +27,10 @@ export class HelpActive extends Component {
 
     hide() {
         this.helpNode.active = false;
+    }
+
+    outGame () {
+        GameManager.Instance.gameOver();
     }
 
     // update (deltaTime: number) {

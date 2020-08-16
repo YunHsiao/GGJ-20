@@ -2,6 +2,7 @@ import { _decorator, Component, Vec3, ModelComponent, SkinningModelComponent, Qu
 import { Customer } from './Customer';
 import { GameManager } from './GameManager';
 import { ClipIndex, AudioManager } from './AudioManager';
+import { AnimationHelper } from './AnimationHelper';
 const { ccclass, property } = _decorator;
 
 const delta = new Vec3();
@@ -107,6 +108,7 @@ export class CustomerController extends Component {
                     this.moodBillBoard.enabled = true;
                     setTimeout(() => this.moodBillBoard.enabled = false, this.nextTurn * 1000);
                     AudioManager.instance.playOneShot(ClipIndex.OOS);
+                    AnimationHelper.play(1, 0);
                 }
             }
 

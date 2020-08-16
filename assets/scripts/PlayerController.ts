@@ -6,6 +6,7 @@ import { Advertisement } from './Advertisement';
 import { FirstPersonCamera } from '../first-person-camera';
 import { AudioManager, ClipIndex } from './AudioManager';
 import { gameDefines } from './GameDefines';
+import { AnimationHelper } from './AnimationHelper';
 const { ccclass, property } = _decorator;
 const { ray } = geometry;
 const outRay = new ray();
@@ -151,6 +152,8 @@ export class PlayerController extends Component {
                 this._curSelectedAd.show();
                 this.onDropAd(hitPos, this._curSelectedAd);
                 AudioManager.instance && AudioManager.instance.playOneShot(ClipIndex.AD_1 + this._curSelectAdIndex);
+            } else {
+                AnimationHelper.play(0, 0);
             }
         })
     }
@@ -184,7 +187,8 @@ export class PlayerController extends Component {
             this.updateUITips();
             AudioManager.instance && AudioManager.instance.playOneShot(ClipIndex.VALID_OP);
         } else {
-            AudioManager.instance.playOneShot(ClipIndex.INVALID_OP);
+            AudioManager.instance.playOneShot(ClipIndex.INVALID_OP);            
+            AnimationHelper.play(0, 0);
         }
     }
 

@@ -1,0 +1,13 @@
+{
+  "ver": "1.0.10",
+  "importer": "animation-clip",
+  "imported": true,
+  "uuid": "25fa3d0a-fc62-4309-865d-2eef8b10352b",
+  "files": [
+    ".json"
+  ],
+  "subMetas": {},
+  "userData": {
+    "name": "blink"
+  }
+}

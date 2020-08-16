@@ -1,0 +1,137 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "blink",
+  "_objFlags": 0,
+  "_native": "",
+  "sample": 60,
+  "speed": 1.5,
+  "wrapMode": 1,
+  "events": [],
+  "_duration": 0.4666666666666667,
+  "_keys": [
+    [],
+    [],
+    [
+      0,
+      0.13333333333333333,
+      0.26666666666666666,
+      0.36666666666666664,
+      0.4666666666666667
+    ],
+    [
+      0,
+      0.13333333333333333,
+      0.26666666666666666,
+      0.36666666666666664,
+      0.4666666666666667
+    ],
+    [
+      0,
+      0.13333333333333333,
+      0.26666666666666666,
+      0.36666666666666664,
+      0.4666666666666667
+    ],
+    []
+  ],
+  "_stepness": 0,
+  "_curves": [
+    {
+      "modifiers": [
+        "x"
+      ],
+      "data": {
+        "keys": 0,
+        "values": [],
+        "easingMethods": {}
+      },
+      "commonTarget": 0
+    },
+    {
+      "modifiers": [
+        "y"
+      ],
+      "data": {
+        "keys": 1,
+        "values": [],
+        "easingMethods": {}
+      },
+      "commonTarget": 0
+    },
+    {
+      "modifiers": [
+        "z"
+      ],
+      "data": {
+        "keys": 2,
+        "values": [
+          0,
+          30,
+          0,
+          -30,
+          0
+        ],
+        "easingMethods": {}
+      },
+      "commonTarget": 0
+    },
+    {
+      "modifiers": [
+        "x"
+      ],
+      "data": {
+        "keys": 3,
+        "values": [
+          1,
+          1.5,
+          1,
+          1.5,
+          1
+        ],
+        "easingMethods": {}
+      },
+      "commonTarget": 1
+    },
+    {
+      "modifiers": [
+        "y"
+      ],
+      "data": {
+        "keys": 4,
+        "values": [
+          1,
+          1.3,
+          1.3,
+          0.8,
+          1
+        ],
+        "easingMethods": {}
+      },
+      "commonTarget": 1
+    },
+    {
+      "modifiers": [
+        "z"
+      ],
+      "data": {
+        "keys": 5,
+        "values": [],
+        "easingMethods": {}
+      },
+      "commonTarget": 1
+    }
+  ],
+  "_commonTargets": [
+    {
+      "modifiers": [
+        "eulerAngles"
+      ]
+    },
+    {
+      "modifiers": [
+        "scale"
+      ]
+    }
+  ],
+  "_hash": 2942913019
+}

@@ -38,6 +38,9 @@
       },
       {
         "__id__": 301
+      },
+      {
+        "__id__": 306
       }
     ],
     "_active": true,
@@ -45,7 +48,7 @@
     "_prefab": null,
     "autoReleaseAssets": false,
     "_globals": {
-      "__id__": 306
+      "__id__": 308
     },
     "_id": "6897b848-d934-4ba5-a552-f27a1ac19c5a"
   },
@@ -9247,15 +9250,80 @@
     "_id": "dfD0ATlnxMSLdx7PAuhVaS"
   },
   {
+    "__type__": "cc.Node",
+    "_name": "AnimationHelper",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 1
+    },
+    "_children": [],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 307
+      }
+    ],
+    "_lpos": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_lrot": {
+      "__type__": "cc.Quat",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 1
+    },
+    "_lscale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "_layer": 1073741824,
+    "_euler": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_id": "b2C8tzv0BPcp/F1VH801ie"
+  },
+  {
+    "__type__": "dce39XbgiBBMrGErFxOkik/",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 306
+    },
+    "_enabled": true,
+    "clips": [
+      {
+        "__uuid__": "25fa3d0a-fc62-4309-865d-2eef8b10352b"
+      }
+    ],
+    "targets": [
+      {
+        "__id__": 284
+      },
+      {
+        "__id__": 39
+      }
+    ],
+    "_id": "a15ob7heFGL7KIdAEZX6cM"
+  },
+  {
     "__type__": "cc.SceneGlobals",
     "ambient": {
-      "__id__": 307
+      "__id__": 309
     },
     "planarShadows": {
-      "__id__": 308
+      "__id__": 310
     },
     "_skybox": {
-      "__id__": 309
+      "__id__": 311
     }
   },
   {

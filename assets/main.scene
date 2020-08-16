@@ -10620,7 +10620,7 @@
       "__uuid__": "df4e7d18-cb9a-412a-b820-d7b9bf55b8de"
     },
     "_loop": true,
-    "_playOnAwake": false,
+    "_playOnAwake": true,
     "_volume": 0,
     "_id": "83v25tDJJLcIGQWU7qSL0C"
   },
@@ -10636,7 +10636,7 @@
       "__uuid__": "e68efe80-928a-4c68-9d39-8e2e7d922d55"
     },
     "_loop": true,
-    "_playOnAwake": false,
+    "_playOnAwake": true,
     "_volume": 0,
     "_id": "a5Xbh/qX1I7rEQciou3Q5/"
   },
@@ -10680,13 +10680,13 @@
         "__uuid__": "af3510e3-16ec-4992-8deb-596ba201c1b7"
       },
       {
-        "__uuid__": "ff953146-9424-4165-bd8d-15792e8a6a91"
+        "__uuid__": "826593ce-a5e9-4ecf-9f36-d4ecf1b4a488"
       },
       {
         "__uuid__": "30a5a8dd-a480-4a17-9a90-8304c98411f9"
       },
       {
-        "__uuid__": "8fee2495-5d33-42db-8634-473242464baf"
+        "__uuid__": "e60c0fad-2ad8-4a43-90b3-8f617385fc01"
       }
     ],
     "_id": "dfD0ATlnxMSLdx7PAuhVaS"

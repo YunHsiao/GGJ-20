@@ -145,6 +145,7 @@ export class GameManager extends Component {
         if (!this._gameOver) {
             this._gameOver = true;
             this._companySuitInst.bailOut(() => this._customers.forEach((customer) => customer.bewildered()));
+            AudioManager.instance.fadeOutAll();
             AudioManager.instance.playOneShot(ClipIndex.WIN);
         }
     }

@@ -37,24 +37,28 @@ export class AudioManager extends Component {
     }
 
     setBGMStage(percent: number) {
-        const index = clamp(Math.floor(percent * 3), ClipIndex.BGM_1, ClipIndex.BGM_3);
+        const index = clamp(Math.floor(percent * 20), ClipIndex.BGM_1, ClipIndex.BGM_3);
 
         if (index === this._curStage) return;
 
         if (index > this._curStage) {
             for (let i = this._curStage + 1; i <= index; i++) {
-                this._sources[i].play();
-                this._sources[i].clip.on('started', () => {
-                    tween(this._sources[i]).to(2, { volume: 1 }, { easing: 'bounceInOut' }).start();
-                });
+                tween(this._sources[i]).to(2, { volume: 1 }, { easing: 'bounceInOut' }).start();
             }
         } else {
             for (let i = this._curStage - 1; i >= index; i++) {
-                tween(this._sources[i]).to(2, { volume: 1 }, { easing: 'bounceInOut' }).call(() => this._sources[0].stop()).start();
+                tween(this._sources[i]).to(2, { volume: 0 }, { easing: 'bounceInOut' }).start();
             }
         }
 
         this._curStage = index;
+    }
+
+    fadeOutAll () {
+        for (let i = 0; i <= this._curStage; i++) {
+            tween(this._sources[i]).to(2, { volume: 0 }, { easing: 'bounceInOut' }).start();
+        }
+        this._curStage = -1;
     }
 
     playOneShot(index: ClipIndex) {

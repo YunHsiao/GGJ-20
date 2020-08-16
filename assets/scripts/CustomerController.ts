@@ -99,14 +99,14 @@ export class CustomerController extends Component {
                 if (this.buyProduction()) { // we got a deal
                     this.state = CustomerStates.DEAL;
                     this.animComp.play('Root|Interact_ground');
-                    AudioManager.instance.playOneShot(ClipIndex.VALID_OP);
+                    AudioManager.instance.playOneShot(ClipIndex.DEAL);
                 } else { // okay I'm out
                     this.state = CustomerStates.ROAMING;
                     this.velocity.set(position).multiplyScalar(1 / len);
                     this.nextTurn = 2;
                     this.moodBillBoard.enabled = true;
                     setTimeout(() => this.moodBillBoard.enabled = false, this.nextTurn * 1000);
-                    AudioManager.instance.playOneShot(ClipIndex.INVALID_OP);
+                    AudioManager.instance.playOneShot(ClipIndex.OOS);
                 }
             }
 
@@ -183,6 +183,22 @@ export class CustomerController extends Component {
         case CustomerStates.BEWILDERED:
             break;
         }
+    }
+
+    repel () {
+        switch (this.state) {
+            case CustomerStates.IDLE:
+                this.animComp.play('Root|Run');
+            case CustomerStates.HOOKED:
+                this.state = CustomerStates.ROAMING;
+            case CustomerStates.ROAMING:
+                this.nextTurn = random() * 2;
+                this.velocity.set(this.node.position).normalize();
+                break;
+            case CustomerStates.DEAL:
+            case CustomerStates.BEWILDERED:
+                break;
+            }
     }
 
     buyProduction(): boolean {

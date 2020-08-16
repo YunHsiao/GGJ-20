@@ -10,6 +10,11 @@ export enum ClipIndex {
     INVALID_OP,
     VALID_OP,
     WIN,
+    AD_1,
+    AD_2,
+    AD_3,
+    DEAL,
+    OOS,
 }
 
 @ccclass('AudioManager')

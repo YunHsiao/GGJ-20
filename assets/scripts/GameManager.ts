@@ -4,7 +4,7 @@ import { AdvertisementController } from './AdvertisementController';
 import { CustomerController } from './CustomerController';
 import { gameDefines } from './GameDefines';
 import { CompanySuit } from './CompanySuit';
-import { AudioManager } from './AudioManager';
+import { AudioManager, ClipIndex } from './AudioManager';
 const { ccclass, property } = _decorator;
 
 const tempVec3 = new Vec3();
@@ -128,6 +128,7 @@ export class GameManager extends Component {
         if (this.gameProgress.progress >= 1 && !this._gameOver) {
             this._gameOver = true;
             this._companySuitInst.bailOut(() => this._customers.forEach((customer) => customer.bewildered()));
+            AudioManager.instance.playOneShot(ClipIndex.WIN);
         }
     }
 
@@ -144,7 +145,10 @@ export class GameManager extends Component {
     }
 
     onAddPrice () {
-        this.falloffAllCustomers(-20);
+        this._customers.forEach((customer) => {
+            customer.addAttraction(-20);
+            customer.repel();
+        });
     }
 
     onSubPrice () {
@@ -152,7 +156,7 @@ export class GameManager extends Component {
         let attraction = 0;
         if (this.playerCtrl.playerData.production.price > (this.playerCtrl.playerData.production.cost / 2) &&
             this.playerCtrl.playerData.production.price < this.playerCtrl.playerData.production.priceLow) {
-                attraction = 40 / this.playerCtrl.playerData.production.priceStateNum;
+                attraction = randomRange(40, 200) / this.playerCtrl.playerData.production.priceStateNum;
                 this.playerCtrl.playerData.production.priceLow = this.playerCtrl.playerData.production.price;
             }
         this.falloffAllCustomers(attraction);

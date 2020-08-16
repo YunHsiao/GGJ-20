@@ -1,10 +1,11 @@
-import { _decorator, Component, Node, Prefab, instantiate, Vec3, randomRange, ProgressBarComponent, LabelComponent } from 'cc';
+import { _decorator, Component, Node, Prefab, instantiate, Vec3, randomRange, ProgressBarComponent, LabelComponent, random } from 'cc';
 import { PlayerController } from './PlayerController';
 import { AdvertisementController } from './AdvertisementController';
 import { CustomerController } from './CustomerController';
 import { gameDefines } from './GameDefines';
 import { CompanySuit } from './CompanySuit';
 import { AudioManager, ClipIndex } from './AudioManager';
+import { ParcelDispenser } from './ParcelDispenser';
 const { ccclass, property } = _decorator;
 
 const tempVec3 = new Vec3();
@@ -30,7 +31,6 @@ export class GameManager extends Component {
     private _curFalloffTime: number = 0;
     private _companySuitInst: CompanySuit = null;
     private _customerBought: number = 0;
-    private _gameWinCount: number = 0.8;
     private _gameOver = false;
     private _taxRate = 0;
 
@@ -151,11 +151,12 @@ export class GameManager extends Component {
         if (count >= 0) {
             this.playerCtrl.playerData.production.count = count;
             this._customerBought++;
-            this.gameProgress.progress = this._customerBought / (this.customerCount * this._gameWinCount);
+            this.gameProgress.progress = this._customerBought / this.customerCount;
             // let profit = this.playerCtrl.playerData.production.price - this.playerCtrl.playerData.production.cost;
             const profit = Math.floor(this.playerCtrl.playerData.production.price * (1 - this.taxRate));
             this.playerCtrl.playerData.money += profit;
             this.playerCtrl.updateUITips();
+            ParcelDispenser.instance.dispense(randomRange(0.5, 1));
         }
     }
 

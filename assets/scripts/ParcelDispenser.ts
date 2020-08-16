@@ -13,15 +13,30 @@ export class ParcelDispenser extends Component {
 
     _count = 0;
 
+    _end = false;
+
+    public static instance: ParcelDispenser;
+
+    start () {
+        ParcelDispenser.instance = this;
+    }
+
+    dispense (f: number = 1) {
+        const node = instantiate(this.prefab);
+        node.setPosition(random(), 1, random());
+        node.setScale(random() * 250, 100, random() * 250);
+        node.parent = this.node;
+        force.y = f * 2000;
+        node.getComponent(RigidBodyComponent).applyForce(force);
+    }
+
+    releaseAll () {
+        this._end = true;
+    }
+
     update () {
-        if (this._count < this.target * 5) {
-            if (this._count % 5 === 0) {
-                const node = instantiate(this.prefab);
-                node.setPosition(random(), 1, random());
-                node.setScale(random() * 250, 100, random() * 250);
-                node.parent = this.node;
-                node.getComponent(RigidBodyComponent).applyForce(force);
-            }
+        if (this._end && this._count < this.target * 5) {
+            if (this._count % 5 === 0) this.dispense();
             this._count++;
         }
     }

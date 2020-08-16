@@ -1,4 +1,5 @@
 import { _decorator, Component, Node, SkeletalAnimationComponent, AnimationClip, AnimationComponent, AnimationState, Vec3, Quat, SkinningModelComponent, ModelComponent, Color } from 'cc';
+import { ParcelDispenser } from './ParcelDispenser';
 const { ccclass, property } = _decorator;
 
 const dir = new Vec3();
@@ -28,7 +29,7 @@ export class CompanySuit extends Component {
             } else if (state.name === 'Root|Interact_ground') {
                 this.getComponentInChildren(SkinningModelComponent).enabled = false;
                 this.node.getChildByName('Shadow').getComponent(ModelComponent).material.setProperty('mainColor', Color.BLACK);
-                this.node.scene.getChildByName('ParcelDispenser').active = true;
+                ParcelDispenser.instance.releaseAll();
                 this._reactionFn();
             }
         });

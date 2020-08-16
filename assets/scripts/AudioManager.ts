@@ -22,8 +22,8 @@ const intervals = [
     100,  // BGM_1
     100,  // BGM_2
     100,  // BGM_3
-    2000, // SCATTER
-    2000, // GATHER
+    1000, // SCATTER
+    1000, // GATHER
     100,  // INVALID_OP
     100,  // VALID_OP
     100,  // WIN

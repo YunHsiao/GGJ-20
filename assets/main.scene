@@ -538,7 +538,7 @@
   },
   {
     "__type__": "3c34cCllvlGCIKOWNIuqna3",
-    "_name": "",
+    "_name": "GameManager<GameManager>",
     "_objFlags": 0,
     "node": {
       "__id__": 17
@@ -10659,10 +10659,10 @@
         "__uuid__": "e68efe80-928a-4c68-9d39-8e2e7d922d55"
       },
       {
-        "__uuid__": "f42d1f44-138f-466f-971d-1d101e79bc31"
+        "__uuid__": "a59bda54-706d-4905-ae35-ab04f91d9854"
       },
       {
-        "__uuid__": "f4874986-52e4-466d-bcad-89343b127358"
+        "__uuid__": "44ea322c-75a0-4284-9d40-19a94953840e"
       },
       {
         "__uuid__": "8fee2495-5d33-42db-8634-473242464baf"

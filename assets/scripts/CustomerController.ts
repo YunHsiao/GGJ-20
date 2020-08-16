@@ -151,7 +151,7 @@ export class CustomerController extends Component {
                 this._blackRangeIndicator.active = false;
                 this._isBlack = false
             } else {
-                const deltaAttraction = this._falloffAttraction * deltaTime;
+                const deltaAttraction = -this._falloffAttraction * deltaTime;
                 GameManager.Instance.falloffAllCustomersInRange(
                     deltaAttraction, this, this._falloffAttraction);
             }
@@ -221,7 +221,7 @@ export class CustomerController extends Component {
 
     checkTurnToBlack() {
         if (!this._isBlack) {
-            if (this.customerData.baseAttraction < 30) {
+            if (this.customerData.baseAttraction < 20) {
                 this._isBlack = true;
                 this._falloffRange = randomRangeInt(5, 20);
                 this._falloffAttraction = randomRangeInt(5, 10);

@@ -157,7 +157,7 @@ export class PlayerController extends Component {
         this.customMoneyTips.string = '' + this.playerData.money;
         this.customProductionPriceTips.string =  '' + this.playerData.production.price;
         this.customProductionCountTips.string =  '' + this.playerData.production.count;
-        AudioManager.instance.playOneShot(ClipIndex.VALID_OP);
+        AudioManager.instance && AudioManager.instance.playOneShot(ClipIndex.VALID_OP);
     }
 
     addProduction () {
@@ -182,9 +182,6 @@ export class PlayerController extends Component {
             }
             this.updateUITips();
         } else {
-            // ni mei le
-            // window.close();
-            // console.log('111111111');
             AudioManager.instance.playOneShot(ClipIndex.INVALID_OP);
         }
     }

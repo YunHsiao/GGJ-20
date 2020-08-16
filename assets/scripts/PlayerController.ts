@@ -149,6 +149,7 @@ export class PlayerController extends Component {
                 this._curSelectedAd.node.setWorldPosition(hitPos);
                 this._curSelectedAd.show();
                 this.onDropAd(hitPos, this._curSelectedAd);
+                AudioManager.instance && AudioManager.instance.playOneShot(ClipIndex.AD_1 + this._curSelectAdIndex);
             }
         })
     }
@@ -157,7 +158,6 @@ export class PlayerController extends Component {
         this.customMoneyTips.string = '' + this.playerData.money;
         this.customProductionPriceTips.string =  '' + this.playerData.production.price;
         this.customProductionCountTips.string =  '' + this.playerData.production.count;
-        AudioManager.instance && AudioManager.instance.playOneShot(ClipIndex.VALID_OP);
     }
 
     addProduction () {
@@ -181,6 +181,7 @@ export class PlayerController extends Component {
                 this.playerData.production.count++;
             }
             this.updateUITips();
+            AudioManager.instance && AudioManager.instance.playOneShot(ClipIndex.VALID_OP);
         } else {
             AudioManager.instance.playOneShot(ClipIndex.INVALID_OP);
         }
@@ -192,6 +193,7 @@ export class PlayerController extends Component {
             this.onAddPrice();
         }
         this.updateUITips();
+        AudioManager.instance && AudioManager.instance.playOneShot(ClipIndex.VALID_OP);
     }
 
     subPrice () {
@@ -200,6 +202,7 @@ export class PlayerController extends Component {
             this.onSubPrice();
         }
         this.updateUITips();
+        AudioManager.instance && AudioManager.instance.playOneShot(ClipIndex.VALID_OP);
     }
 
     public onAdButtonClicked(event: any, customData: string) {

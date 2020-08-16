@@ -5,6 +5,7 @@ import { AdvertisementController } from './AdvertisementController';
 import { Advertisement } from './Advertisement';
 import { FirstPersonCamera } from '../first-person-camera';
 import { AudioManager, ClipIndex } from './AudioManager';
+import { gameDefines } from './GameDefines';
 const { ccclass, property } = _decorator;
 const { ray } = geometry;
 const outRay = new ray();
@@ -143,7 +144,7 @@ export class PlayerController extends Component {
         if (!this._curSelectedAd) return;
         this.raycastHitGround(event, (hitPos: Vec3) => {
             this._rangeIndicator.setWorldPosition(hitPos);
-            if (this._curSelectedAd.advertisementData.price < this.playerData.money) {
+            if (this._curSelectedAd.advertisementData.price <= this.playerData.money) {
                 this.playerData.money -= this._curSelectedAd.advertisementData.price;
                 this.updateUITips();
                 this._curSelectedAd.node.setWorldPosition(hitPos);
@@ -188,7 +189,16 @@ export class PlayerController extends Component {
     }
 
     addPrice () {
-        this.playerData.production.price += this.playerData.production.pricePreGrad;
+        if (this.playerData.production.price >= gameDefines.maxPrice) {
+            return;
+        }
+
+        let addPrice = this.playerData.production.price + this.playerData.production.pricePreGrad;
+        if (addPrice > gameDefines.maxPrice) {
+            addPrice = gameDefines.maxPrice;
+        }
+
+        this.playerData.production.price = addPrice;
         if (this.onAddPrice) {
             this.onAddPrice();
         }
@@ -207,7 +217,6 @@ export class PlayerController extends Component {
 
     public onAdButtonClicked(event: any, customData: string) {
         const target: Node = event.target;
-        console.log(target);
         // get count label;
         let countLabel;
         const index = Number.parseInt(customData);

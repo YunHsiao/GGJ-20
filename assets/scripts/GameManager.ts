@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Prefab, instantiate, Vec3, randomRange, ProgressBarComponent } from 'cc';
+import { _decorator, Component, Node, Prefab, instantiate, Vec3, randomRange, ProgressBarComponent, LabelComponent } from 'cc';
 import { PlayerController } from './PlayerController';
 import { AdvertisementController } from './AdvertisementController';
 import { CustomerController } from './CustomerController';
@@ -21,6 +21,8 @@ export class GameManager extends Component {
     customerCount = 10;
     @property({type: ProgressBarComponent})
     gameProgress: ProgressBarComponent = null;
+    @property({type: LabelComponent})
+    taxRateLabel: LabelComponent = null;
 
     private _customers: CustomerController[] = [];
     private _groundNode: Node;
@@ -30,11 +32,23 @@ export class GameManager extends Component {
     private _customerBought: number = 0;
     private _gameWinCount: number = 0.8;
     private _gameOver = false;
+    private _taxRate = 0;
 
     private static _instance: GameManager;
 
     public static get Instance (): GameManager {
         return GameManager._instance;
+    }
+
+    public get taxRate() {
+        return this._taxRate;
+    }
+
+    public set taxRate(value: number) {
+        this._taxRate = value;
+        if (this.taxRateLabel) {
+            this.taxRateLabel.string = (this._taxRate * 100).toFixed(0) + "%";
+        }
     }
 
     onLoad() {
@@ -139,7 +153,8 @@ export class GameManager extends Component {
             this._customerBought++;
             this.gameProgress.progress = this._customerBought / (this.customerCount * this._gameWinCount);
             // let profit = this.playerCtrl.playerData.production.price - this.playerCtrl.playerData.production.cost;
-            this.playerCtrl.playerData.money += this.playerCtrl.playerData.production.price;
+            const profit = Math.floor(this.playerCtrl.playerData.production.price * (1 - this.taxRate));
+            this.playerCtrl.playerData.money += profit;
             this.playerCtrl.updateUITips();
         }
     }
@@ -149,6 +164,8 @@ export class GameManager extends Component {
             customer.addAttraction(-20);
             customer.repel();
         });
+
+        this.taxRate = gameDefines.getTaxRateByPrice(this.playerCtrl.playerData.production.price);
     }
 
     onSubPrice () {
@@ -160,6 +177,7 @@ export class GameManager extends Component {
                 this.playerCtrl.playerData.production.priceLow = this.playerCtrl.playerData.production.price;
             }
         this.falloffAllCustomers(attraction);
+        this.taxRate = gameDefines.getTaxRateByPrice(this.playerCtrl.playerData.production.price);
     }
 
     public queryProductionCount() {

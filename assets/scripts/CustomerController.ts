@@ -160,7 +160,7 @@ export class CustomerController extends Component {
 
     bewildered () {
         this.state = CustomerStates.BEWILDERED;
-        this.animComp.play('Root|Idle');
+        setTimeout(()=> this.animComp.play('Root|Idle'), random() * 1000);
     }
 
     addAttraction(value: number) {

@@ -1,4 +1,4 @@
-import { _decorator, Component, game, macro, math, systemEvent, SystemEvent, CameraComponent, renderer, Node, toRadian } from 'cc';
+import { _decorator, Component, game, macro, math, systemEvent, SystemEvent, CameraComponent, renderer, Node, toRadian, Touch, EventMouse } from 'cc';
 const { ccclass, property } = _decorator;
 const { Vec2, Vec3, Quat } = math;
 
@@ -37,10 +37,18 @@ export class FirstPersonCamera extends Component {
 
     public enableMoving = true;
 
-    public _position = new Vec3();
-    public _totalPanOffset = new Vec3();
-    public _currentPanOffset = new Vec3();
-    public _startPosition = null;
+    private _position = new Vec3();
+    private _totalPanOffset = new Vec3();
+    private _currentPanOffset = new Vec3();
+    private _startPosition = null;
+
+    private _lastTouchCount = 0;
+    private _touchCount = 0;
+    private _touchZoomStartCameraSize = 0;
+    private _touchZoomStartDistance = 0;
+    private _touchIDs = [-1, -1];
+    private _touchStartPositions = [new Vec2(), new Vec2()];
+    private _touchCurPositions = [new Vec2(), new Vec2()];
 
     _isZooming = false;
 
@@ -67,7 +75,7 @@ export class FirstPersonCamera extends Component {
         systemEvent.off(SystemEvent.EventType.TOUCH_END, this.onTouchEnd, this);
     }
 
-    public update (dt) {
+    public update (dt: number) {
         // position
         const ortheHeightScale = this.maxOrtheHeight / this._camera.orthoHeight;
         const panScale = new Vec3(ortheHeightScale, ortheHeightScale / Math.SQRT2, 1);
@@ -78,9 +86,15 @@ export class FirstPersonCamera extends Component {
         Vec3.add(this._position, this._startPosition, v3_1);
         Vec3.lerp(v3_1, this.node.position, this._position, dt / this.damp);
         this.node.setPosition(v3_1);
+
+        if (this._touchCount === 2) {
+            const curDist = Vec2.distance(this._touchCurPositions[0], this._touchCurPositions[1]);
+            this._camera.orthoHeight = this._touchZoomStartCameraSize * (1 + (this._touchZoomStartDistance - curDist) * 0.001);
+            this._camera.orthoHeight = math.clamp(this._camera.orthoHeight, this.minOrtheHeight, this.maxOrtheHeight);
+        }
     }
 
-    public onMouseWheel (e) {
+    public onMouseWheel (e: EventMouse) {
         const delta = -e.getScrollY() * this.scrollSpeed * 0.1; // delta is positive when scroll down
         if (this._camera.projection === renderer.CameraProjection.PERSPECTIVE) {
             Vec3.transformQuat(v3_1, Vec3.UNIT_Z, this.node.rotation);
@@ -91,16 +105,30 @@ export class FirstPersonCamera extends Component {
         }
     }
 
-    public onTouchStart (e) {
+    public onTouchStart (e: Touch) {
+        if (this._touchCount < 2) {
+            this._touchIDs[this._touchCount] = e.getID();
+            e.getStartLocation(this._touchStartPositions[this._touchCount]);
+            this._touchCurPositions[this._touchCount].set(this._touchStartPositions[this._touchCount]);
+            this._lastTouchCount = this._touchCount++;
+            if (this._touchCount === 2) {
+                this._touchZoomStartCameraSize = this._camera.orthoHeight;
+                this._touchZoomStartDistance = Vec2.distance(this._touchStartPositions[0], this._touchStartPositions[1]);
+            }
+        }
         if (!this.enableMoving) return;
         // if (game.canvas.requestPointerLock) { game.canvas.requestPointerLock(); }
         e.getLocation(v2_1);
         this._currentPanOffset.set(0, 0, 0);
-        this._isZooming = v2_1.x < game.canvas.width * 0.2;
+        // this._isZooming = v2_1.x < game.canvas.width * 0.2;
     }
 
-    public onTouchMove (e) {
-        if (!this.enableMoving) return;
+    public onTouchMove (e: Touch) {
+        const idx = this._touchIDs.indexOf(e.getID());
+        if (idx >= 0) {
+            e.getLocation(this._touchCurPositions[idx]);
+        }
+        if (!this.enableMoving || this._touchCount > 1 || this._lastTouchCount) return;
         e.getLocation(v2_2);
         if (this._isZooming) {
             e.getPreviousLocation(v2_1);
@@ -123,7 +151,11 @@ export class FirstPersonCamera extends Component {
         }
     }
 
-    public onTouchEnd (e) {
+    public onTouchEnd (e: Touch) {
+        const idx = this._touchIDs.indexOf(e.getID());
+        if (idx >= 0) {
+            this._lastTouchCount = this._touchCount--;
+        }
         if (!this.enableMoving) return;
         // if (document.exitPointerLock) { document.exitPointerLock(); }
         this._totalPanOffset.add(this._currentPanOffset);

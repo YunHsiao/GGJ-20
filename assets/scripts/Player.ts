@@ -14,7 +14,7 @@ const iconUrl = [
 ]
 
 export class Player {
-    public money: number = 2000;
+    public money: number = 20000;
     public production: Production;
     public createCountType: createProductionCountType;
     public createCountTypeIcon: SpriteFrame[] = [];
